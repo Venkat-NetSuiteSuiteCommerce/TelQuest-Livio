@@ -1,0 +1,13 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/AjaxRequestsKiller.js"
+        ],
+        "unit-test-files": [
+            "Tests/*.js"
+        ],
+        "unit-test-entry-point": [
+            "Tests/UnitTest.AjaxRequestsKiller.js"
+        ]
+    }
+}

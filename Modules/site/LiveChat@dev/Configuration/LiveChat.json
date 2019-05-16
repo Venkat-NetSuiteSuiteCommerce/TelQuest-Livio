@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "group": {
+        "id": "thirdpartiesGroup",
+        "title": "Third Parties",
+        "description": "Configuration Extras"
+    },
+    "subtab": {
+        "id": "thirdparties",
+        "title": "Third Parties",
+        "group": "thirdparties"
+    },
+    "properties": {
+        "thirdparties.livechat.id": {
+            "group": "thirdpartiesGroup",
+            "type": "integer",
+            "subtab": "thirdparties",
+            "title": "LiveChat Id",
+            "default": 3093092
+        }
+    }
+}
+

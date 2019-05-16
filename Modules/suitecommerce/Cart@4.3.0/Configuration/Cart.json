@@ -1,0 +1,80 @@
+{
+	"type": "object",
+
+    "group": {
+        "id": "catalog",
+        "title": "Shopping Catalog",
+        "docRef": "bridgehead_4667037093",
+        "description": "Commerce Catalog - search. pdp, facets, etc"
+    },
+
+    "subtab": {
+        "id": "cart",
+        "group": "shoppingApplication",
+        "title": "Cart Behavior",
+        "description": "Cart related configuration"
+    },
+
+    "properties": {
+        "addToCartBehavior": {
+            "group": "catalog",
+            "subtab": "cart",
+            "type": "string",
+            "title": "Add to cart behavior",
+            "description": "Choose the action that occurs when the user adds an item to the cart.",
+            "default": "showCartConfirmationModal",
+            "enum": ["goToCart", "showMiniCart", "showCartConfirmationModal"]
+        },
+        "addToCartFromFacetsView": {
+            "group": "catalog",
+            "subtab": "cart",
+            "type": "boolean",
+            "title": "Add to Cart from Facets View",
+            "description" : "Check this box to display an Add to Cart button on each search result.",
+            "default": false
+        },
+        "promocodes.allowMultiples": {
+            "group": "catalog",
+            "subtab": "cart",
+            "type": "boolean",
+            "title": "Allow adding more than one promocode",
+            "description" : "Check this box to enable stackable promotions on your SCA site.",
+            "default": false
+        },
+        "matrixchilditems.enabled": {
+            "group": "catalog",
+            "subtab": "cart",
+            "type": "boolean",
+            "title": "Allow custom matrix child search in the item list",
+            "description" : "Check this box to enable the custom matrix child item search within the Item list.",
+            "default": false
+        },
+        "matrixchilditems.fieldset": {
+            "group": "catalog",
+            "subtab": "cart",
+            "type": "string",
+            "title": "Matrix child items fieldset for search",
+            "translate": true,
+            "description": "Enter the fieldset used on the matrix item child search.",
+            "mandatory": false,
+            "default": "matrixchilditems_search"
+        },
+        "showTaxDetailsPerLine": {
+            "group": "catalog",
+            "subtab": "cart",
+            "type": "boolean",
+            "title": "If the information is available to your country, shows detailed taxes in the cart (per line) and Purchase History",
+            "description" : "If the information is available to your country, check this box to show the per-line tax details in the Cart and purchase history.",
+            "default": false
+        },
+        "summaryTaxLabel": {
+            "group": "catalog",
+            "subtab": "cart",
+            "type": "string",
+            "title": "Tax-type label",
+            "description": "Select the tax-type label to display in the Cart's Order Summary.",
+            "enum": ["Tax", "VAT", "GST"],
+            "default": "Tax"
+        }
+    }
+}

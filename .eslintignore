@@ -1,0 +1,10 @@
+/bin/**
+/distros/**
+/gulp/**
+/HostingRootFiles/**
+/node_modules/**
+/ns_npm_repository/**
+/Modules/extensions/**
+/Modules/suitecommerce/**
+/Modules/third_parties*/**
+/Modules/site/Pacejet@dev/ReferenceCode/**

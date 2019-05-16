@@ -1,0 +1,21 @@
+{
+  "type": "object",
+
+  "properties": {
+    "mapprice": {
+      "group": "catalog",
+      "subtab": "cart",
+      "type": "integer",
+      "title": "Map Pricelevel",
+      "description": "Id of the Pricelevel used for map",
+      "default": 14
+    },
+    "bannerMessage": {
+      "group": "customSettings",
+      "type": "string",
+      "title": "Instant Member Banner Text",
+      "description": "Instant Member Banner Text",
+      "default": "Welcome member $(0) now you can access to our instant membership discounts!"
+    }
+  }
+}

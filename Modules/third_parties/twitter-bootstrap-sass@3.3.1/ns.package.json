@@ -1,0 +1,11 @@
+{
+	"gulp": {
+		"javascript": [
+			"assets/javascripts/bootstrap.js"
+		]
+	,	"sass": [
+			"assets/stylesheets/bootstrap/**/*.scss"
+		]
+	}
+,	"jshint": "false"
+}

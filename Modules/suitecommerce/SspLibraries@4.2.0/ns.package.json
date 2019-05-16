@@ -1,0 +1,16 @@
+{
+    "gulp": {
+        "ssp-libraries": [
+            "SuiteScript/*.js"
+        ],
+        "configuration": [
+            "Configuration/*.json"
+        ],
+        "ssp-libraries-ext": [
+            "SuiteScriptExt/*.js"
+        ],
+        "backend-tests": [
+            "SuiteScriptTests/*.js"
+        ]
+    }
+}

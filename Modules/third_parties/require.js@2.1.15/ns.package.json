@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript": [
+			"require.js"
+		]
+	}
+,	"jshint": "false"
+}

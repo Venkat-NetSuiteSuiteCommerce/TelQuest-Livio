@@ -1,0 +1,150 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "facets",
+        "group": "catalog",
+        "title": "Facets",
+        "docRef": "bridgehead_4393383668",
+        "description": "Facets"
+    },
+
+    "resource": {
+        "template": {
+            "facet-navigation-item": [
+                "facets_faceted_navigation_item.tpl",
+                "facets_faceted_navigation_item_color.tpl",
+                "facets_faceted_navigation_item_range.tpl"
+            ],
+            "facets-item-cell": [
+                "facets_item_cell_list.tpl",
+                "facets_item_cell_table.tpl",
+                "facets_item_cell_grid.tpl"
+            ]
+        }
+    },
+
+    "properties": {
+        "facetsAsUrlParameters": {
+            "group": "catalog",
+            "subtab": "facets",
+            "type": "boolean",
+            "title": "Facets as URL Parameters",
+            "description": "Check this box to treat all facets as URL query string parameters to help optimize searches. Otherwise, all facets will be part of the URL path unless something else is specified in the individual Facet record.",
+            "default": false
+        },
+
+        "facets": {
+            "group": "catalog",
+            "subtab": "facets",
+            "type": "array",
+            "title": "Facets",
+            "description": "Facets editor declarations",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "item field id",
+                        "description": "Netsuite item field id, something like 'custitem31'",
+                        "mandatory": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "translate": true,
+                        "description": "Label for this facet in the UI",
+                        "mandatory": true
+                    },
+                    "priority": {
+                        "type": "string",
+                        "title": "Priority",
+                        "description": "A integer grater than zero indicating for ordering facets editors in the catalog browser. Facets with greater priority numbers will appear above others.",
+                        "enum": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+                        "default": "5"
+                    },
+                    "behavior": {
+                        "type": "string",
+                        "title": "Behavior",
+                        "description": "behavior can be one of 'range', 'multi'. If 'range', a double slider will be showed as the editor. If 'multi', multiple facet value selection will be available",
+                        "enum": ["", "range", "multi"]
+                    },
+                    "template": {
+                        "type": "string",
+                        "title": "Template",
+                        "description": "The template used to render this facet editor, some available are item_color and item_range",
+                        "source": "$resource.template.facet-navigation-item"
+                    },
+                    "colors": {
+                        "type": "string",
+                        "title": "Color Palette",
+                        "description": "For those facets editors that shows color, please indicate which color palette to use to show the colors defined in ns lists",
+                        "default": "default"
+                    },
+                    "collapsed": {
+                        "type": "boolean",
+                        "title": "Collapsed",
+                        "description": "If true it will be collapsed in the UI - the user can uncollapse it manually if needed",
+                        "default": false
+                    },
+                    "uncollapsible": {
+                        "type": "boolean",
+                        "title": "Non Collapsible",
+                        "description": "If true the user won't be able to collapse the facet editor",
+                        "default": false
+                    },
+                    "showHeading": {
+                        "type": "boolean",
+                        "title": "Show Heading",
+                        "description": "if false the heading of the facet editor won't be shown  ",
+                        "default": true
+                    },
+                    "titleToken": {
+                        "type": "string",
+                        "title": "Title Format",
+                        "description": "format for the facet on the document title's when it is selected. Can be a string like 'from $(0) to $(1)' for range behaviour or 'foo $(0) bar' for others. Also it can be a function that accept the facet object as the one parameter."
+                    },
+                    "titleSeparator": {
+                        "type": "string",
+                        "title": "Title Separator",
+                        "description": "Separator between facets in the document's title"
+                    },
+                    "parser": {
+                        "type": "string",
+                        "title": "Parser",
+                        "description": "The function that shows the value in the UI, use 'default' if not sure. Js Code: Facets.js > facetConfigTranslators",
+                        "default": "default",
+                        "enum": ["default", "currency", "quantity"]
+                    },
+                    "isParameter": {
+                        "type": "boolean",
+                        "title": "Is URL Parameter?",
+                        "description": "If true, the facet will interpreted as an URL query string parameter. If false, the facet will be part of the URL path. It will take precendence over the Facets as URL Parameters property.",
+                        "default": false
+                    },
+                    "max": {
+                        "type": "number",
+                        "title": "Max",
+                        "description": "For multi select facets, it will limit the number of options and show a \"See more\". Particularly useful for B2B - or facets with lots of options",
+                        "default": 4
+                    }
+                }
+            },
+            "default":[
+                {
+                    "id": "pricelevel5",
+                    "name": "Price",
+                    "priority": 10,
+                    "behavior": "range",
+                    "template": "facets_faceted_navigation_item_range.tpl",
+                    "uncollapsible": true,
+                    "titleToken": "Price $(1) - $(0)",
+                    "titleSeparator": ", ",
+                    "parser": "currency",
+                    "isParameter": true,
+                    "max": 4
+                }
+            ]
+        }
+    }
+}

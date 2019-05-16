@@ -1,0 +1,139 @@
+{
+    "type": "object",
+
+    "subtab": {
+        "id": "categories",
+        "title": "Categories",
+        "docRef": "section_4701522812",
+        "description": "Commerce Categories",
+        "group": "integrations"
+    },
+
+    "resource": {
+        "fields": {
+            "commercecategory": [
+                "internalid", "name", "description", "pagetitle", "pageheading", "pagebannerurl", "addtohead", "metakeywords", "metadescription", "displayinsite", "urlfragment", "sequencenumber", "thumbnailurl"
+            ]
+        }
+    },
+
+    "properties": {
+        "categories.menuLevel": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "integer",
+            "title": "Category navigation menu level deepness",
+            "description": "Enter the number of levels of the category hierarchy to show in the Categories navigation menu.",
+            "default": 3
+        },
+        "categories.addToNavigationTabs": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "boolean",
+            "title": "Show Categories navigation menu",
+            "description": "Check this box to enable the Categories navigation menu.",
+            "default": true
+        },
+        "categories.sideMenu.sortBy": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "string",
+            "title": "Side menu > sort by",
+            "description": "Enter the Category record field to act as the primary sort field in the Categories sidebar.",
+            "source": "$resource.fields.commercecategory",
+            "default": "sequencenumber"
+        },
+        "categories.sideMenu.additionalFields": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "string",
+            "title": "Side menu > additional fields",
+            "description": "Multi-select any additional fields to be added to the default list returned by the ItemSearch API for use in the application for the side menu.",
+            "source": "$resource.fields.commercecategory",
+            "default": [],
+            "multiselect": true
+        },
+        "categories.sideMenu.uncollapsible": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "boolean",
+            "title": "Side menu > collapsible",
+            "description": "Check this box to make the Categories side menu collapsible and expandable.",
+            "default": false
+        },
+        "categories.sideMenu.showMax": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "integer",
+            "title": "Side menu > showMax",
+            "description": "Enter the maximum number of categories to show in the list before displaying a Show More link.",
+            "default": 5
+        },
+        "categories.sideMenu.collapsed": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "boolean",
+            "title": "Side menu > collapsed",
+            "description": "Check this box to make the Categories side menu appear collased when the page is loaded.",
+            "default": false
+        },
+        "categories.subCategories.sortBy": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "string",
+            "title": "Sub categories > sort by",
+            "description": "Enter the Category record field to act as the primary sort field for sub categories.",
+            "source": "$resource.fields.commercecategory",
+            "default": "sequencenumber"
+        },
+        "categories.subCategories.fields": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "string",
+            "title": "Sub categories > additional fields",
+            "description": "Multi-select any additional fields to be added to the default list returned by the ItemSearch API for use in the application for sub categories.",
+            "source": "$resource.fields.commercecategory",
+            "default": [],
+            "multiselect": true
+        },
+        "categories.category.fields": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "string",
+            "title": "category fields",
+            "description": "Multi-select any additional fields to be added to the default list of category fields. Category Fields are the fields that appear in the Category page.",
+            "source": "$resource.fields.commercecategory",
+            "default": [],
+            "multiselect": true
+        },
+        "categories.breadcrumb.fields": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "string",
+            "title": "breadcrumb fields",
+            "description": "Multi-select any additional fields to be added to the default list returned by the ItemSearch API for use in the breadcrumb navigation.",
+            "source": "$resource.fields.commercecategory",
+            "default": [],
+            "multiselect": true
+        },
+        "categories.menu.sortBy": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "string",
+            "title": "menu > sort by",
+            "description": "Enter the Category record field to act as the primary sort field in the Navigation menu.",
+            "source": "$resource.fields.commercecategory",
+            "default": "sequencenumber"
+        },
+        "categories.menu.fields": {
+            "group": "integrations",
+            "subtab": "categories",
+            "type": "string",
+            "title": "menu fields",
+            "description": "Multi-select any additional fields to be added to the default list returned by the ItemSearch API for use in the Navigation menu.",
+            "source": "$resource.fields.commercecategory",
+            "default": [],
+            "multiselect": true
+        }
+    }
+}

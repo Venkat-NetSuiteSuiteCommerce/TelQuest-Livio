@@ -1,0 +1,10 @@
+{
+    "folders":
+    [
+        {
+            "path": ".",
+            "folder_exclude_patterns": ["Backups", "node_modules", "processed-macros/raw", "LocalDistribution/sass", "DeployDistribution"],
+            "file_exclude_patterns": ["styles.css", "*.min.js", "payload.json", "*.tpl.js", "Macros.js", "*.map"]
+        }
+    ]
+}

@@ -1,0 +1,170 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+
+	var SiteSettings
+	,	siteType
+	,	Environment
+	,	Language
+	,	Currency
+	,	Error
+	,	PrintStatement
+	,	Application
+	,	session
+
+	try
+	{
+		Application = require('Application');
+		session = require('SC.Models.Init').session;
+
+		var parameters = request.getAllParameters();
+
+		// Access control, if you are not loged this will send you to the login page
+		if (!session.isLoggedIn2())
+		{
+			delete parameters.sitepath;
+			parameters.origin = 'customercenter';
+
+			if (parameters.fragment)
+			{
+				parameters.origin_hash = parameters.fragment;
+				delete parameters.fragment;
+			}
+
+			SiteSettings = require('SiteSettings.Model').get();
+			return nlapiSetRedirectURL('EXTERNAL', SiteSettings.touchpoints.login, null, false, parameters);
+		}
+
+		var redirectUrl = null
+		,	base = '/app/accounting/print/hotprint.nl?regular=T&sethotprinter=T';
+
+		switch (parameters.asset)
+		{
+			case 'print-statement':
+				if (context.getPermission('TRAN_STATEMENT') === 2)
+				{
+					redirectUrl = require('PrintStatement.Model').getUrl(parameters);
+				}
+				else
+				{
+					throw forbiddenError;
+				}
+
+				break;
+			case 'credit-memo-details':
+				redirectUrl = base + '&printtype=transaction&trantype=custcred&label=Credit+Memo&id=' + parameters.id;
+				break;
+			case 'customer-payment-details':
+				redirectUrl = base + '&printtype=paymentreceipt&trantype=custpymt&label=Payment&id=' + parameters.id;
+				break;
+			case 'deposit-details':
+				redirectUrl = base + '&printtype=paymentreceipt&trantype=custdep&label=Customer+Deposit&id=' + parameters.id;
+				break;
+			case 'order-details':
+				redirectUrl = base + '&printtype=transaction&trantype=salesord&label=Sales%20Order&id=' + parameters.id;
+				break;
+			case 'receipt-details':
+				redirectUrl = base + '&printtype=transaction&trantype=' + parameters.trantype + '&label=' + parameters.label + '&id=' + parameters.id;
+				break;
+			case 'invoice-details':
+				redirectUrl = base + '&printtype=transaction&trantype=custinvc&label=Invoice&id=' + parameters.id;
+				break;
+			case 'quote-details':
+				redirectUrl = base + '&printtype=transaction&trantype=estimate&label=Quote&id=' + parameters.id;
+				break;
+			case 'return-details':
+				redirectUrl = base + '&printtype=transaction&trantype=rtnauth&label=Return%20Authorization&id=' + parameters.id;
+				break;
+			case 'cash-sale-details':
+					redirectUrl = base + '&printtype=transaction&trantype=cashsale&label=Cash%20Sale&id=' + parameters.id;
+				break;
+
+		}
+
+		if (redirectUrl)
+		{
+			return nlapiSetRedirectURL('EXTERNAL', redirectUrl, null, false);
+		}
+		else
+		{
+			throw 'Invalid asset type or parameters';
+		}
+
+
+	}
+	catch (e)
+	{
+		if (!SiteSettings)
+		{
+			SiteSettings = require('SiteSettings.Model').get();
+		}
+
+		if (!siteType)
+		{
+			siteType = SiteSettings.sitetype;
+		}
+
+		if (!Environment)
+		{
+			Environment = Application.getEnvironment(request);
+		}
+
+		if (!Language)
+		{
+			Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		}
+
+		if (!Currency)
+		{
+			Currency = Environment.currencyCodeSpecifiedOnUrl;
+		}
+
+		Error = Application.processError(e);
+	}
+%>
+<!DOCTYPE html>
+<html <%= Language ? 'lang="' + Language.replace('_', '-') + '"' : '' %>>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>My Account</title>
+		<% if (siteType && siteType === 'ADVANCED') { %>
+		<link rel="stylesheet" href="<%= session.getAbsoluteUrl('skins/standard/styles.css') %>">
+		<% }
+		   else { %>
+		<link rel="stylesheet" href="<%= session.getAbsoluteUrl('skins/standard/styles-sitebuilder.css') %>">
+		<% } %>
+		<%= (siteType && siteType === 'STANDARD') ? getPageFullHead() : '' %>
+		<script src="<%= session.getAbsoluteUrl('js/utils/BootUtilities-014102fa185a.js') %>"></script>
+		<script src="<%= session.getAbsoluteUrl('sc.environment.ssp?lang=' + Language + '&cur=' + Currency) %>"></script>
+		<% if (Error) { %>
+		<script>SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;</script>
+		<% } %>
+		<script src="<%= session.getAbsoluteUrl('js/Application-014078b6c30d.js') %>"></script>
+		<script src="<%= session.getAbsoluteUrl('templates/Templates-014078b6b841.js') %>"></script>
+	</head>
+	<body>
+
+	<% if (siteType && siteType === 'STANDARD'){ %>
+		<div id='div__header' style="overflow: hidden;" class='noprint' leftmargin='0' topmargin='0' marginwidth='1' >
+			<table border='0' cellspacing='0' cellpadding='0' width='100%'>
+				<%= getPageTop() %>
+			</table>
+		</div>
+	<% } %>
+		<noscript>
+			<div class="alert alert-error alert-noscript">
+				<strong>Javascript is disabled on your browser.</strong><br>
+				To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+			</div>
+		</noscript>
+
+		<div id="main"></div>
+
+	</body>
+</html>

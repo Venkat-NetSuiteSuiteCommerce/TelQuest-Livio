@@ -1,0 +1,14 @@
+{
+	"gulp": {
+		
+		"sass": [
+			"Sass/*.scss"
+		]
+	,	"templates": [
+			"Templates/*"
+		]
+	,	"ssp-libraries": [
+			"SuiteScript/*.js"
+		]
+	}
+}

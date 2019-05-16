@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "subtab": {
+        "id": "storeLocatorGoogle",
+        "group": "storeLocator",
+        "title": "Store Locator Google maps",
+        "docRef": "section_4695842990",
+        "description": "Store Locator settings"
+    },
+    "properties": {
+        "storeLocator.apiKey": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGoogle",
+            "type": "string",
+            "title": "Google > api key",
+            "description": "Enter the Google-specific API key for the mapping engine.",
+            "default": ""
+        },
+        "storeLocator.mapOptions.centerPosition.latitude": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGoogle",
+            "type": "number",
+            "title": "Google > center position latitude",
+            "description": "Enter a number to specify the default Google-specific latitude position (as a string) to center the map when geolocation is disabled.",
+            "default": -34.86993
+        },
+        "storeLocator.mapOptions.centerPosition.longitude": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGoogle",
+            "type": "number",
+            "title": "Google > center position longitude",
+            "description": "Enter a number to specify the default Google-specific longitude position (as a string) to center the map when geolocation is disabled.",
+            "default": -56.145212
+        },
+        "storeLocator.mapOptions.zoom": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGoogle",
+            "type": "integer",
+            "title": "Google > zoom level",
+            "description": "Enter a number to specify the Google-specific default map zoom level.",
+            "default": 11
+        },
+        "storeLocator.mapOptions.mapTypeControl": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGoogle",
+            "type": "boolean",
+            "title": "Google > mapTypeControl",
+            "description": "Check this box to display the Google-specific Map Type Control in the upper left corner of the map.",
+            "default": false
+        },
+        "storeLocator.mapOptions.streetViewControl": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGoogle",
+            "type": "boolean",
+            "title": "Google > streetViewControl",
+            "description": "Check this box to display the Google-specific Street View Pegman icon. The Pegman icon is a Google-specific control that can be dragged onto the map to enable Street View.",
+            "default": false
+        },
+        "storeLocator.mapOptions.mapTypeId": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGoogle",
+            "type": "string",
+            "title": "Google > mapTypeId",
+            "description": "Enter the Google-specific default map type. Options include: roadmap, satellite, hybrid, and terrain.",
+            "default": "ROADMAP"
+        }
+    }
+}

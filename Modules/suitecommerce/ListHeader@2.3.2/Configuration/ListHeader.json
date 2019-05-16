@@ -1,0 +1,20 @@
+{
+	"type": "object"
+,	"subtab": {
+		"id": "listHeader"
+	,	"title": "List Header"
+	,	"docRef": "bridgehead_4678713154"
+	,	"description": "List Header configuration"
+	,	"group": "myAccountApp"
+	}
+,	"properties": {
+		"listHeader.filterRangeQuantityDays": {
+			"group": "myAccountApp",
+			"subtab": "listHeader"
+		,	"type": "integer"
+		,	"title": "Filter range quantity days"
+		,	"description": "Enter the number of days within the date range used when displaying data."
+		,	"default": 0
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "subtab": {
+        "id": "pickupInStore",
+        "title": "PickupInStore",
+        "docRef": "section_4700765645",
+        "description": "Enable PickupInStore feature to allow customers to choose where to pick up their purchases.",
+        "group": "checkoutApp"
+    },
+    "properties": {
+        "isPickupInStoreEnabled": {
+            "group": "checkoutApp",
+            "type": "boolean",
+            "title": "Enable Pickup in Store",
+            "description": "Check this box to let users buy items online and pickup in a nearby store.",
+            "default": false
+        }
+    ,    "pickupInStoreSalesOrderCustomFormId": {
+            "group": "checkoutApp",
+            "type": "string",
+            "title": "Pickup in Store Sales Order Custom Form ID",
+            "description": "Enter the Internal ID for the custom form that SCA uses to generate a sales order using the Pickup In Store feature."
+        }
+    }
+}

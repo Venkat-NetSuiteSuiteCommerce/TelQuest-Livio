@@ -1,0 +1,208 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var SiteSettings
+	,	siteType
+	,	Environment
+	,	Language
+	,	Currency
+	,	Error
+	,	Application
+	,	environmentParameters
+	,	session
+	, 	parameters
+	,	external_payment
+	,	email_change_verification
+	;
+
+	try
+	{
+		Application = require('Application');
+		Environment = Application.getEnvironment(request);
+		environmentParameters = [];
+		SiteSettings = require('SiteSettings.Model').get();
+		parameters = request.getAllParameters();
+		session = require('SC.Models.Init').session;
+
+		// Access control, if you are not loged this will send you to the log in page
+		if (!session.isLoggedIn2() || session.getCustomer().isGuest())
+		{
+			delete parameters.sitepath;
+			parameters.origin = 'customercenter';
+
+			if (parameters.fragment)
+			{
+				parameters.origin_hash = parameters.fragment;
+				delete parameters.fragment;
+			}
+
+			return nlapiSetRedirectURL('EXTERNAL', SiteSettings.touchpoints.login, null, false, parameters);
+		}
+		else if (session.isLoggedIn2() && parameters.key)
+		{
+			try
+			{
+				session.verifyEmailChange(parameters.key)
+				email_change_verification = true;
+			}
+			catch (e)
+			{
+				email_change_verification = e.details;
+			}
+		}
+
+		siteType = SiteSettings.sitetype;
+
+		Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		Currency = Environment.currencyCodeSpecifiedOnUrl;
+
+		environmentParameters.push('lang=' + Language);
+		environmentParameters.push('cur=' + Currency);
+		environmentParameters.push('X-SC-Touchpoint=myaccount');
+
+		_.each(require('ExternalPayment.Model').getParametersFromRequest(request), function(value, key) {
+			environmentParameters.push(key.concat('=', value));
+		});
+	}
+	catch (e)
+	{
+		Error = Application.processError(e);
+	}
+
+%>
+<!DOCTYPE html>
+<html <%= Language ? 'lang="' + Language.replace('_', '-') + '"' : '' %>>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>My Account</title>
+		<link rel="shortcut icon" href="<%= session.getAbsoluteUrl(Application.getFaviconPath() + 'img/favicon.ico') %>" />
+
+		<!--[if !IE]><!-->
+			<%
+			   var css_files = app_includes.myaccount.css;
+			   for(var i=0; i < css_files.length; i++)
+			   {
+			%>
+					<link rel="stylesheet" href="<%= session.getAbsoluteUrl(css_files[i]) %>?t={{timestamp}}">
+			<%   
+			   }
+			%>
+		<!--<![endif]-->
+
+		<!--[if lte IE 9]>
+<% 
+	if(isExtended)
+	{
+		var ie_css_files = app_includes.myaccount.ie;
+		for(var i=0; i < ie_css_files.length; i++)
+		{
+%><link rel="stylesheet" href="<%= session.getAbsoluteUrl(ie_css_files[i]) %>?t={{timestamp}}">
+<% 
+		}
+	}
+	else
+	{ 
+%>
+	{{#each cssnumbers}}
+		<link rel="stylesheet" href="<%= session.getAbsoluteUrl(Application.getNonManageResourcesPathPrefix() + 'css_ie/myaccount_{{this}}.css') %>?t={{../timestamp}}">
+	{{/each}}
+		<link rel="stylesheet" href="<%= session.getAbsoluteUrl(Application.getNonManageResourcesPathPrefix() + 'css_ie/myaccount.css') %>?t={{timestamp}}">
+<% } %>
+		<![endif]-->
+
+
+		<!--[if lt IE 9]>
+			<script src="<%= session.getAbsoluteUrl('javascript/html5shiv.min.js') %>"></script>
+		  	<script src="<%= session.getAbsoluteUrl('javascript/respond.min.js') %>"></script>
+		<![endif]-->
+
+		<%= (siteType && siteType === 'STANDARD') ? getPageFullHead() : '' %>
+		<script>
+			{{#js}}
+			var SC = window.SC = {
+				ENVIRONMENT: {
+					jsEnvironment: (typeof nsglobal === 'undefined') ? 'browser' : 'server'
+				}
+			,	isCrossOrigin: function()
+				{
+					return '<%= Environment.currentHostString %>' !== document.location.hostname;
+				}
+			,	isPageGenerator: function()
+				{
+					return typeof nsglobal !== 'undefined';
+				}
+			,	getSessionInfo: function(key)
+				{
+					var session = SC.SESSION || SC.DEFAULT_SESSION || {};
+					return (key) ? session[key] : session;
+				}
+			,	getPublishedObject: function(key)
+				{
+					return SC.ENVIRONMENT && SC.ENVIRONMENT.published && SC.ENVIRONMENT.published[key] ? SC.ENVIRONMENT.published[key] : null;
+				}
+			};
+			{{/js}}
+		</script>
+
+		<script src="<%= session.getAbsoluteUrl('myaccount.environment.ssp?' + environmentParameters.join('&')) %>&t={{timestamp}}"></script>
+		<script src="<%= session.getAbsoluteUrl('customFieldsMetadata.ssp?')%>t={{timestamp}}"></script>
+		<% if (Error) { %>
+		<script>SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;</script>
+		<% } %>
+		<% if (email_change_verification) { %>
+			<script>SC.SESSION.email_change_verification = '<%= email_change_verification %>';</script>
+		<% } %>
+		
+		<%
+		   var js_files = app_includes.myaccount.js;
+		   for(var i=0; i < js_files.length; i++)
+		   {
+		%>
+				<script src="<%= session.getAbsoluteUrl(js_files[i]) %>?t={{timestamp}}"></script>
+		<%   
+		   }
+		%>
+		<% if (SC.Configuration.cms.useCMS) { %>
+			<script>
+				require(['jQuery', 'Backbone', 'underscore'], function (jQuery, Backbone, _) 
+				{
+					jQuery.getScript('/cms/<%= SC.Configuration.cms.adapterVersion %>/cms.js')
+						.done(function()
+						{
+							CMS.trigger('cms:load');
+						});
+				});
+			</script>
+		<% } %>		
+			
+	</head>
+	<body>
+
+	<% if (siteType && siteType === 'STANDARD'){ %>
+		<div id='div__header' style="overflow: hidden;" class='noprint' leftmargin='0' topmargin='0' marginwidth='1' >
+			<table border='0' cellspacing='0' cellpadding='0' width='100%'>
+				<%= getPageTop() %>
+			</table>
+		</div>
+	<% } %>
+
+		<noscript>
+			<div class="myaccount-layout-no-javascript-msg">
+				<strong>Javascript is disabled on your browser.</strong><br>
+				To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+			</div>
+		</noscript>
+
+		<div id="main" class="main"></div>
+
+	</body>
+</html>
+
+<%= (function(){ try{ return require('ReleaseMetadata').asHTMLComment(); } catch(ex){return '';}} )() %>

@@ -1,0 +1,10 @@
+{
+	"gulp": {
+		"sass":[
+			"scss/**/*.scss"
+		]
+	,	"font-awesome": [
+			"fonts/*"
+		]
+	}
+}

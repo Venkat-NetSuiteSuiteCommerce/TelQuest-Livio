@@ -1,0 +1,86 @@
+
+{
+    "type": "object",
+    "subtab": {
+        "group": "advancedSettings",
+        "id": "pagination",
+        "title": "Pagination",
+        "docRef": "bridgehead_4667044763",
+        "description": "Default paginations settings"
+    },
+    "properties": {
+        "defaultPaginationSettings.showPageList": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "boolean",
+            "title": "Desktop > Show page list",
+            "description": "Check this box to display  the Page List on desktop browsers.",
+            "default": true
+        },
+        "defaultPaginationSettings.pagesToShow": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "integer",
+            "title": "Desktop > Pages to show",
+            "description": "Enter the maximum number of pages to display in the page list on desktop browsers.",
+            "default": 9
+        },
+        "defaultPaginationSettings.showPageIndicator": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "boolean",
+            "title": "Desktop > Show page indicator",
+            "description": "Check this box to display a current page indicator in the page list on desktop browsers.",
+            "default": false
+        },
+
+        "defaultPaginationSettingsPhone.showPageList": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "boolean",
+            "title": "Phone > Show page list",
+            "description": "Check this box to display  the Page List on phone browsers.",
+            "default": false
+        },
+        "defaultPaginationSettingsPhone.pagesToShow": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "integer",
+            "title": "Phone > Pages to show",
+            "description": "Enter the maximum number of pages to display in the page list on phone browsers.",
+            "default": 9
+        },
+        "defaultPaginationSettingsPhone.showPageIndicator": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "boolean",
+            "title": "Phone > Show page indicator",
+            "description": "Check this box to display a current page indicator in the page list on phone browsers.",
+            "default": true
+        },
+        "defaultPaginationSettingsTablet.showPageList": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "boolean",
+            "title": "Tablet > Show page list",
+            "description": "Check this box to display  the Page List on tablet browsers.",
+            "default": true
+        },
+        "defaultPaginationSettingsTablet.pagesToShow": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "integer",
+            "title": "Tablet > Pages to show",
+            "description": "Enter the maximum number of pages to display in the page list on tablet browsers.",
+            "default": 4
+        },
+        "defaultPaginationSettingsTablet.showPageIndicator": {
+            "subtab": "pagination",
+            "group": "advancedSettings",
+            "type": "boolean",
+            "title": "Tablet > Show page indicator",
+            "description": "Check this box to display a current page indicator in the page list on tablet browsers.",
+            "default": true
+        }
+    }
+}

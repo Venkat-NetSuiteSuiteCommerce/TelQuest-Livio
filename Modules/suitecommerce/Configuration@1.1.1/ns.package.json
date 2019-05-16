@@ -1,0 +1,7 @@
+{
+    "gulp": {
+        "configuration": [
+            "Configuration/*.json"
+        ]
+    }
+}

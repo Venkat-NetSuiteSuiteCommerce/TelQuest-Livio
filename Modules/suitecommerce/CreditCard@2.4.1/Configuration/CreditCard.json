@@ -1,0 +1,55 @@
+{
+	"type": "object"
+,	"subtab": {
+		"id": "creditcard"
+	,	"group": "checkoutApp"
+	,	"title": "Credit Card"
+	,	"docRef": "bridgehead_4393268800"
+	,	"description": "Payment methods related settings like Credit Card configuration, payment method regex, etc"
+	}
+,	"properties": {
+		"creditCard.showCreditCardHelp": {
+			"group": "checkoutApp"
+		,	"subtab": "creditcard"
+		,	"type": "boolean"
+		,	"title": "Show Credit Card help"
+		,	"description": "Check this box to enable help text for finding a credit card security code."
+		,	"default": true
+		}
+	,	"creditCard.creditCardHelpTitle": {
+			"group": "checkoutApp"
+		,	"subtab": "creditcard"
+		,	"type": "string"
+		,	"title": "Credit Card help title"
+		,	"description": "The text to show as the title of the help"
+		,	"default": "Enter the title of the credit card help link. This title is displayed only if the Show Credit Card Help property is enabled."
+		,	"translate": true
+		}
+	,	"creditCard.imageCvvAllCards": {
+			"group": "checkoutApp"
+		,	"subtab": "creditcard"
+		,	"type": "string"
+		,	"title": "CVV All cards image"
+		,	"description": "Enter the URL of the image showing the card verification value (CVV) number on credit cards. This image displays a number located on the back of the credit card."
+		,	"default": ""
+		}
+	,	"creditCard.imageCvvAmericanCard": {
+			"group": "checkoutApp"
+		,	"subtab": "creditcard"
+		,	"type": "string"
+		,	"title": "CVV American card image"
+		,	"description": "Enter the URL for the image showing the card verification value (CVV) number on American credit cards. This image shows a number located on the front of the credit card."
+		,	"default": ""
+		}
+	,	"creditCard.creditCardShowSecureInfo": {
+			"group": "checkoutApp"
+		,	"subtab": "creditcard"
+		,	"type": "string"
+		,	"nsType": "textarea"
+		,	"title": "Credit Card secure info"
+		,	"description": "Enter security-related text to be displayed in the user interface."
+		,	"default": "<p class=\"order-wizard-paymentmethod-creditcard-secure-info\">We take all reasonable steps to protect our customers personal information against loss, misuse and alteration. We use encryption technology whenever receiving and transferring your personal information on our site. <strong>When you are viewing a page that is requesting personal information, the URL in the address bar at top of your browser will start with \"https\". </strong> This indicates your transaction session is secured through Secure Sockets Layer (SSL). If the web page you are viewing does not start with \"https\", please contact us.</p>"
+		,	"translate": true
+		}
+	}
+}

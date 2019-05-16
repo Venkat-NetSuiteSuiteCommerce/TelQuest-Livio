@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>AWA Cookie Gateway</title>
+    <script>
+
+        <%
+        var cookieKeys = SC.Configuration.crossDomainValidCookieKeys;
+        var cookie = {};
+        %>
+
+        <% _.each(cookieKeys, function(config){
+            if(request.getParameter(config.key)){
+
+                var value = request.getParameter(config.key);
+                if(config.validation(value) === true){ %>
+
+                    document.cookie = '<%= config.key %>=<%= value %>;path=/';
+
+                <% }
+
+            }
+
+        }); %>
+
+    </script>
+</head>
+</html>

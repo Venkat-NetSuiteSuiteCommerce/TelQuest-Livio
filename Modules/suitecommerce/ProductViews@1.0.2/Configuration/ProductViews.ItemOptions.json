@@ -1,0 +1,209 @@
+{
+	"type": "object",
+
+	"resource": {
+		"template": {
+			"productivew-option-selector": [
+				"",
+				"product_views_option_color.tpl",
+				"product_views_option_dropdown.tpl",
+				"product_views_option_radio.tpl",
+				"product_views_option_text.tpl",
+				"product_views_option_textarea.tpl",
+				"product_views_option_email.tpl",
+				"product_views_option_phone.tpl",
+				"product_views_option_currency.tpl",
+				"product_views_option_float.tpl",
+				"product_views_option_integer.tpl",
+				"product_views_option_percent.tpl",
+				"product_views_option_password.tpl",
+				"product_views_option_url.tpl",
+				"product_views_option_timeofday.tpl",
+				"product_views_option_datetimetz.tpl",
+				"product_views_option_tile.tpl",
+				"product_views_option_checkbox.tpl",
+				"product_views_option_date.tpl"
+			],
+			"productview-option-facet": [
+				"",
+				"product_views_option_facets_tile.tpl",
+				"product_views_option_facets_color.tpl"
+			]
+		}
+	},
+
+	"properties": {
+		"ItemOptions.defaultTemplates.selectorByType": {
+			"group": "catalog",
+			"subtab": "itemoptions",
+			"type": "array",
+			"title": "Default Selector templates by item option Type",
+			"description": "Default Templates to select an item option",
+
+			"items": {
+				"type": "object",
+				"properties": {
+				   "type": {
+						"type": "string",
+						"title": "Option Type",
+						"description": "The type of the option or the string default"
+					},
+					"template": {
+						"type": "string",
+						"title": "Template Name",
+						"description": "Name of the template",
+						"source": "$resource.template.productivew-option-selector"
+					}
+				}
+			},
+
+			"default":[
+				{
+					"type": "select",
+					"template": "product_views_option_tile.tpl"
+				}
+			,	{
+					"type": "date",
+					"template": "product_views_option_date.tpl"
+				}
+			,	{
+					"type": "email",
+					"template": "product_views_option_email.tpl"
+				}
+			,	{
+					"type": "url",
+					"template": "product_views_option_url.tpl"
+				}
+			,	{
+					"type": "password",
+					"template": "product_views_option_password.tpl"
+				}
+			,	{
+					"type": "float",
+					"template": "product_views_option_float.tpl"
+				}				
+			,	{
+					"type": "integer",
+					"template": "product_views_option_integer.tpl"
+				}
+			,	{
+					"type": "datetimetz",
+					"template": "product_views_option_datetimetz.tpl"
+				}
+			,	{
+					"type": "percent",
+					"template": "product_views_option_percent.tpl"
+				}
+			,	{
+					"type": "currency",
+					"template": "product_views_option_currency.tpl"
+				}
+			,	{
+					"type": "textarea",
+					"template": "product_views_option_textarea.tpl"
+				}
+			,	{
+					"type": "phone",
+					"template": "product_views_option_phone.tpl"
+				}
+			,	{
+					"type": "timeofday",
+					"template": "product_views_option_timeofday.tpl"
+				}
+			,	{
+					"type": "checkbox",
+					"template": "product_views_option_checkbox.tpl"
+				}				
+			,	{
+					"type": "default",
+					"template": "product_views_option_text.tpl"
+				}
+			]
+		},
+		"ItemOptions.defaultTemplates.facetCellByType": {
+			"group": "catalog",
+			"subtab": "itemoptions",
+			"type": "array",
+			"title": "Default Facet Cell templates by item option Type",
+			"description": "Default Templates to show item option on facets result pages",
+
+			"items": {
+				"type": "object",
+				"properties": {
+				   "type": {
+						"type": "string",
+						"title": "Option Type",
+						"description": "The type of the option or the string default"
+					},
+					"template": {
+						"type": "string",
+						"title": "Template Name",
+						"description": "Name of the template",
+						"source": "$resource.template.productview-option-facet"
+					}
+				}
+			},
+
+			"default":[
+				{
+					"type": "default",
+					"template": "product_views_option_facets_color.tpl"
+				}
+			]
+		}
+	},
+
+	"modifications" : [
+		{
+			"target": "$.properties[ItemOptions.optionsConfiguration].items.properties",
+			"action": "add",
+			"value": {
+				"templateSelector": {
+					"type": "string",
+					"title": "Selector Template",
+					"description": "the template that will be rendered for selecting the options (Item list and PDP)",
+					"source": "$resource.template.productivew-option-selector"
+				}
+			}
+		},
+		{
+			"target": "$.properties[ItemOptions.optionsConfiguration].default[0]",
+			"action": "add",
+			"value": {
+				"templateSelector": "product_views_option_color.tpl"
+			}
+		},
+
+		{
+			"target": "$.properties[ItemOptions.optionsConfiguration].items.properties",
+			"action": "add",
+			"value": {
+				"showSelectorInList": {
+					"type": "boolean",
+					"title": "Show option in item lists",
+					"description": "true if this option will be show in the facet results"
+				}
+			}
+		},
+		{
+			"target": "$.properties[ItemOptions.optionsConfiguration].items.properties",
+			"action": "add",
+			"value": {
+				"templateFacetCell": {
+					"type": "string",
+					"title": "Facet Cell Template",
+					"description": "the template that will be used to render options on facets",
+					"source": "$resource.template.productview-option-facet"
+				}
+			}
+		},
+		{
+			"target": "$.properties[ItemOptions.optionsConfiguration].default[0]",
+			"action": "add",
+			"value": {
+				"showSelectorInList": false,
+				"templateFacetCell": "product_views_option_facets_color.tpl"
+			}
+		}
+	]
+}

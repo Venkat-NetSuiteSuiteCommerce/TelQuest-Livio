@@ -1,0 +1,21 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ],
+        "templates": [
+            "Templates/*"
+        ],
+        "unit-test-files": [
+            "Tests/*.js",
+            "Tests/templates/*.js",
+            "Tests/views/*.js"
+        ],
+        "sass": [
+            "Sass/**/*.scss"
+        ],
+        "unit-test-entry-point": [
+            "Tests/UnitTest.Merchandising.js"
+        ]
+    }
+}

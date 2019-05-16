@@ -1,0 +1,18 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	// Very simple file that just logs you out and then redirects you to the home touchpoint
+	// We created this file becaus the Advance Store Front does not provide a default logout functionality
+
+	var session = require('SC.Models.Init').session
+	,	settingsAfterLogout = session.logout();
+	
+	// The redirecturl property point to the home touchpoint if you want to redirect to another url after logout
+	// please add this parameter (logoff=T) to your custom url
+	return nlapiSetRedirectURL('EXTERNAL', settingsAfterLogout.redirecturl);
+%>

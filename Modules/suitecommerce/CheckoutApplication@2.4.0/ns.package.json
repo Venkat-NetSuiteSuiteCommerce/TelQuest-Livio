@@ -1,0 +1,30 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ],
+        "templates": [
+            "Templates/*"
+        ],
+        "ssp-files": {
+            "SuiteScript/checkout.ssp": "checkout.ssp",
+            "SuiteScript/cart.ssp": "cart.ssp",
+            "SuiteScript/checkout.environment.ssp": "checkout.environment.ssp",
+            "Internal/index-local.ssp": "checkout-local.ssp",
+            "Internal/cart-local.ssp": "cart-local.ssp",
+            "SuiteScript/threedsecure.ssp": "threedsecure.ssp"
+        },
+        "sass": [
+            "Sass/**/*.scss"
+        ],
+        "languages": [
+            "Languages/*.js"
+        ],
+        "images": [
+            "Images/*"
+        ],
+        "configuration": [
+            "Configuration/*.json"
+        ]
+    }
+}

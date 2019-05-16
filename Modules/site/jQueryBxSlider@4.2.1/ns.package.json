@@ -1,0 +1,10 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ]
+    },
+    "overrides": {
+        "third_parties/jQuery-bxslider@4.1.2-custom/jquery.bxslider.custom.js": "JavaScript/jquery.bxslider.custom.js"
+    }
+}

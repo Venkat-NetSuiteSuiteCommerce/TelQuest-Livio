@@ -1,0 +1,7 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/Session.js"
+        ]
+    }
+}

@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript": [
+			"JavaScript/*.js"
+		]
+	}
+,	"jshint": "false"
+}

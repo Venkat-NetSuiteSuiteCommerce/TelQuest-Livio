@@ -1,0 +1,286 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var SiteSettings
+	,	LivePayment
+	,	Profile
+	,	Address
+	,	CreditCard
+	,	Environment
+	,	Content
+	,	DefaultPage
+	,	Merchandising
+	,	siteId
+	,	Error
+	,	productlist_bundle_present
+	,	customerId
+	,	Utils
+	,	Application
+	,	CMS
+	,	ReleaseMetadata
+	,	external_parameters
+	,	session
+	;
+
+	try
+	{
+		Application = require('Application');
+		Utils = require('Utils');
+		SiteSettings = require('SiteSettings.Model').get();
+		Profile = require('Profile.Model').get();
+		Environment = Application.getEnvironment(request);
+		siteId = SiteSettings.siteid;
+		productlist_bundle_present = Utils.recordTypeExists('customrecord_ns_pl_productlist');
+		session = require('SC.Models.Init').session;
+
+		// The use of CDS and CMS are mutually exclusive, if you use CMS you can't use CDS, or if you use CDS you can't use CMS
+		if (SC.Configuration.cms.useCMS)
+		{
+			try
+			{
+				var baseUrl = Utils.trim(SC.Configuration.cms.baseUrl || '') || request.getURL().match(/(^https?:\/\/[^\/]+)/i)[0];
+				CMS = require('CMSadapter.Model').getPages(baseUrl);
+			}
+			catch (e)
+			{
+				console.warn('CMS could not be loaded, reason: ' + JSON.stringify(e));
+			}
+		}
+		else
+		{
+			// Content depends on the instalation and inclusion of the
+			// ContentDeliverService provided as a separated boundle
+			// If you need to add more tags to the listURL function please consider
+			// moving this to the sc.user.environment.ssp (the current file is cached)
+			try
+			{
+				var locale = Environment && Environment.currentLanguage && Environment.currentLanguage.locale
+				,	content_tag = 'app:myaccount';
+
+				if (locale)
+				{
+					content_tag += ',locale:' + locale.toLowerCase();
+				}
+
+				var content_model = require('Content.Model');
+
+				Content = content_model.listURL(siteId, content_tag);
+				DefaultPage = content_model.getDefault();
+			}
+			catch (e)
+			{
+				console.warn('Content Module not present in MyAccount SSP');
+			}
+
+			if (typeof psg_dm !== 'undefined')
+			{
+				Merchandising = psg_dm.getMerchRule();
+			}
+			else
+			{
+				console.warn('Merchandising Module not present in ShopFlow SSP');
+			}
+		}
+
+		try
+		{
+			ReleaseMetadata = require('ReleaseMetadata').get();
+		}
+		catch (e)
+		{
+			console.warn('Failed to load release metadata.');
+		}
+
+		if (session.isLoggedIn2())
+		{
+			Address =  require('Address.Model').list();
+			CreditCard = require('CreditCard.Model').list();
+			try
+			{
+				external_parameters = require('ExternalPayment.Model').getParametersFromRequest(request) || {};
+
+				if (external_parameters)
+				{
+					if (external_parameters.externalPayment === 'DONE')
+					{
+						LivePayment = require('LivePayment.Model').get();
+						LivePayment.confirmation = require('CustomerPayment.Model').get(external_parameters.recordType, external_parameters.nltranid);
+					}
+					else
+					{
+						LivePayment = require('LivePayment.Model').get(external_parameters.nltranid);
+					}
+				}
+				else
+				{
+					LivePayment = require('LivePayment.Model').get();
+				}
+			}
+			catch (e)
+			{
+				LivePayment = null;
+			}
+		}
+	}
+	catch (e)
+	{
+		Error = Application.processError(e);
+	}
+
+	if (!productlist_bundle_present)
+	{
+		console.warn('Product Lists Data not present in Shopping SSP');
+	}
+
+	response.setContentType('JAVASCRIPT');
+%>
+
+<% if (Environment) { %>
+	// Server Environment Info
+	SC.ENVIRONMENT = <%= JSON.stringify(Environment) %>;
+<% } %>
+
+<% if (SiteSettings) { %>
+	// Site Settings Info
+	SC.ENVIRONMENT.siteSettings = <%= JSON.stringify(SiteSettings) %>;
+
+	// SCTouchpoint indicates the touchpoint the user is effectively in. We can only know with certain this in the proper ssp
+	// because there is still code that depends on the touchpoint
+	// myaccount value is added just in case someone needs it
+	// when in single ssp check if this it's necessary
+	SC.ENVIRONMENT.SCTouchpoint = 'myaccount';
+
+	// Site site (ADVANCED or STANDARD)
+	SC.ENVIRONMENT.siteType = '<%= SiteSettings.sitetype %>';
+<% } %>
+
+SC.CONFIGURATION = <%= JSON.stringify(SC.Configuration) %>;
+
+<% if (Content) { %>
+	// The Content
+	SC.ENVIRONMENT.CONTENT = <%= JSON.stringify(Content) %>;
+
+	<% if (DefaultPage) { %>
+		// The Default Page
+		SC.ENVIRONMENT.DEFAULT_PAGE = <%= JSON.stringify(DefaultPage) %>;
+	<% } %>
+<% } %>
+
+// Local Environment info
+SC.ENVIRONMENT.jsEnvironment = 'browser';
+
+<% if (Profile) { %>
+	// The Profile
+	SC.ENVIRONMENT.PROFILE = <%= JSON.stringify(_.extend(Profile, { isLoggedIn: 'T'})) %>;
+	SC.ENVIRONMENT.permissions = <%= JSON.stringify(Application.getPermissions()) %>;
+<% } %>
+
+SC.SESSION = {
+	currency: <%= JSON.stringify(Environment.currentCurrency) %>
+,	language: <%= JSON.stringify(Environment.currentLanguage) %>
+,	priceLevel: <%= JSON.stringify(Environment.currentPriceLevel) %>
+,	touchpoints: <%= JSON.stringify(SiteSettings.touchpoints) %>
+};
+
+SC.getSessionInfo = function(key)
+{
+	var session = SC.SESSION || SC.DEFAULT_SESSION || {};
+	return (key) ? session[key] : session;
+}
+
+<% if (Address) { %>
+	// The Address
+	SC.ENVIRONMENT.ADDRESS = <%= JSON.stringify(Address) %>;
+<% } %>
+
+<% if (CreditCard) { %>
+	// The Credit Card
+	SC.ENVIRONMENT.CREDITCARD = <%= JSON.stringify(CreditCard) %>;
+<% } %>
+
+<% if (LivePayment) { %>
+
+	SC.ENVIRONMENT.LIVEPAYMENT = <%= JSON.stringify(LivePayment) %>;
+<% } %>
+
+<% if (Merchandising) { %>
+	// Merchandising
+	SC.ENVIRONMENT.MERCHANDISING = <%= JSON.stringify(Merchandising, {}) %>;
+<% } %>
+
+// Cases configuration
+<% if (SC.Configuration.cases) { %>
+	SC.ENVIRONMENT.CASES_CONFIG = <%= JSON.stringify(SC.Configuration.cases) %>;
+<% } %>
+
+//Information generated at compilation time
+SC.ENVIRONMENT.BuildTimeInf = <%= JSON.stringify(BuildTimeInf || {}) %>;
+SC.ENVIRONMENT.isExtended = <%= isExtended %>;
+SC.ENVIRONMENT.themeAssetsPath = '<%= themeAssetsPath %>';
+
+// CMS configuration
+<% if (SC.Configuration.cms.useCMS) { %>
+	SC.ENVIRONMENT.CMS = <%= JSON.stringify(CMS || {}) %>;
+<% } %>
+
+//External Payment
+<% if (external_parameters) { %>
+	SC.ENVIRONMENT.EXTERNALPAYMENT = {
+		parameters: <%= JSON.stringify(external_parameters) %>
+	}
+<% } %>
+
+<% if (SC.Configuration.categories) { %>
+	SC.CATEGORIES = <%= JSON.stringify(require('Categories.Model').getCategoryTree(SC.Configuration.categories.menuLevel)) %>;
+<% } %>
+
+// Release Metadata
+SC.ENVIRONMENT.RELEASE_METADATA = <%= JSON.stringify(ReleaseMetadata || {}) %>;
+
+// ProductList
+SC.ENVIRONMENT.PRODUCTLIST_ENABLED = <%= productlist_bundle_present %>;
+
+// Sensors
+SC.ENVIRONMENT.SENSORS_ENABLED = <%= JSON.stringify(Utils.isFeatureEnabled('rum')) %>;
+
+// Touch Support
+// Checks if this is a touch enalbed device
+SC.ENVIRONMENT.isTouchEnabled = ('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch;
+// Sets the class property of the html element
+document.documentElement.className = (SC.ENVIRONMENT.isTouchEnabled) ? "touch" : "no-touch";
+
+// Include Language Files
+document.write('<script src="<%= session.getAbsoluteUrl('languages/en.js') %>?t={{timestamp}}"><\\/script>');
+
+<% if (Environment && Environment.currentLanguage && Environment.currentLanguage.locale && Environment.currentLanguage.locale !== 'en') { %>
+	document.write('<script src="<%= session.getAbsoluteUrl('languages/myaccount_' + Environment.currentLanguage.locale + '.js') %>?t={{timestamp}}"><\\/' + 'script' + '>');
+<% } %>
+
+SC.extensionModules = [];
+SC.addExtensionModule = function addExtensionModule(appModuleName)
+{
+	SC.extensionModules.push(appModuleName);
+};
+	
+<% if (Error) { %>
+
+	SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;
+
+	if(!SC.ENVIRONMENT.baseUrl)
+	{
+		SC.ENVIRONMENT.baseUrl = '<%=  session.getAbsoluteUrl('/{{file}}') %>';
+	}
+
+<% } %>
+
+SC.ENVIRONMENT.published = {};
+<% _.each(SC.Configuration.publish,function(i){
+	var res = require(i.model)[i.call]();
+%>
+	SC.ENVIRONMENT.published.<%= i.key %> = <%= JSON.stringify(res) %>;
+<% });%>

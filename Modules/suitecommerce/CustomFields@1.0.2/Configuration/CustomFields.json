@@ -1,0 +1,31 @@
+{
+	"type": "object",
+
+	"subtab": {
+        "id": "customFields",
+        "title": "Custom fields",
+        "docRef": "section_1486484395",
+        "description": "Set up custom fields",
+        "group": "advancedSettings"
+    },    
+   
+	"properties": {
+		"customFields.salesorder": {
+            "group": "advancedSettings",
+            "subtab": "customFields",
+			"type": "array",
+			"title": "Sales order",
+			"docRef": "",
+			"description": "Sales order custom field",
+			"items": {
+				"type": "string",
+				"title": "Field id",
+				"mandatory": true
+			},			
+
+			"default":[				
+			]
+		}
+	}
+
+}

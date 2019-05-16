@@ -1,0 +1,20 @@
+{
+	"type": "object",
+    "subtab": {
+        "id": "shopperapproved",
+        "title": "Shopper Approved",
+        "docRef": "",
+        "description": "Shopper Approved",
+        "group": "integrations"
+    }
+,	"properties": {
+		"shoppperapproved.account": {
+			"group": "integrations"
+		,	"subtab": "shopperapproved"
+		,	"type": "string"
+		,	"title": "Shopper Approved Account Number"
+		,	"description": "Enter your Shopper Approved account number"
+		,	"default": ""
+		}
+	}
+}

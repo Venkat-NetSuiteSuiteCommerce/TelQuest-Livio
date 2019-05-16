@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "quoteToSalesorderWizard.invoiceFormId": {
+            "group": "myAccountApp",
+            "subtab": "quote",
+            "type": "string",
+            "title": "Invoice form id",
+            "description": "Enter the Internal ID of the invoice form that SCA uses to generate a sales order using terms.",
+            "default": "89"
+        }
+    }
+}

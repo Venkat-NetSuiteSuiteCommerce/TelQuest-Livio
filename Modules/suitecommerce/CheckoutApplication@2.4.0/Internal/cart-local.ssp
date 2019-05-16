@@ -1,0 +1,141 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var ROOT = 'http://localhost:7777/'
+	,	SiteSettings
+	,	parameters
+	,	siteType
+	,	Environment
+	,	Language
+	,	Currency
+	,	Error
+	,	cart_bootstrap
+	,	login
+	,	Application
+	,	session
+	;
+
+	try
+	{
+		Application = require('Application');
+		SiteSettings = require('SiteSettings.Model').get();
+		siteType = SiteSettings.sitetype;
+		session = require('SC.Models.Init').session;
+
+		Environment = Application.getEnvironment(request);
+		Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		Currency = Environment.currencyCodeSpecifiedOnUrl;
+
+		cart_bootstrap = true;
+
+	}
+	catch (e)
+	{
+		Error = Application.processError(e);
+	}
+%>
+
+<!DOCTYPE html>
+<html <%= Language ? 'lang="' + Language.replace('_', '-') + '"' : '' %>>
+	<head>
+		<link rel="shortcut icon" href="<%= session.getAbsoluteUrl("img/favicon.ico") %>" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Shopping Cart</title>
+		<% if (siteType === 'STANDARD') { %>
+			<%= getPageFullHead() %>
+		<% } %>
+		<script>
+			var SC = window.SC = {
+				ENVIRONMENT: {
+					jsEnvironment: (typeof nsglobal === 'undefined') ? 'browser' : 'server'
+				}
+			,	isCrossOrigin: function() { return '<%= Environment.currentHostString %>' !== document.location.hostname; }
+			,	isPageGenerator: function() { return typeof nsglobal !== 'undefined'; }
+			,	getSessionInfo: function(key)
+				{
+					var session = SC.SESSION || SC.DEFAULT_SESSION || {};
+					return (key) ? session[key] : session;
+				}
+			,	getPublishedObject: function(key)
+				{
+					return SC.ENVIRONMENT && SC.ENVIRONMENT.published && SC.ENVIRONMENT.published[key] ? SC.ENVIRONMENT.published[key] : null;
+				}
+			};
+			<% /* Define a function to load script at runtime
+				The script can be removed of the generated html by the server seo, please see SCA.Checkout.Starter.js. */ %>
+			function loadScript (data)
+			{
+				'use strict';
+
+				var element;
+				if (data.url)
+				{
+					element = '<script src="'+ data.url +'"></' + 'script>';
+				}
+				else
+				{
+					element = '<script>'+ data.code + '</' + 'script>';
+				}
+				if (data.seo_remove)
+				{
+					document.write(element);
+				}
+				else
+				{
+					document.write('</div>'+ element +'<div class="seo-remove">');
+				}
+			}
+		</script>
+		<!--[if lt IE 9]>
+			<script src="<%= session.getAbsoluteUrl('js/utils/html5shiv.js') %>"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<noscript>
+			<div class="container">
+				<div class="alert alert-error alert-noscript">
+					<strong>Javascript is disabled on your browser.</strong><br>
+					To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+				</div>
+			</div>
+		</noscript>
+		
+		<% if (siteType && siteType === 'STANDARD') { %>
+			<div id='div__header' style="overflow: hidden;" class='noprint' leftmargin='0' topmargin='0' marginwidth='1' >
+				<table border='0' cellspacing='0' cellpadding='0' width='100%'>
+					<%= getPageTop() %>
+				</table>
+			</div>
+		<% } %>
+		
+		<div id="main" class="main"></div>
+		
+		<script>
+			loadScript({
+				url: '<%= session.getAbsoluteUrl("checkout.environment.ssp?lang=" + Language + "&cur=" + Currency + "&cart-bootstrap=T" + "&X-SC-Touchpoint=checkout") %>&t=' + (new Date().getTime())
+			});
+		</script>
+
+		<% if (Error) { %>
+			<script>SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;</script>
+		<% } %>
+				
+		<script data-main="<%= ROOT %>javascript/checkout.js" src="<%= ROOT %>javascript/require.js"></script>
+		
+		<script>
+			window.location.hash = 'cart';
+		</script>
+		
+		<link rel="stylesheet" href="<%= ROOT %>css/checkout.css">
+		
+		<% if (typeof(release_metadata) != 'undefined') { %>
+		<!-- <%= JSON.stringify(release_metadata) %> -->
+		<% } %>
+	</body>
+</html>

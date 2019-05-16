@@ -1,0 +1,213 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var session = require('SC.Models.Init').session
+		password_protected_site = session.getSiteSettings(['siteloginrequired']).siteloginrequired==='T';
+
+	password_protected_site && response.setCDNCacheable(response.CACHE_DURATION_UNIQUE);
+
+	if (password_protected_site && !session.isLoggedIn2())
+	{
+		nlapiSetRedirectURL('EXTERNAL', session.getSiteSettings(['touchpoints']).touchpoints.login);
+		return;
+	}
+
+	var ROOT_BASE = 'http://localhost'
+	,	ROOT = ROOT_BASE + ':7777/'
+	,	Application = require('Application')
+	,	Environment = Application.getEnvironment(request)
+	,	Language = Environment.currentLanguage && Environment.currentLanguage.locale || ''
+	,	Currency = request.getParameter('cur');
+ %>
+
+<!DOCTYPE html>
+<html <%= Language ? 'lang="' + Language.replace('_', '-')+ '"' : '' %>>
+<head>
+
+	<!--[if !IE]><!-->
+		<link rel="stylesheet" href="<%= ROOT %>{{#if distro.isSCLite}}tmp/{{/if}}css/shopping.css"></link>
+	<!--<![endif]-->
+	
+	<!--[if lte IE 9]>
+		{{#each cssnumbers}}
+			<link rel="stylesheet" href="<%= ROOT %>{{#if distro.isSCLite}}tmp/{{/if}}css_ie/shopping_{{this}}.css?t={{../timestamp}}"></link>
+		{{/each}}
+		<link rel="stylesheet" href="<%= ROOT %>{{#if distro.isSCLite}}tmp/{{/if}}css_ie/shopping.css?t={{timestamp}}"></link>
+	<![endif]-->	
+	
+	<!--[if lt IE 9]>
+		<link href="<%= ROOT %>javascript/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+		<link href="/javascript/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+		<script src="<%= ROOT %>javascript/html5shiv.min.js"></script>
+		<script src="<%= ROOT %>javascript/respond.min.js"></script>
+		<script src="<%= ROOT %>javascript/respond.proxy.js"></script>
+	<![endif]-->
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="robots" content="nofollow,noindex">
+	<link rel="shortcut icon" href="<%= ROOT %>{{#if distro.isSCLite}}tmp/{{/if}}<%= Application.getFaviconPath() %>img/favicon.ico" />
+	<title>Shopping</title>
+
+</head>
+
+<body>
+
+<noscript>
+	<div class="shopping-layout-no-javascript-msg">
+		<strong>JavaScript is disabled on your browser.</strong><br>
+		To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+	</div>
+</noscript>
+
+<div id="main" class="main"></div>
+
+<script>
+{{#js}}
+	/* declare SC namespace here and the LOAD_FILEs objects*/
+	var SC = window.SC = {
+			ENVIRONMENT: {
+				jsEnvironment: (typeof nsglobal === 'undefined') ? 'browser' : 'server'
+			}
+			// Detect if the page is begin executed outside the site domain (eg. Google Cache)
+		,	isCrossOrigin: function()
+			{
+				return '<%= Environment.currentHostString %>' !== document.location.hostname;
+			}
+		,	isPageGenerator: function()
+			{
+				return typeof nsglobal !== 'undefined';
+			}
+			// Retrieve session data from the user.environment if present or form the environment otherwise
+		,	getSessionInfo: function(key)
+			{
+				var session = SC.SESSION || SC.DEFAULT_SESSION || {};
+				return (key) ? session[key] : session;
+			}
+		,	getPublishedObject: function(key)
+			{
+				return SC.ENVIRONMENT && SC.ENVIRONMENT.published && SC.ENVIRONMENT.published[key] ? SC.ENVIRONMENT.published[key] : null;
+			}
+		,	isDevelopment: true
+		};
+
+	// "Fix push-state" Reload the page as quickly as possible if we detect that the browser does not support push-state. For IE<10
+	if (!history.pushState && SC.ENVIRONMENT.jsEnvironment === 'browser' && (location.pathname !== "/" || location.search !== "") && location.hash === '')
+	{
+		if (location.pathname === "/")
+		{
+			var hash = (RegExp('fragment=' + '(.+?)(&|$)').exec(location.search)||[,''])[1];
+			location.replace(location.pathname + location.search + '/#' + unescape(hash));
+		}
+		else
+		{
+			location.replace('/#' + location.pathname + location.search);
+		}
+
+		// "Flush" for IE
+		document.write("");
+	}
+
+	if (!SC.isCrossOrigin())
+	{
+		// Minimizes flickery of the 1st page load!
+		document.getElementById("main").innerHTML = '';
+
+		// Do we have SEO Support
+		if (SC.isPageGenerator())
+		{
+			document.body.className = document.body.className + ' seo-support';
+		}
+		SC.ENVIRONMENT.seoSupport = !!~document.body.className.indexOf("seo-support");
+
+		if (SC.isPageGenerator())
+		{
+			SC.ENVIRONMENT.PROFILE = {};
+		}
+		// Load user.environment.ssp async
+		if (SC.ENVIRONMENT.jsEnvironment == 'browser' && !SC.isCrossOrigin())
+		{
+			var datetime = new Date().getTime();
+			var e = document.getElementsByTagName("script")[0];
+			var d = document.createElement("script");
+			d.src = '<%= session.getAbsoluteUrl("shopping.user.environment.ssp?lang=" + Language + "&cur=" + Currency + "&X-SC-Touchpoint=shopping") %>&t=' + datetime + "";
+			d.type = "text/javascript";
+			// d.async = true;
+			// d.defer = true;
+			e.parentNode.insertBefore(d,e);
+		}
+	}
+{{/js}}
+</script>
+
+<script src="<%= session.getAbsoluteUrl("shopping.environment.ssp?lang=" + Language + "&cur=" + Currency + "&X-SC-Touchpoint=shopping") %>&t={{timestamp}}" ></script>
+
+
+{{#if distro.isSCLite}}
+	<script type="text/javascript" src="<%= session.getAbsoluteUrl("languages/shopping_" + Language + ".js") %>?t={{timestamp}}" ></script>
+
+	<script type="text/javascript" src="<%= ROOT %>tmp/shopping-templates.js"></script>
+
+	<%
+		var js_files = _.difference(app_includes.shopping.js, app_includes.shopping.templates);
+		for(var i=0; i < js_files.length; i++)
+		{
+	%>
+			<script src="<%= session.getAbsoluteUrl(js_files[i]) %>?t={{timestamp}}"></script>
+	<%
+		}
+	%>
+
+{{else}}
+	<script type="text/javascript" src="<%= ROOT %>languages/shopping_<%=Language%>.js?t={{timestamp}}" ></script>
+	<script type="text/javascript" src="<%= ROOT %>javascript/require.js" data-main="<%= ROOT %>javascript/shopping.js" ></script>
+	<script type="text/javascript">
+	if (!window.require)
+	{
+		var script = document.createElement('script');
+		script.src = '<%= ROOT %>javascript/shopping.js';
+		document.body.appendChild(script);
+	}
+	</script>
+{{/if}}
+
+<script type="text/javascript">
+	var script = document.createElement('script');
+	script.src =  '<%= ROOT_BASE %>:35729/livereload.js?snipver=1';
+	document.body.appendChild(script);
+</script>
+
+<% if (SC.Configuration.cms.useCMS) { %>
+	<script>
+		if (SC.ENVIRONMENT.jsEnvironment === 'browser')
+		{
+			(function() {
+    			var nlTimer = setInterval(function()
+				{
+    				if (window.jQuery)
+					{
+						var adapter_version = '<%= SC.Configuration.cms.adapterVersion %>';
+
+      					// Load CMS
+      					jQuery.getScript('/cms/' + adapter_version + '/cms.js')
+	        				.done(function()
+							{
+	          					CMS.trigger('cms:load');
+	        				});
+
+      					clearInterval(nlTimer);
+    				}
+  				}, 100);
+			})();
+		}
+	</script>
+<% } %>
+</body>
+
+</html>

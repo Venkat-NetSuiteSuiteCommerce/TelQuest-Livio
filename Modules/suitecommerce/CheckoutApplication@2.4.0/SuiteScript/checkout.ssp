@@ -1,0 +1,309 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var SiteSettings
+	,	parameters
+	,	siteType
+	,	Environment
+	,	Language
+	,	Currency
+	,	Error
+	,	login
+	,	order
+	,	session
+	,	Application
+	,	environmentParameters
+	,	password_reset_expired
+	;
+
+	try
+	{
+		Application = require('Application');
+		SiteSettings = require('SiteSettings.Model').get();
+		siteType = SiteSettings.sitetype;
+		parameters = request.getAllParameters();
+		environmentParameters = [];
+		session = require('SC.Models.Init').session;
+		order = session.getOrder();
+
+		Environment = Application.getEnvironment(request);
+		Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		Currency = Environment.currencyCodeSpecifiedOnUrl;
+
+		login = false;
+
+		parameters.fragment = '';
+
+		// Temporal fix, because if a Guest try to go to MyAccount, with Registration mode set to 'disable', it will show a page with nothing to do, so we redirect the Guest to the Cart
+		if (SiteSettings.registration.registrationmandatory === 'T' && parameters.is !== 'checkout')
+		{
+			return nlapiSetRedirectURL('EXTERNAL', SiteSettings.touchpoints.viewcart, null, false, {});
+		}
+
+		if (parameters.passwdret)
+		{
+			try
+			{
+		if (session.isChangePasswordRequest())
+		{
+			parameters.fragment = 'reset-password';
+			login = true;
+		}
+			}
+			catch (e)
+			{
+				password_reset_expired = true;
+			}
+
+		}
+		else if (parameters.is === 'storelocator')
+		{
+			delete parameters.sitepath;
+			parameters.fragment = 'stores';
+		}
+		else if (
+					(SiteSettings.registration.registrationoptional !== 'T' && !session.isLoggedIn2())
+				||	(!SC.Configuration.checkoutApp.skipLogin && !session.isLoggedIn2())
+				||	(parameters.is && (parameters.is === 'login' || parameters.is === 'register') && !session.isLoggedIn2())
+				||	(parameters.is && (parameters.is === 'login' || parameters.is === 'register') && session.getCustomer().isGuest())
+				||	(SC.Configuration.checkoutApp.skipLogin && !session.isLoggedIn2() && session.isRecognized())
+				)
+		{
+			delete parameters.sitepath;
+			parameters.fragment = 'login-register';
+			login = true;
+		}
+
+		environmentParameters.push('lang=' + Language );
+		environmentParameters.push('cur=' + Currency );
+		environmentParameters.push('X-SC-Touchpoint=checkout');
+
+		if (!login)
+		{
+			// we don't want to bootstrap the cart in login/register page
+			environmentParameters.push('cart-bootstrap=T');
+		}
+
+		if (request.getParameter('paypalexpress') === 'T')
+		{
+			require('LiveOrder.Model').redirectToPayPalExpress();
+
+			return;
+		}
+		else if (request.getParameter('paypal') === 'T')
+		{
+			require('LiveOrder.Model').redirectToPayPal();
+
+			return;
+		}
+		else if (request.getParameter('paypal') === 'DONE')
+		{
+			require('LiveOrder.Model').backFromPayPal();
+		}
+
+		_.each(require('ExternalPayment.Model').getParametersFromRequest(request), function(value, key) {
+			environmentParameters.push(key.concat('=', value));
+		});
+
+	}
+	catch (e)
+	{
+		Error = Application.processError(e);
+	}
+%>
+
+<!DOCTYPE html>
+<html <%= Language ? 'lang="' + Language.replace('_', '-') + '"' : '' %>>
+	<head>
+		<link rel="shortcut icon" href="<%= session.getAbsoluteUrl(Application.getFaviconPath() + "img/favicon.ico") %>" />
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title></title>
+		<% if (siteType === 'STANDARD') { %>
+			<%= getPageFullHead() %>
+		<% } %>
+
+		<!--[if !IE]><!-->
+			<%
+			   var css_files = app_includes.checkout.css;
+			   for(var i=0; i < css_files.length; i++)
+			   {
+			%>
+					<link rel="stylesheet" href="<%= session.getAbsoluteUrl(css_files[i]) %>?t={{timestamp}}">
+			<%   
+			   }
+			%>
+		<!--<![endif]-->
+
+<!--[if lte IE 9]>
+<% 
+	if(isExtended)
+	{
+		var ie_css_files = app_includes.checkout.ie;
+		for(var i=0; i < ie_css_files.length; i++)
+		{
+%><link rel="stylesheet" href="<%= session.getAbsoluteUrl(ie_css_files[i]) %>?t={{timestamp}}">
+<% 
+		}
+	}
+	else
+	{ 
+%>
+	{{#each cssnumbers}}
+		<link rel="stylesheet" href="<%= session.getAbsoluteUrl(Application.getNonManageResourcesPathPrefix() + 'css_ie/checkout_{{this}}.css') %>?t={{../timestamp}}">
+	{{/each}}
+		<link rel="stylesheet" href="<%= session.getAbsoluteUrl(Application.getNonManageResourcesPathPrefix() + 'css_ie/checkout.css') %>?t={{timestamp}}">
+<% } %>
+<![endif]-->
+
+
+		<!--[if lt IE 9]>
+			<script src="<%= session.getAbsoluteUrl('javascript/html5shiv.min.js') %>"></script>
+		  	<script src="<%= session.getAbsoluteUrl('javascript/respond.min.js') %>"></script>
+		<![endif]-->
+
+		<script>
+			{{#js}}
+			var SC = window.SC = {
+				ENVIRONMENT: {
+					jsEnvironment: (typeof nsglobal === 'undefined') ? 'browser' : 'server'
+				}
+			,	isCrossOrigin: function()
+				{
+					return '<%= Environment.currentHostString %>' !== document.location.hostname;
+				}
+			,	isPageGenerator: function()
+				{
+					return typeof nsglobal !== 'undefined';
+				}
+			,	getSessionInfo: function(key)
+				{
+					var session = SC.SESSION || SC.DEFAULT_SESSION || {};
+					return (key) ? session[key] : session;
+				}
+			,	getPublishedObject: function(key)
+				{
+					return SC.ENVIRONMENT && SC.ENVIRONMENT.published && SC.ENVIRONMENT.published[key] ? SC.ENVIRONMENT.published[key] : null;
+				}
+			};
+			//Define a function to load script at runtime. The script can be removed of the generated html by the server seo, please see SCA.Checkout.Starter.js.
+			function loadScript (data)
+			{
+				'use strict';
+
+				var element;
+				if (data.url)
+				{
+					element = '<script src="'+ data.url +'"></' + 'script>';
+				}
+				else
+				{
+					element = '<script>'+ data.code + '</' + 'script>';
+				}
+				if (data.seo_remove)
+				{
+					document.write(element);
+				}
+				else
+				{
+					document.write('</div>'+ element +'<div class="seo-remove">');
+				}
+			}
+			{{/js}}
+		</script>
+	</head>
+	<body>
+
+		<noscript>
+			<div class="checkout-layout-no-javascript-msg">
+				<strong>Javascript is disabled on your browser.</strong><br>
+				To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+			</div>
+		</noscript>
+
+		<% if (siteType && siteType === 'STANDARD') { %>
+			<div id='div__header' style="overflow: hidden;" class='noprint' leftmargin='0' topmargin='0' marginwidth='1' >
+				<table border='0' cellspacing='0' cellpadding='0' width='100%'>
+					<%= getPageTop() %>
+				</table>
+			</div>
+		<% } %>
+
+		<div id="main" class="main"></div>
+
+		<script>
+			loadScript({
+				url: '<%= session.getAbsoluteUrl("checkout.environment.ssp?" + environmentParameters.join("&") ) %>&t={{timestamp}}'
+			});
+			loadScript({
+				url: '<%= session.getAbsoluteUrl("customFieldsMetadata.ssp?")%>t={{timestamp}}'
+			});
+		</script>
+
+		<% if (Error) { %>
+			<script>SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;</script>
+		<% } %>
+
+		<% if (parameters.key) { %>
+			<script>SC.ENVIRONMENT.email_verification_error = true;</script>
+		<% } else if (password_reset_expired) { %>
+			<script>SC.ENVIRONMENT.password_reset_expired_error = true;</script>
+		<% } else if (parameters.passwdret && parameters.fragment !== 'reset-password') { %>
+			<script>SC.ENVIRONMENT.password_reset_invalid_error = true;</script>
+		<% } %>
+
+		<script>
+			if (!~window.location.hash.indexOf('login-register') && !~window.location.hash.indexOf('forgot-password') && '<%= parameters.fragment %>')
+			{
+				window.location.hash = '<%= parameters.fragment %>';
+			}
+		</script>
+
+		<%
+		   var js_files = app_includes.checkout.js;
+		   for(var i=0; i < js_files.length; i++)
+		   {
+		%>
+				<script src="<%= session.getAbsoluteUrl(js_files[i]) %>?t={{timestamp}}"></script>
+		<%   
+		   }
+		%>
+		<% if (SC.Configuration.cms.useCMS) { %>
+			<script>
+				require(['jQuery', 'Backbone', 'underscore'], function (jQuery, Backbone, _) 
+				{
+					jQuery.getScript('/cms/<%= SC.Configuration.cms.adapterVersion %>/cms.js')
+						.done(function()
+						{
+							CMS.trigger('cms:load');
+						});
+				});
+			</script>
+		<% } %>
+
+		<script>
+			<% if (login) { %>
+				//SCM['SC.Checkout'].Configuration.currentTouchpoint = 'login';
+				require('SC.Checkout').Configuration.currentTouchpoint = 'login';
+			<% } %>
+			<% if (parameters.is === 'storelocator') { %>
+				//SCM['SC.Checkout'].Configuration.currentTouchpoint = 'storelocator';
+				require('SC.Checkout').Configuration.currentTouchpoint = 'storelocator';
+			<% } %>
+		</script>
+
+		<% if (typeof(release_metadata) != 'undefined') { %>
+		<!-- <%= JSON.stringify(release_metadata) %> -->
+		<% } %>
+		<!--Required to make CyberSource fingerprint feature works-->
+		<%= order.getDeviceFingerPrintingHtml() %>
+	</body>
+</html>
+
+<%= (function(){ try{ return require('ReleaseMetadata').asHTMLComment(); } catch(ex){return '';}} )() %>

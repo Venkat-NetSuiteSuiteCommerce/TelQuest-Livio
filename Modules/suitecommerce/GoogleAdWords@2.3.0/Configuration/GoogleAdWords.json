@@ -1,0 +1,36 @@
+{
+	"type": "object",
+    "subtab": {
+        "id": "adwords",
+        "title": "Google AdWords",
+        "docRef": "bridgehead_4667032647",
+        "description": "Google Adwords",
+        "group": "integrations"
+    }
+,	"properties": {
+		"tracking.googleAdWordsConversion.id": {
+			"group": "integrations"
+		,	"subtab": "adwords"
+		,	"type": "string"
+		,	"title": "Google AdWords ID"
+		,	"description": "Enter your Google AdWords ID. This value corresponds to the conversion tag you created in your Google AdWords account."
+		,	"default": ""
+		}
+	,	"tracking.googleAdWordsConversion.value": {
+			"group": "integrations"
+		,	"subtab": "adwords"
+		,	"type": "integer"
+		,	"title": "AdWords value"
+		,	"description": "Enter the value you defined in the conversion tag you created in your Google AdWords account."
+		,	"default": 0
+		}
+	,	"tracking.googleAdWordsConversion.label": {
+			"group": "integrations"
+		,	"subtab": "adwords"
+		,	"type": "string"
+		,	"title": "Google AdWords label"
+		,	"description": "Enter your Google AdWords label. This value corresponds to the conversion tag you created in your Google AdWords account."
+		,	"default": ""
+		}
+	}
+}

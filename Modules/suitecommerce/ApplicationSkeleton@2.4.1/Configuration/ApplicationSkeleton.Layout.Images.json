@@ -1,0 +1,77 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "images",
+        "title": "Images",
+        "description": "Images related settings",
+        "docRef": "bridgehead_4666175954",
+        "group": "layout"
+    },
+
+    "properties": {
+        "imageNotAvailable": {
+            "group": "layout",
+            "subtab": "images",
+            "type": "string",
+            "title": "Image Not Available url",
+            "description": "Enter the URL to the default image displayed when an item image is not configured.",
+            "default": "img/no_image_available.jpeg"
+        },
+        "imageSizeMapping": {
+            "group": "advancedSettings",
+            "type": "array",
+            "title": "Image Resize",
+            "docRef": "bridgehead_4667045095",
+            "description": "Here you can control the image-resize service values (website record). These are the current sizes used in SCA: <br/><ul><li>thumbnail: 175 * 175 - used in the search results</li><li>main: 600 * 600 - used as main image in the PDP</li><li>tinythumb: 50 * 50 - used as the tiny thumbs in the PDP's image gallery</li><li>zoom: 1200 * 1200 - used in the PDP's zommed image</li><li>fullscreen: 1600 * 1600</li><li>homeslider: 200 * 220</li><li>homecell: 125 * 125</li></ul>",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "size",
+                        "enum": ["thumbnail", "main", "tinythumb", "zoom", "fullscreen", "homeslider", "homecell"],
+                        "description": "The image size name used in the application"
+                    },
+                    "value": {
+                        "type": "string",
+                        "title": "value",
+                        "description": "Corresponding value given in the website record configuration"
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "id": "thumbnail",
+                    "value": "thumbnail"
+                }
+            ,   {
+                    "id": "main",
+                    "value": "main"
+                }
+            ,   {
+                    "id": "tinythumb",
+                    "value": "tinythumb"
+                },
+                {
+                    "id": "zoom",
+                    "value": "zoom"
+                },
+                {
+                    "id": "fullscreen",
+                    "value": "fullscreen"
+                },
+                {
+                    "id": "homeslider",
+                    "value": "homeslider"
+                },
+                {
+                    "id": "homecell",
+                    "value": "homecell"
+                }
+            ]
+        }
+
+    }
+}

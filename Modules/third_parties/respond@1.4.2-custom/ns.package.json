@@ -1,0 +1,11 @@
+{
+	"gulp": {
+		"javascript-move": [
+			"dest/respond.min.js"
+		,	"cross-domain/respond.proxy.js"
+		,	"cross-domain/respond-proxy.html"
+		,	"cross-domain/respond.proxy.gif"
+		]
+	}
+,	"jshint": "false"
+}

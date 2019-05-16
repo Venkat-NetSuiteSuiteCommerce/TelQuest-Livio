@@ -1,0 +1,13 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ],
+        "sass": [
+            "Sass/**/*.scss"
+        ],
+        "templates": [
+            "Templates/*.tpl"
+        ]
+    }
+}

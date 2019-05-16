@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "subtab": {
+        "id": "quote",
+		"title": "Quotes",
+		"description": "Quote configuration",
+		"docRef": "bridgehead_4678712900",
+		"group": "myAccountApp"
+    },
+    "properties": {
+        "quote.daysToExpire": {
+        	"group": "myAccountApp",
+            "subtab": "quote",
+            "type": "integer",
+            "title": "Days to Expiration",
+            "description": "Enter the number of days you want all quotes to remain valid after initial submittal. All quotes use the same configurable expiration, in days. After this time expires, the quote can no longer become a purchase.",
+            "default": 7
+        }
+	,	"quote.disclaimerSummary": {
+        	"group": "myAccountApp",
+            "subtab": "quote",
+	        "type": "string",
+	        "title": "Disclaimer summary",
+	        "nsType": "textarea",
+	        "description": "Enter the sales representative disclaimer summary that appears under the Order Summary area of the Quote Details page. This message appears if no sales representative is assigned to the quote.",
+	        "default": "To place the order please contact <strong>Contact Center</strong> at <strong>(000)-XXX-XXXX</strong> or send an email to <a href=\"mailto:xxxx@xxxx.com\">xxxx@xxxx.com</a>"
+	    }
+	,	"quote.disclaimer": {
+        	"group": "myAccountApp",
+            "subtab": "quote",
+	        "type": "string",
+	        "title": "Disclaimer",
+	        "nsType": "textarea",
+	        "description": "Enter the sales representative information disclaimer that appears at the bottom of the Quote Details page. This message appears if no sales representative is assigned to the quote.",
+	        "default": "For immediate assistance contact <strong>Contact Center</strong> at <strong>(000)-XXX-XXXX</strong> or send an email to <a href=\"mailto:xxxx@xxxx.com\">xxxx@xxxx.com</a>"
+	    }
+	,	"quote.defaultPhone": {
+        	"group": "myAccountApp",
+            "subtab": "quote",
+	        "type": "string",
+	        "title": "Default phone for Sales Rep",
+	        "description": "Enter the default sales representative phone number. This phone number appears on the Quote Details page if a sales associate is assigned to the quote, but the phone number has not been assigned.",
+	        "default": "(000)-XXX-XXXX"
+	    }
+	,	"quote.defaultEmail": {
+        	"group": "myAccountApp",
+            "subtab": "quote",
+	        "type": "string",
+	        "title": "Default email for Sales Rep",
+	        "description": "Enter the default sales representative Email address. This email address appears on the Quote Details page if a sales associate is assigned to the quote, but the email address has not been assigned.",
+	        "default": "xxxx@xxxx.com"
+	    }
+    }
+}

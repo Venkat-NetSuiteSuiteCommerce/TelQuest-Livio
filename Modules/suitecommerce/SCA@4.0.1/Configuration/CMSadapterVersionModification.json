@@ -1,0 +1,11 @@
+{
+	"type": "object",
+
+	"modifications" : [
+		{
+			"target": "$.properties[cms.adapterVersion].hidden",
+			"action": "replace",
+			"value": false
+		}	
+	]
+}

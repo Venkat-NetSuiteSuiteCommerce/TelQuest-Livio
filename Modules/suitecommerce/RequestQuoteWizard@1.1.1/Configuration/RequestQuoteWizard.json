@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "quote.requestAQuoteWizardBottomMessage": {
+            "group": "myAccountApp",
+            "subtab": "quote",
+            "type": "string",
+            "nsType": "textarea",
+            "title": "Request a quote bottom message",
+            "description": "Shows an informative message when a quote is requested.",
+            "default": "Once your quote has been submitted, a sales representative will contact you in <strong>XX business days</strong>. For immediate assistance call us at <strong>(000)-XXX-XXXX</strong> or email us at <a href='mailto:xxxx@xxxx.com'>xxxx@xxxx.com</a>"
+        }
+    ,
+        "quote.contactBusinessDaysMessage": {
+            "group": "myAccountApp",
+            "subtab": "quote",
+            "type": "string",
+            "title": "Request a quote Business Days",
+            "description": "Shows an 'Sales representative' contact message.",
+            "default": "A sales representative will contact you in <strong>XX business days</strong>."
+        }
+    }
+}

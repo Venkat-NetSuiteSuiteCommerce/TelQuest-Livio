@@ -1,0 +1,68 @@
+{
+	"type": "object",
+    "group": {
+        "id": "searchConfig",
+        "title": "Search",
+        "description": "Search Configuration"
+    },
+    "subtab": {
+        "id": "resultsPerPage",
+        "group": "searchConfig",
+        "title": "Search Results per page",
+        "description": "Search Results related configuration "
+    },
+
+    "properties": {
+
+        "resultsPerPage": {
+            "group": "searchConfig",
+            "subtab": "resultsPerPage",
+            "type": "array",
+            "title": "Search Results per page",
+            "docRef": "bridgehead_4667040159",
+            "description": "Available options for the Results per Page dropdown",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "integer",
+                        "title": "items",
+                        "description": "Amount of items for this result option",
+                        "mandatory": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Label to use in the UI to reference this sort option.",
+                        "translate": true,
+                        "mandatory": true
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "title": "Is default",
+                        "description": "Is default ? "
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "items": 12,
+                    "name": "$(0) per page"
+                },
+                {
+                    "items": 24,
+                    "name": "$(0) per page",
+                    "isDefault": true
+                },
+                {
+                    "items": 48,
+                    "name": "$(0) per page"
+                }
+            ]
+
+        }
+
+    }
+
+}

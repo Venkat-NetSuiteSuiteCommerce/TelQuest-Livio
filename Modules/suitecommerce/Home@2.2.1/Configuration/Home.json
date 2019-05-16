@@ -1,0 +1,35 @@
+{
+	"type": "object"
+,	"subtab": {
+        "id": "home",
+        "title": "Home",
+        "description": "Home",
+        "group": "layout"
+    }
+,	"properties": {
+		"home.carouselImages": {
+			"group": "layout",
+            "type": "array",
+            "title": "Carousel images",
+            "docRef": "bridgehead_4666978268",
+            "description": "Carousel images Urls",
+            "items": {
+                "type": "string",
+                "title": "Url"
+            },
+            "default": []
+		}
+	,	"home.bottomBannerImages": {
+			"group": "layout",
+			"type": "array",
+			"title": "Bottom banners images",
+			"docRef": "bridgehead_4393296407",
+			"description": "Bottom banners images Urls",
+			"items": {
+				"type": "string",
+				"title": "Url"
+			},
+			"default": []
+		}
+	}
+}

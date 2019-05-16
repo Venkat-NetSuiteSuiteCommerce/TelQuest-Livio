@@ -1,0 +1,33 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var session = require('SC.Models.Init').session;
+	
+	if(session.isLoggedIn2())
+	{
+		var params = request.getAllParameters()
+		,	paramstring = ''
+		,	password_protected_site = session.getSiteSettings(['siteloginrequired']).siteloginrequired==='T'
+		,	login_to_see_prices = session.getSiteSettings(['requireloginforpricing']).requireloginforpricing==='T';
+
+		for ( param in params )
+		{
+			// We remove the first 2 underscore for the getAllParameters
+			// This is made for avoiding a double redirect. See Utilities\Javascript\Utils.js : addParamsToUrl
+			var param_name = (login_to_see_prices || password_protected_site) && param.indexOf('__') === 0 ? param.substring(2) : param;
+			paramstring += (param_name + '=' + params[param]) + '&';
+		}
+
+		return nlapiSetRedirectURL('EXTERNAL','/api/items?'+paramstring);
+	}
+	else
+	{
+		var Application = require('Application');
+		Application.sendError(sessionTimedOutError);
+	}
+%>

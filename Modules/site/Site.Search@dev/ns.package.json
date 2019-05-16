@@ -1,0 +1,10 @@
+{
+    "gulp": {
+        "templates": [
+            "Templates/*"
+        ]
+    },
+    "overrides": {
+        "suitecommerce/SiteSearch@2.2.2/Templates/site_search.tpl": "Templates/site_search.tpl"
+    }
+}

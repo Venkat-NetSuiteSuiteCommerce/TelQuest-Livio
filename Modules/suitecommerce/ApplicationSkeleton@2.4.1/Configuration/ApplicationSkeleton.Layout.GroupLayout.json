@@ -1,0 +1,9 @@
+{
+	"type": "object"
+
+,	"group": {
+		"id": "layout"
+	,	"title": "Layout"
+	,	"description": "General Layout parts"
+	}
+}

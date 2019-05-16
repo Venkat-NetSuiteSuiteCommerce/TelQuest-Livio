@@ -1,0 +1,95 @@
+{
+	"type": "object",
+
+    "properties": {
+
+        "navigationData": {
+            "group": "layout",
+            "type": "array",
+            "title": "Navigation",
+            "docRef": "bridgehead_4393094608",
+            "description": "Settings for the main navigation links like Home, Shop, etc. <br/>Links used to construct navigation. (maxi menu and sidebar) - by default the 'Home' and 'Shop' links. ",
+
+            "items": {
+                "type": "object",
+                "properties": {
+
+                    "text": {
+                        "type": "string",
+                        "title": "Text",
+                        "translate": true,
+                        "description": "Link's text shown in the UI",
+                        "mandatory": true
+                    },
+                    "href": {
+                        "type": "string",
+                        "title": "href",
+                        "description": "The href of the link - for example '/search' will go to the search results page. It's ignored for parent entries.  Also it could be an absolute URL like https://google.com but in that case, make sure you really need to break the single page application. "
+                    },
+                    "level": {
+                        "type": "string",
+                        "title": "level",
+                        "description": "Hierarchy level of this navigation entry",
+                        "enum":["1", "2", "3"],
+                        "mandatory": true
+                    },
+                    "dataTouchpoint": {
+                        "type": "string",
+                        "title": "data-touchpoint",
+                        "description": "data-touchpoint value for the link if any",
+                        "enum": ["home", "login", "register", "logout", "customercenter", "viewcart", "checkout", ""]
+                    },
+                    "dataHashtag": {
+                        "type": "string",
+                        "title": "data-hashtag",
+                        "description": "data-hashtag value for the link if any"
+                    },
+                    "classnames": {
+                        "type": "string",
+                        "title": "class names",
+                        "description": "extra HTML class names to add to this entry"
+                    },
+                    "id": {
+                        "type": "string",
+                        "title": "Id",
+                        "description": "Parent entries must have an id so children entries can reference it"
+                    },
+                    "parentId": {
+                        "type": "string",
+                        "title": "Parent Id",
+                        "description": "If this is a child entry then this must be the id of the parent entry."
+                    },
+                    "placeholder": {
+                        "type": "string",
+                        "title": "Placeholder",
+                        "description": "Placeholder===Cateogries will be used to render the category menu at that place. "
+                    }
+                }
+            },
+            "default":[
+                {
+                    "text": "Home",
+                    "href": "/",
+                    "dataTouchpoint": "home",
+                    "dataHashtag": "#/",
+                    "level": "1",
+                    "classnames": "header-menu-home-anchor"
+                },
+                {
+                    "text": "Shop",
+                    "href": "/search",
+                    "dataTouchpoint": "home",
+                    "dataHashtag": "#/search",
+                    "level": "1",
+                    "classnames": "header-menu-shop-anchor"
+                },
+                {
+                    "text": "Categories placeholder",
+                    "level": "1",
+                    "placeholder": "Categories"
+                }
+            ]
+        }
+
+    }
+}

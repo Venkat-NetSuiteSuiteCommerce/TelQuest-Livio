@@ -1,0 +1,87 @@
+{
+    "basedOn": "eslint-config-airbnb-base/legacy@13.0.0",
+    "extends": "eslint-config-airbnb-base/legacy",
+    "env": {
+        "browser": true,
+        "amd":true,
+        "es6": false,
+        "node": false
+    },
+    "plugins": [
+        "requirejs"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 3
+    },
+
+    "rules": {
+        //Requirejs plugin
+        "requirejs/no-invalid-define": 2,
+        "requirejs/no-multiple-define": 2,
+        "requirejs/no-commonjs-wrapper": 2,
+        "requirejs/no-object-define": 1,
+        "requirejs/one-dependency-per-line": 1,
+
+        //extra
+        "indent": ["error", 4], // Changing AirBNB 2 spaces to 4
+        "max-len": ["error", 160, 0], // Longer lines
+        "no-useless-escape": ["warn"], // Lowering from error to warning
+        "complexity": ["warn", 12],
+        "no-underscore-dangle": ["error", {"allowAfterThis": true }], // Allow this._ , mostly because of _render
+        "no-plusplus": ["off"], // Nothing wrong with ++ && --
+        "new-cap": ["off"],
+        "no-param-reassign": ["error", { "props": false }], // we need to reasign param props (prototype modifications!)
+        "quote-props": ["error", "as-needed", { "keywords": true, "unnecessary": false, "numbers": true }] //mostly tweeaked for routers
+
+    },
+    "globals": {
+        "SC":false,
+        "require":false,
+        "define":false,
+        "nsglobal":false,
+        "_gat":false,
+        "session": true,
+        "context": true,
+        "methodNotAllowedError": true,
+        "badRequestError": true,
+        "notFoundError": true,
+        "console":true,
+        "log": true,
+        "nlobjError": true,
+        "unauthorizedError":true,
+        "nlapiAttachRecord":true,
+        "nlapiDeleteFile": true,
+        "nlapiYieldScript": true,
+        "nlapiStringToXML": true,
+        "nlapiSelectNode": true,
+        "nlapiEncrypt": true,
+        "nlapiSetRedirectURL": true,
+        "nlapiLogExecution":false,
+        "nlapiSearchRecord":false,
+        "nlobjSearchFilter":false,
+        "nlobjSearchColumn":false,
+        "nlapiLoadRecord":false,
+        "nlapiLoadFile":false,
+        "nlapiSubmitRecord":false,
+        "nlapiSubmitFile":false,
+        "nlapiGetCache":false,
+        "nlapiRequestURL":false,
+        "nlapiResolveURL":false,
+        "nlapiGetContext":false,
+        "nlapiGetNewRecord":false,
+        "nlapiLookupField": true,
+        "nlapiCreateRecord": true,
+        "nlapiDateToString": false,
+        "nlapiStringToDate": false,
+        "nlapiCreateSearch": true,
+        "nlapiGetUser":true,
+        "nlapiCreateError":true,
+        "request":true,
+        "response": true,
+        "order": true,
+        "customer": true,
+        "util": true,
+        "JSON": true,
+        "CMS": true
+    }
+}

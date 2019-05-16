@@ -1,0 +1,11 @@
+{
+	"gulp": {
+		"javascript": [
+			"bignumber.js"
+		]
+	,	"ssp-libraries": [
+			"bignumber.js"
+		]
+	}
+,	"jshint": "false"
+}

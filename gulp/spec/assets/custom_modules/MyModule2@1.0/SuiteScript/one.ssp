@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<script type="text/javascript" src="something?t={{timestamp}}"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		{{#js}}
+		var something = "hello", bar = "world"; 
+		console.log([something, bar] . join(' '));
+		{{/js}}
+		</script>
+
+		<script type="text/javascript">
+		{{#js}}
+			var since this is invalid javascript it wont be transformed
+		{{/js}}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "amd",
+    "moduleResolution":"node",
+    "lib": [
+        "es5", "dom"
+    ],
+    "rootDir": ".",
+    "esModuleInterop": true,
+    "strict": false,
+    "noEmit": false,
+    "declaration": false,
+    "noImplicitAny": false,
+    "checkJs": true,
+    "allowJs": true
+  },
+  "include":["./Modules", "./gulp/config/APIdocs"],
+  "exclude": ["node_modules", "dist", "LocalDistributino", "DeployDistribution", "gulp"]
+}

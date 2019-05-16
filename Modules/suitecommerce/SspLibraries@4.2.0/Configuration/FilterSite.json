@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "subtab": {
+        "id": "filtersite",
+        "title": "Filter Site",
+        "docRef": "bridgehead_4667044588",
+        "description": "Filter by site on Record Lists. 'all': all the sites in the account. 'current': just records under current site. 'siteIds': Array of site ids to be specified in the 'filterSiteIds' property. Current site and not related to any site records will be also considered.",
+        "group": "advancedSettings"
+    },
+    "properties": {
+        "filterSite.option": {
+            "group": "advancedSettings",
+            "subtab": "filtersite",
+            "type": "string",
+            "title": "Filter Site Option",
+            "description": "Choose how record lists are filtered.",
+            "enum": [
+                "all",
+                "current",
+                "siteIds"
+            ],
+            "default": "current"
+        },
+        "filterSite.ids": {
+            "group": "advancedSettings",
+            "subtab": "filtersite",
+            "type": "array",
+            "title": "Filter Site Ids",
+            "items": {
+                "type": "integer"
+            }
+        }
+    }
+}

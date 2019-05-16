@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript": [
+			"jquery-1.11.1.custom.js"
+		]
+	}
+,	"jshint": "false"
+}

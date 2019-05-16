@@ -1,0 +1,28 @@
+{
+	"type": "object",
+    "subtab": {
+        "id": "googletagmanager",
+        "title": "Google Tag Manager",
+        "docRef": "bridgehead_4667032233",
+        "description": "Google Tag Manager",
+        "group": "integrations"
+    }
+,	"properties": {
+		"tracking.googleTagManager.id": {
+			"group": "integrations"
+		,	"subtab": "googletagmanager"
+		,	"type": "string"
+		,	"title": "Google Tag Manager ID"
+		,	"description": "Enter the value of the Google Tag Manager ID. Setting this property enables this feature on your SuiteCommerce Advanced site. "
+		,	"default": ""
+		}
+	,	"tracking.googleTagManager.dataLayerName": {
+			"group": "integrations"
+		,	"subtab": "googletagmanager"
+		,	"type": "string"
+		,	"title": "Google Tag Manager data name"
+		,	"description": "Enter the data layer object that contains all of the information that you want to pass to Google Tag Manager."
+		,	"default": "dataLayer"
+		}
+	}
+}
