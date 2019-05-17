@@ -45,7 +45,18 @@
                     {{#unless isLoggedIn}}
                         <a data-target="fakeLogin">{{translate 'Login For Better Pricing'}}</a>
                     {{/unless}}
+
+
+
+                    {{!----  Div under product SKU    ----}}
                     <div data-cms-area="item_info" data-cms-area-filters="path"></div>
+                    {{!---- Div under product sku for all product pages ----}}
+                    <div data-cms-area="item_info_2" data-cms-area-filters="page_type"></div>
+
+
+
+
+
                 </div>
 
                 <div class="custom-pdp-section row">
@@ -78,7 +89,8 @@
                         </div>
                         <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
                         <div data-view="PrintPage"></div>
-                        <div data-cms-area-filters="path"></div>
+                        {{!---- cms box under social ----}}
+                        <div data-cms-area="undersocial" data-cms-area-filters="page_type"></div>
                     </div>
                 </div>
 

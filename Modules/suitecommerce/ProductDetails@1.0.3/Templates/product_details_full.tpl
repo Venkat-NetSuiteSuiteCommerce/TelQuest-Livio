@@ -69,8 +69,9 @@
 						{{/if}}
 
 						<div data-view="StockDescription"></div>
-
 						<div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
+
+
 
 						<div class="product-details-full-main-bottom-banner">
 							<div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
@@ -106,8 +107,8 @@
 
 
 {{!----
-Use the following context variables when customizing this template: 
-	
+Use the following context variables when customizing this template:
+
 	model (Object)
 	model.item (Object)
 	model.item.internalid (Number)
