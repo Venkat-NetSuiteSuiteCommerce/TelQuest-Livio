@@ -11,7 +11,7 @@ define('FakeLogin.Header.Profile.View', [
 ) {
     _.extend(HeaderProfileView.prototype, {
         getContext: _.wrap(HeaderProfileView.prototype.getContext, function getContext(fn) {
-            var contehext = fn.apply(this, _.toArray(arguments).slice(1));
+            var context = fn.apply(this, _.toArray(arguments).slice(1));
             var fakeLogin = Utils.getFakeCustomer();
             var profile = Profile.getInstance();
             _.extend(context, {
