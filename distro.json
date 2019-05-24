@@ -311,7 +311,8 @@
                     "AddOnItems",
                     "ComparePrice",
                     "FakeLogin",
-                    "VendorStock"
+                    "VendorStock",
+                    "Header.Profile.Site.View"
                 ],
                 "amdclean": false,
                 "amdConfig": {
@@ -432,7 +433,8 @@
                     "GoogleRemarketing",
                     "NProgress",
                     "UpsellItems",
-                    "AddOnItems"
+                    "AddOnItems",
+                    "Header.Profile.Site.View"
                 ],
                 "amdclean": false,
                 "amdConfig": {
@@ -551,7 +553,8 @@
                     "LayoutClass",
                     "UpsellItems",
                     "AddOnItems",
-                    "FakeLogin.Checkout"
+                    "FakeLogin.Checkout",
+                    "Header.Profile.Site.View"
                 ],
                 "amdclean": false,
                 "amdConfig": {
