@@ -30,9 +30,11 @@
             </div>
         </div>
     </div>
-    <div class="copy">
-        <div data-view="FooterCopyright"></div>
-    </div>
+  <div class="copy">
+          <br>
+          <center><h6 class="footer_note" >TelQuest International is a leading supplier of business telecommunication and IT products in the USA and Canada. TelQuest is not in any way affiliated, authorized, or licensed by Nortel and Nortel Networks, Jabra and GN Netcom, Sena, Avaya, or any other manufacturer unless explicitly stated.   </h6></center>
+          <div data-view="FooterCopyright"></div>
+      </div>
 </section>
 
 
