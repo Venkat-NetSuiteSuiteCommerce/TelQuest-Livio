@@ -75,8 +75,9 @@
                                 <section class="product-details-full-actions">
 
                                     <div class="product-details-full-actions-container">
-                                        <div data-view="MainActionView"></div>
-
+                                        {{#if showCart}}
+                                            <div data-view="MainActionView"></div>
+                                        {{/if}}
                                     </div>
                                     <div class="product-details-full-actions-container">
                                         <div data-view="AddToProductList" class="product-details-full-actions-addtowishlist"></div>

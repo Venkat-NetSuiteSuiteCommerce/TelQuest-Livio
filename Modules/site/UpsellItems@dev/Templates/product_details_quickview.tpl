@@ -36,7 +36,9 @@
 						<section class="product-details-quickview-actions">
 
 							<div class="product-details-quickview-actions-container">
+                        {{#if showCart}}
 								<div data-view="MainActionView"></div>
+                        {{/if}}
 							</div>
 							<div class="product-details-quickview-actions-container">
 								<div data-view="AddToProductList" class="product-details-quickview-actions-container-add-to-wishlist"></div>

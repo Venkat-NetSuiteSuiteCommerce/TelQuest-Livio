@@ -56,8 +56,11 @@ define('ProductDetails.Base.View.Tags', [
 
         getContext: _.wrap(ProductDetailsBaseView.prototype.getContext, function getContext(fn) {
             var context = fn.apply(this, _.toArray(arguments).slice(1));
+            var item = this.model.getItem();
+            var vendorStock = item.get('custitem_vendor_stock');
             _.extend(context, {
-                isLoggedIn: FakeLoginUtils.isLoggedIn()
+                isLoggedIn: FakeLoginUtils.isLoggedIn(),
+                showCart: vendorStock && vendorStock > 0
             });
             return context;
         })
