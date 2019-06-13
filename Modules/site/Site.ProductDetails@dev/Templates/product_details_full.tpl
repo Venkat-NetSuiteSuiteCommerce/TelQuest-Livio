@@ -35,7 +35,7 @@
                         <div data-view="Product.Sku"></div>
                     </div>
                     <div class="product-detail-page-item-description">
-                        {{{model.item.itemid}}}
+                        {{{model.item.featureddescription}}}
                     </div>
                     <div class="product-detail-page-item-description">
 

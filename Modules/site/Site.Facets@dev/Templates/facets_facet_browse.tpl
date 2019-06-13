@@ -5,6 +5,11 @@
 	may use this code subject to the terms that govern your access and use.
 }}
 
+
+{{#if isCategory}}
+    <div data-view="Facets.Browse.CategoryHeading"></div>
+{{/if}}
+
 <section class="facets-facet-browse">
 {{#if showCategoryBrand}}
     <div class="cms-zone-full-category-brand"  data-cms-area="cms-zone-full-category-brand" data-cms-area-filters="path"></div>
@@ -30,9 +35,6 @@
                     </div>
                 </div>
                 <div class="facets-facet-browse-header-right">
-                    {{#if isCategory}}
-                            <div data-view="Facets.Browse.CategoryHeading"></div>
-                    {{/if}}
 
                     <div class="clearfix"></div>
 
@@ -43,14 +45,15 @@
 
                     <div class="facets-facet-browse-results" itemscope="" itemtype="https://schema.org/ItemList">
 
-                        {{#if isCategory}}
+                     {{!--   {{#if isCategory}}
                             <div class="facets-facet-browse-category">
                                 <div data-view="Facets.CategoryCells"></div>
                             </div>
-                        {{/if}}
+                        {{/if}}  --}}
                         {{#unless isLoggedIn}}
                             <div class="facets-facet-browse-cms-banner-area" data-cms-area="facets-facet-browse-cms-banner-area" id="facets-facet-browse-cms-banner-area" data-cms-area-filters="page_type"></div>
                         {{/unless}}
+                        <div id="home-first-cms-content" class="home-first-cms-content carousel-merch"  data-cms-area="brand-featured-item" data-cms-area-filters="path"></div>
 
                         <div id="banner-section-top" class="content-banner banner-section-top" data-cms-area="item_list_banner_top" data-cms-area-filters="path"></div>
                         {{#unless isEmptyList}}
