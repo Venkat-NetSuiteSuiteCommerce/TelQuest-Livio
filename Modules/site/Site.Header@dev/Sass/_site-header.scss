@@ -79,7 +79,7 @@
   color: #0B6B96;
 }
 
-.header-support-icon{
+.sales_rep_phone{
   @extend .icon-question-circle;
   color: $sc-ink4;
   font-size: 30px;
@@ -161,7 +161,7 @@
   margin-top: 15px;
 }
 .header-sidebar-toggle{
- background: $sc-ink2;
+  background: $sc-ink2;
 }
 .header-menu-profile {
   display: block !important;
@@ -215,7 +215,7 @@
 }
 .header-sidebar-wrapper{
   .header-profile-login-icon{
-      color: white;
+    color: white;
   }
 }
 .header-logo-wrapper{
