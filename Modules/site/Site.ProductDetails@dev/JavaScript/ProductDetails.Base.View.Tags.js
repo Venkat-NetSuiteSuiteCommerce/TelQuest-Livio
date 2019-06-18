@@ -58,9 +58,11 @@ define('ProductDetails.Base.View.Tags', [
             var context = fn.apply(this, _.toArray(arguments).slice(1));
             var item = this.model.getItem();
             var vendorStock = item.get('custitem_vendor_stock');
+            var vendor_stock_message = item.get('custitem_vendor_stock_message');
             _.extend(context, {
                 isLoggedIn: FakeLoginUtils.isLoggedIn(),
-                showCart: vendorStock && vendorStock > 0
+                showCart: vendorStock && vendorStock > 0,
+                vendor_stock_message: vendor_stock_message
             });
             return context;
         })

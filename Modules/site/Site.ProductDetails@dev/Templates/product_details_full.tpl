@@ -68,7 +68,9 @@
                     <div class="col-md-6 actions">
                         <div class="actions-container">
                             {{#if isPriceEnabled}}
+
                                 <div data-view="Quantity" class="clearfix"></div>
+                                <p>{{vendor_stock_message}}</p>
                                 <div class="price-container">
                                     <div data-view="Product.Price"></div>
                                 </div>
