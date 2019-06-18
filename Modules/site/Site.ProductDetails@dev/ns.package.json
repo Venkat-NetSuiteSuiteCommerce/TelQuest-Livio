@@ -12,6 +12,8 @@
 	},
 	"overrides": {
 		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_options_selector.tpl": "Templates/product_details_options_selector.tpl",
+		"suitecommerce/ProductDetails@1.0.3/JavaScript/ProductDetails.Quantity.View.js": "/JavaScript/ProductDetails.Quantity.View.js",
+		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_quantity.tpl": "/Templates/product_details_quantity.tpl",
 		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_image_gallery.tpl": "Templates/product_details_image_gallery.tpl",
 		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_full.tpl": "Templates/product_details_full.tpl",
 		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_information.tpl": "Templates/product_details_information.tpl",
