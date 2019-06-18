@@ -14,6 +14,7 @@
     {{#if showMessages}}
         {{#if isInStock}}
             <p class="stock-available">{{translate inStockMessage}}</p>
+
         {{else}}
             <p class="stock-available">{{translate outOfStockMessage}}</p>
         {{/if}}
@@ -92,9 +93,9 @@
                 {{/if}}
                 {{#if priceFormatted}}
                     <p class="product-views-price-lead" data-rate="{{price}}">
-                            <span>{{translate 'Your Price'}}</span>
-                            <span itemprop="price">{{priceFormatted}}</span>
-                        </p>
+                           {{translate 'Your Price'}}
+                    <span itemprop="price">{{priceFormatted}}</span>
+                    </p>
                 {{/if}}
                 {{#if percentDiff}}
                     <div class="product-views-price-discount message-info">
