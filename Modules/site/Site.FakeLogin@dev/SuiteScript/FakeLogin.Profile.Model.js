@@ -16,7 +16,7 @@ define('FakeLogin.Profile.Model', [
             profile.fakeLoginCustomer = fakeLoginCookie;
         }
 
-        var url = nlapiResolveURL('SUITELET', 'customscript_ct__get_salesrep_for_profil', 'customdeploy_ct_get_salesrep_for_profile', true);
+    /*    var url = nlapiResolveURL('SUITELET', 'customscript_ct__get_salesrep_for_profil', 'customdeploy_ct_get_salesrep_for_profile', true);
 
         url += '&customerId=' + profile.internalid;
 
@@ -29,5 +29,8 @@ define('FakeLogin.Profile.Model', [
         nlapiLogExecution('ERROR', 'DATA', JSON.stringify(data));
 
         profile.salesrep = data.salesrep;
+
+
+     */
     });
 });

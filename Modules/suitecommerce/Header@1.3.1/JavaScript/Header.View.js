@@ -19,7 +19,6 @@ define(
 	,	'GlobalViews.HostSelector.View'
 	,	'GlobalViews.CurrencySelector.View'
 	,	'SiteSearch.View'
-	,   'SalesPopup.View'
 
 	,	'header.tpl'
 
@@ -40,7 +39,6 @@ define(
 	,	GlobalViewsHostSelectorView
 	,	GlobalViewsCurrencySelectorView
 	,	SiteSearchView
-	,   SalesPopupView
 
 	,	header_tpl
 
@@ -63,14 +61,8 @@ define(
 		,	'click [data-action="header-sidebar-show"]' : 'showSidebar'
 		,	'click [data-action="header-sidebar-hide"]': 'hideSidebar'
 		,	'click [data-type="header-sidebar-menu"]': 'hideSidebar'
-		,   'click [data-action="show-salesrep-popup"]':'showSalesrepPopup' 
 	}
 
-	,   showSalesrepPopup:function()
-	{
-         var pview = new SalesPopupView();
-         this.application.getLayout().showInModal(pview);
-	}
 
 	,	initialize: function ()
 		{

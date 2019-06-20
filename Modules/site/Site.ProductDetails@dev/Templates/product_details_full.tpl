@@ -90,6 +90,7 @@
                                 </section>
                             {{/if}}
                         </div>
+                        <div data-cms-area="abovesocial" data-cms-area-filters="page_type"></div>
                         <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
                         <div data-view="PrintPage"></div>
                         {{!---- cms box under social ----}}
