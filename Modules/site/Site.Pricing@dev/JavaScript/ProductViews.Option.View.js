@@ -80,7 +80,7 @@ define(
 		//@method getContext
 		//@returns {ProductViews.Option.View.Context}
 	,	getContext: function()
-
+		{
 			var self = this
 			,	selected_value = this.model.get('value') || {}
 			,	values = _.map(this.model.get('values'), function (value)
