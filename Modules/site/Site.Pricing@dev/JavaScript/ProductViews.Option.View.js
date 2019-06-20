@@ -81,7 +81,6 @@ define(
 		//@returns {ProductViews.Option.View.Context}
 	,	getContext: function()
 
-		    console.log(this.parentView.parentView);
 			var self = this
 			,	selected_value = this.model.get('value') || {}
 			,	values = _.map(this.model.get('values'), function (value)
