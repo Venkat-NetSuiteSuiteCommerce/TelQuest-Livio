@@ -64,7 +64,7 @@
 
                     <div class="header-menu-profile header-menu-support">
                         <a data-action="show-salesrep-popup" class="header-icon-container" data-touchpoint="home">
-                                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+                            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
                             <i class="fas fa-headset fa-2.5x sales_rep_agent" ></i>
 
                         </a>
