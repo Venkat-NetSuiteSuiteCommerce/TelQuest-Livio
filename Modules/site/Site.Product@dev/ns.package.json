@@ -1,0 +1,10 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ]
+    },
+    "overrides": {
+        "suitecommerce/Product@1.0.2/JavaScript/Product.Model.js": "JavaScript/Product.Model.js"
+    }
+}

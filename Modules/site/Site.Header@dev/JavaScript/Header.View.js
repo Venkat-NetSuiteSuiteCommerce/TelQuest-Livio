@@ -65,19 +65,19 @@ define(
 		,	'click [data-type="header-sidebar-menu"]': 'hideSidebar'
 		,   'click [data-action="show-salesrep-popup"]':'showSalesrepPopup' 
 	}
-
-	,   showSalesrepPopup:function()
-	{
-         var pview = new SalesPopupView();
-         this.application.getLayout().showInModal(pview);
-	}
-
+	
 	,	initialize: function ()
 		{
 			BackboneCompositeView.add(this);
 
 			Backbone.history.on('all', this.verifyShowSiteSearch, this);
 		}
+
+	,   showSalesrepPopup:function()
+	{
+         var pview = new SalesPopupView();
+         this.options.application.getLayout().showInModal(pview);
+	}
 
 		// @method verifyShowSiteSearch expand the site search only if hash===home and (phone or tablet)
 	,	verifyShowSiteSearch: function ()
