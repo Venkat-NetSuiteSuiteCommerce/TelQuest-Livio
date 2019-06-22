@@ -1,0 +1,57 @@
+{
+	"type": "object",
+    "subtab": {
+        "id": "overview",
+        "title": "Overview",
+        "docRef": "bridgehead_4678713056",
+        "description": "Overview is the main view of My Account experience that shows the customer's credit cards, addresses, etc",
+        "group": "myAccountApp"
+    }
+,	"properties": {
+		"overview.customerSupportURL": {
+			"group": "myAccountApp"
+		,	"subtab": "overview"
+		,	"type": "string"
+		,	"title": "Customer Support URL"
+		,	"description": "Enter the URL for your customer support page."
+		,	"default": ""
+		}
+	,	"overview.homeBanners": {
+			"group": "myAccountApp"
+		,	"subtab": "overview"
+		,	"type": "array"
+		,	"title": "Home Banners"
+		,	"description": "If you configure here it will display it in the index of my account. Ideal for promotions for clients"
+		,	"items": {
+				"type": "object"
+			,	"properties": {
+					"imageSource": {
+						"type": "string"
+					,	"title": "Image URL"
+					,	"description": ""
+					}
+				,	"linkUrl": {
+						"type": "string"
+					,	"title": "Link URL"
+					,	"description": ""
+					}
+				,	"linkTarget": {
+						"type": "string"
+					,	"title": "Link target"
+					,	"description": ""
+					}
+				}
+			}
+		,	"default": [
+			]
+		}
+	,	"overview.homeRecentOrdersQuantity": {
+			"group": "myAccountApp"
+		,	"subtab": "overview"
+		,	"type": "integer"
+		,	"title": "Recent Orders quantity to show"
+		,	"description": "Enter the quantity of recent orders displayed in the My Account Overview page."
+		,	"default": 3
+		}
+	}
+}

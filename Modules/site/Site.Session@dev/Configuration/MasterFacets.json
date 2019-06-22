@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "subtab": {
+    "id": "masterFacets",
+    "group": "customSettings",
+    "title": "Master Facets",
+    "description": "Master Facets"
+  },
+  "properties": {
+    "masterFacets.facets": {
+      "group": "customSettings",
+      "type": "array",
+      "title": "Master Facets Configuration",
+      "description": "Master Facets Config",
+      "items": {
+        "type": "object",
+        "properties": {
+          "facetId": {
+            "type": "string",
+            "title": "facetId",
+            "description": "Facet ID"
+          },
+          "hideFromSearch":{
+            "type": "boolean",
+            "title": "Hide From Search",
+            "description": "Hide From Search"
+          },
+          "facetValue":{
+            "type": "string",
+            "title": "Value",
+            "description": "Value"
+          },
+          "hideFromCorrelated":{
+            "type": "boolean",
+            "title": "Hide From Correlated",
+            "description": "Hide From Correlated"
+          },
+          "hideFromReorder":{
+            "type": "boolean",
+            "title": "Hide From Reorder Items",
+            "description": "Hide From Reorder Items"
+          }
+        }
+      },
+
+      "default": [
+        {
+          "facetId": "custitem_awa_is_custom_child",
+          "hideFromSearch": true,
+          "facetValue": "false",
+          "hideFromCorrelated": false,
+          "hideFromReorder": false
+        },
+        {
+          "facetId": "custitem_display_sca",
+          "hideFromSearch": true,
+          "facetValue": "true",
+          "hideFromCorrelated": true,
+          "hideFromReorder": false
+        }
+      ]
+    }
+  }
+}

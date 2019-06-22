@@ -1,0 +1,125 @@
+{
+    "type": "object"
+,    "subtab": {
+        "id": "returnAuthorization"
+    ,	"group": "myAccountApp"
+	,	"title": "Return Authorization"
+	,	"docRef": "bridgehead_4678712685"
+	,	"description": "Return Authorization configuration."
+    }
+,    "properties": {
+        "returnAuthorization.cancelUrlRoot": {
+            "group": "myAccountApp"
+		,	"subtab": "returnAuthorization"
+        ,    "type": "string"
+        ,    "title": "Cancel URL root"
+        ,    "description": "Enter a custom domain used to override the domain used to cancel a return authorization."
+        ,    "default": "https://system.netsuite.com"
+        }
+    ,   "returnAuthorization.reasons": {
+			"group": "myAccountApp"
+		,	"subtab": "returnAuthorization"
+		,	"type": "array"
+		,	"title": "Return authorizations reasons"
+		,	"description": ""
+		,	"items": {
+				"type": "object"
+			,	"properties": {
+					"text": {
+						"type": "string"
+					,	"title": "Reason"
+					,	"description": ""
+					,	"translate": true
+					}
+				,	"id": {
+						"type": "integer"
+					,	"title": "Id"
+					,	"description": ""
+					}
+				,	"order": {
+						"type": "integer"
+					,	"title": "Order"
+					,	"description": ""
+					}
+				,	"isOther": {
+						"type": "boolean"
+					,	"title": "Is Other"
+					,	"description": ""
+					}
+				}
+			}
+		,	"default": [
+				{
+					"text": "Wrong Item Shipped"
+				,	"id": 1
+				,	"order": 1
+				}
+			,	{
+					"text": "Did not fit"
+				,	"id": 2
+				,	"order": 2
+				}
+			,	{
+					"text": "Quality did not meet my standards"
+				,	"id": 3
+				,	"order": 3
+				}
+			,	{
+					"text": "Not as pictured on the Website"
+				,	"id": 4
+				,	"order": 4
+				}
+			,	{
+					"text": "Damaged during shipping"
+				,	"id": 5
+				,	"order": 5
+				}
+			,	{
+					"text": "Changed my mind"
+				,	"id": 6
+				,	"order": 6
+				}
+			,	{
+					"text": "Item was defective"
+				,	"id": 7
+				,	"order": 7
+				}
+			,	{
+					"text": "Arrived too late"
+				,	"id": 8
+				,	"order": 8
+				}
+			,	{
+					"text": "Other"
+				,	"id": 9
+				,	"order": 9
+				,	"isOther": true
+				}
+			]
+		}
+	,	"isSCISIntegrationEnabled": {
+            "group": "myAccountApp"
+		,	"subtab": "transactionRecordOriginMapping"
+        ,    "type": "boolean"
+        ,    "title": "Is SCIS integration enabled"
+        ,    "description": "Check this box to enable SCIS integration with your SuiceCommerce Advanced site."
+        ,    "default": true
+        }
+    ,	"locationTypeMapping.store.internalid": {
+            "group": "myAccountApp"
+		,	"subtab": "transactionRecordOriginMapping"
+        ,    "type": "string"
+        ,    "title": "Location type mapping store internal id"
+        ,    "description": "Enter the location-type identifier that SuiteCommerce Advanced uses to associate a transaction with an in-store purchase. 1 = store, 2 = online"
+        ,    "default": "1"
+        }
+    ,	"locationTypeMapping.store.name": {
+            "group": "myAccountApp"
+		,	"subtab": "transactionRecordOriginMapping"
+        ,    "type": "string"
+        ,    "title": "Location type mapping store name"
+        ,    "description": "Enter a descriptive text associated with the locationTypeMapping.store.internalid property."
+        ,    "default": "Store"
+        }
+    }
+}

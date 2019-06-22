@@ -1,0 +1,48 @@
+{
+  "type": "object",
+    "subtab": {
+        "id": "footer",
+        "title": "Footer",
+        "description": "Footer settings",
+        "docRef": "bridgehead_4393101142",
+        "group": "layout"
+    }
+, "properties": {
+    "footer.navigationLinks": {
+            "group": "layout",
+            "subtab": "footer"
+        , "type": "array"
+    , "title": "Footer navigation"
+        , "description": "Footer navigation links that goes in the footer"
+        , "items": {
+                "type": "object"
+            , "properties": {
+                    "text": {
+                        "type": "string"
+                    , "title": "Text"
+                    , "description": ""
+                    }
+                , "href": {
+                        "type": "string"
+                    , "title": "URL"
+                    , "description": ""
+                    }
+                }
+            }
+        , "default": [
+                {
+                    "text": "Link a"
+                , "href": "#"
+                }
+            , {
+          "text": "Link b"
+        , "href": "#"
+                }
+      , {
+          "text": "Link c"
+        , "href": "#"
+                }
+            ]
+        }
+    }
+}

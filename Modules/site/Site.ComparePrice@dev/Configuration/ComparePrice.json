@@ -1,0 +1,14 @@
+{
+  "type": "object",
+
+  "properties": {
+    "compareAgainst": {
+      "group": "catalog",
+      "subtab": "cart",
+      "type": "integer",
+      "title": "Compare Against Pricelevel",
+      "description": "Id of the Pricelevel to compare price",
+      "default": 13
+    }
+  }
+}

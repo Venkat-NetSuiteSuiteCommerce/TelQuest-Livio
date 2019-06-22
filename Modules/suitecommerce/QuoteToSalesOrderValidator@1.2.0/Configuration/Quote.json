@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "quote.purchaseReadyStatusId": {
+            "group": "myAccountApp",
+            "subtab": "quote",
+            "type": "string",
+            "title": "Purchase ready status id",
+            "description": "Enter the Customer Status that enables a quote to be purchased. This field must match the Internal ID of the Customer Status required for that customer to be able to make a purchase from the quote.",
+            "default": "12"
+        }
+    }
+}

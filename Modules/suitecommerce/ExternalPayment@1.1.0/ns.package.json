@@ -1,0 +1,13 @@
+{
+    "gulp": {
+        "ssp-files": {
+            "SuiteScript/external_payment.ssp": "external_payment.ssp"
+        },
+        "ssp-libraries": [
+            "SuiteScript/*.js"
+        ],
+        "javascript": [
+            "JavaScript/*.js"
+        ]
+    }
+}

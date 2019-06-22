@@ -1,0 +1,202 @@
+{
+	"type": "object"
+,	"subtab": {
+		"id": "productReviews"
+	,	"title": "Reviews"
+	,	"docRef": "bridgehead_4667043852"
+	,	"description": "Product reviews configuration"
+	,   "group": "shoppingApplication"
+	}
+,	"properties": {
+		"productReviews.maxFlagsCount": {
+			"group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,   "type": "integer"
+		,	"title": "Max Flags Count"
+		,	"description": "Enter the number of flags a review must receive before being marked as flagged by users."
+		,	"default": 2
+		}
+	,	"productReviews.loginRequired": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,	"type": "boolean"
+		,	"title": "Login Required"
+		,	"description": "Check this box to require users to be logged in to create a review."
+		,	"default": false
+		}
+	,	"productReviews.flaggedStatus": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,	"type": "integer"
+		,	"title": "Flagged Status"
+		,	"description": "Enter the number of times a review is flagged. If the value of the productReviews.maxFlagsCount property is reached, then this property is set to that value."
+		,	"default": 4
+		}
+	,	"productReviews.approvedStatus": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,	"type": "string"
+		,	"title": "Approved Status"
+		,	"description": "Enter the number of pending approvals the review has."
+		,	"default": "2"
+		}
+	,	"productReviews.pendingApprovalStatus": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,	"type": "integer"
+		,	"title": "Pending Approval Status"
+		,	"description": "The number of pending approvals the review has."
+		,	"default": 1
+		}
+	,	"productReviews.resultsPerPage": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,	"title": "Results Per Page"
+		,	"type": "integer"
+		,	"description": "Enter the number of product reviews displayed per page."
+		,	"default": 25
+		}
+	,	"productReviews.maxRate": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,	"type": "integer"
+		,	"title": "Max rate"
+		,	"description": "Enter the maximum rating an item can receive."
+		,	"default": 5
+		},
+	   "productReviews.computeOverall": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,   "type": "boolean"
+		,   "title": "Compute Overall"
+		,   "description": "Check this box to compute and display the overall rating for the product."
+		,   "default": true
+		},
+
+		"productReviews.filterOptions": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,	"type": "array",
+			"title": "Filter Options",
+			"description": "The options for filtering the Product Reviews",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"title": "id",
+						"description": "The id for this filter option",
+						"mandatory": true
+					},
+					"name": {
+						"type": "string",
+						"title": "name",
+						"description": "The label for this filter option that will appear in the UI",
+						"mandatory": true,
+						"translate": true
+					},
+					"params": {
+						"type": "string",
+						"title": "params",
+						"description": "a json object declaring the url parameters that defines this filter option"
+					},
+					"isDefault": {
+						"type": "boolean",
+						"title": "Is Default",
+						"description": "This filter option is shown by default"
+					}
+				}
+			},
+
+			"default": [
+				{
+					"id": "all",
+					"name": "All Reviews",
+					"params": "{}",
+					"isDefault": true
+				},
+				{
+					"id": "5star",
+					"name": "5 Star Reviews",
+					"params": "{\"rating\": 5}",
+					"isDefault": false
+				},
+				{
+					"id": "4star",
+					"name": "4 Star Reviews",
+					"params": "{\"rating\": 4}",
+					"isDefault": false
+				},
+				{
+					"id": "3star",
+					"name": "3 Star Reviews",
+					"params": "{\"rating\": 3}",
+					"isDefault": false
+				},
+				{
+					"id": "2star",
+					"name": "2 Star Reviews",
+					"params": "{\"rating\": 2}",
+					"isDefault": false
+				},
+				{
+					"id": "1star",
+					"name": "1 Star Reviews",
+					"params": "{\"rating\": 1}",
+					"isDefault": false
+				}
+			]
+		},
+
+		"productReviews.sortOptions": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productReviews"
+		,	"type": "array",
+			"title": "Sort Options",
+			"description": "The options for sorting the Product Reviews. ",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"title": "id",
+						"description": "The id for this sorting option",
+						"mandatory": true
+					},
+					"name": {
+						"type": "string",
+						"title": "name",
+						"description": "The label for this sorting option that will appear in the UI",
+						"mandatory": true,
+						"translate": true
+					},
+					"params": {
+						"type": "string",
+						"title": "params",
+						"description": "a json object declaring the url parameters that defines this sorting option"
+					},
+					"isDefault": {
+						"type": "boolean",
+						"title": "Is Default",
+						"description": "This sorting option is shown by default"
+					}
+				}
+			},
+
+			"default": [
+				{
+					"id": "date",
+					"name": "By Date",
+					"params": "{\"order\": \"created_on:ASC\"}",
+					"isDefault": true
+				},
+				{
+					"id": "rating",
+					"name": "By Rating",
+					"params": "{\"order\": \"rating:ASC\"}",
+					"isDefault": false
+				}
+			]
+		}
+	}
+}

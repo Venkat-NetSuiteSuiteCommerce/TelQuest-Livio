@@ -1,0 +1,134 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "twitter",
+        "group": "integrations",
+        "title": "Twitter",
+        "docRef": "bridgehead_4667036013",
+        "description": "Twitter"
+    },
+
+    "properties": {
+        "twitter.enable": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "boolean",
+            "title": "Enable",
+            "description": "Check this box to enable the Twitter addThis property.",
+            "default": true
+        },
+        "twitter.popupOptions.status": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter popup status",
+            "description": "Select yes to enable the Twitter popup.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "twitter.popupOptions.resizable": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter popup resizable",
+            "description": "Select yes to make the Twitter popup resizable. Select no to restrict resizing.",
+            "enum": ["yes", "no"],
+            "default": "yes"
+        },
+        "twitter.popupOptions.scrollbars": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter popup scrollbars",
+            "description": "Select yes to show scrollbars on the Twitter popup menu. Select no to hide them.",
+            "enum": ["yes", "no"],
+            "default": "yes"
+        },
+        "twitter.popupOptions.personalbar": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter popup personalbar",
+            "description": "Select yes to show a personal bar on the Twitter popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "twitter.popupOptions.directories": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter popup directories",
+            "description": "Select yes to show a directories bar on the Twitter popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "twitter.popupOptions.location": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter popup location",
+            "description": "Select yes to show a location bar on the Twitter popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "twitter.popupOptions.toolbar": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter popup toolbar",
+            "description": "Select yes to show a tool bar on the Twitter popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "twitter.popupOptions.menubar": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter popup menubar",
+            "description": "Select yes to show a menu bar on the Twitter popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "twitter.popupOptions.width": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "integer",
+            "title": "Twitter popup width",
+            "description": "Enter the width (in pixels) of the Twitter popup.",
+            "default": 632
+        },
+        "twitter.popupOptions.height": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "integer",
+            "title": "Twitter popup height",
+            "description": "Enter the height (in pixels) of the Twitter popup.",
+            "default": 250
+        },
+        "twitter.popupOptions.left": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "integer",
+            "title": "Twitter popup left",
+            "description": "Enter the left offset (in pixels) of the Twitter popup.",
+            "default": 0
+        },
+        "twitter.popupOptions.top": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "integer",
+            "title": "Twitter popup top",
+            "description": "Enter the top offset (in pixels) of the Twitter popup.",
+            "default": 0
+        },
+        "twitter.via": {
+            "group": "integrations",
+            "subtab": "twitter",
+            "type": "string",
+            "title": "Twitter via",
+            "description": "This specifies the Twitter account of the original tweeter. For example: @MerchantName.",
+            "default": ""
+        }
+    }
+}

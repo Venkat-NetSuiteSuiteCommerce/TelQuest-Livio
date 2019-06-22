@@ -1,0 +1,19 @@
+{
+  "name": "preconditions",
+  "version": "1.0.3",
+  "description": "",
+  "main": "src/Preconditions.js",
+  "scripts": {
+    "test": "node node_modules/jasmine/bin/jasmine.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.0",
+    "orchestrator": "^0.3.7",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.1"
+  }
+}

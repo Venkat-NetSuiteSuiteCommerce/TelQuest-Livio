@@ -1,0 +1,18 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/Utils.js",
+            "JavaScript/Console.Polyfill.js",
+            "JavaScript/Utilities.ResizeImage.js"
+        ],
+        "unit-test-files": [
+            "Tests/*.js"
+        ],
+        "unit-test-entry-point": [
+            "Tests/UnitTest.Utils.js"
+        ],
+        "configuration": [
+            "Configuration/*.json"
+        ]
+    }
+}

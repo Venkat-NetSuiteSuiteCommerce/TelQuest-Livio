@@ -1,0 +1,202 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var ROOT = 'http://localhost:7777/'
+	,	SiteSettings
+	,	siteType
+	,	Environment
+	,	Language
+	,	Currency
+	,	Error
+	,	Application
+	,	environmentParamaters
+	, 	parameters
+	,	session
+	,	Utils;
+
+	try
+	{
+		SiteSettings = require('SiteSettings.Model').get();
+		parameters = request.getAllParameters();
+		session = require('SC.Models.Init').session;
+
+		// Access control, if you are not loged this will send you to the log in page
+		if (!session.isLoggedIn2() || session.getCustomer().isGuest())
+		{
+			delete parameters.sitepath;
+			parameters.origin = 'customercenter';
+
+			if (parameters.fragment)
+			{
+				parameters.origin_hash = parameters.fragment;
+				delete parameters.fragment;
+			}
+
+			return nlapiSetRedirectURL('EXTERNAL', SiteSettings.touchpoints.login, null, false, parameters);
+		}
+
+		Application = require('Application');
+		Environment = Application.getEnvironment(request);
+		environmentParameters = [];
+		siteType = SiteSettings.sitetype;
+		Utils = require('Utils');
+
+		Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		Currency = Environment.currencyCodeSpecifiedOnUrl;
+
+		environmentParameters.push('lang=' + Language);
+		environmentParameters.push('cur=' + Currency);
+		environmentParameters.push('X-SC-Touchpoint=myaccount');
+
+		_.each(require('ExternalPayment.Model').getParametersFromRequest(request), function(value, key) {
+			environmentParameters.push(key.concat('=', value));
+		});
+	}
+	catch (e)
+	{
+		Error = Application.processError(e);
+	}
+
+%>
+
+
+<!DOCTYPE html>
+<html <%= Language ? 'lang="' + Language.replace('_', '-') + '"' : '' %>>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>My Account</title>
+
+		<!--[if !IE]><!-->
+			<link rel="stylesheet" href="<%= ROOT %>{{#if distro.isSCLite}}tmp/{{/if}}css/myaccount.css"></link>
+		<!--<![endif]-->
+
+		<!--[if lte IE 9]>
+			{{#each cssnumbers}}
+				<link rel="stylesheet" href="<%= ROOT %>{{#if distro.isSCLite}}tmp/{{/if}}css_ie/myaccount_{{this}}.css?t={{../timestamp}}"></link>
+			{{/each}}
+			<link rel="stylesheet" href="<%= ROOT %>{{#if distro.isSCLite}}tmp/{{/if}}css_ie/myaccount.css?t={{timestamp}}"></link>
+		<![endif]-->
+		
+		<!--[if lt IE 9]>
+			<link href="<%= ROOT %>javascript/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+			<link href="/javascript/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+			<script src="<%= ROOT %>javascript/html5shiv.min.js"></script>
+			<script src="<%= ROOT %>javascript/respond.min.js"></script>
+			<script src="<%= ROOT %>javascript/respond.proxy.js"></script>
+		<![endif]-->
+
+		<%= (siteType && siteType === 'STANDARD') ? getPageFullHead() : '' %>
+		<script>
+			var SC = window.SC = {
+				ENVIRONMENT: {
+					jsEnvironment: (typeof nsglobal === 'undefined') ? 'browser' : 'server'
+				}
+				, isCrossOrigin: function() { return '<%= Environment.currentHostString %>' !== document.location.hostname; }
+				, isPageGenerator: function() { return typeof nsglobal !== 'undefined'; }
+				, getSessionInfo: function(key)
+				{
+					var session = SC.SESSION || SC.DEFAULT_SESSION || {};
+					return (key) ? session[key] : session;
+				}
+			,	getPublishedObject: function(key)
+				{
+					return SC.ENVIRONMENT && SC.ENVIRONMENT.published && SC.ENVIRONMENT.published[key] ? SC.ENVIRONMENT.published[key] : null;
+				}
+			,	isDevelopment: true
+			};
+		</script>
+
+		<script src="<%= session.getAbsoluteUrl('myaccount.environment.ssp?' + environmentParameters.join('&')) %>&t={{timestamp}}"></script>
+		<script src="<%= session.getAbsoluteUrl('customFieldsMetadata.ssp?')%>t={{timestamp}}"></script>
+		<% if (Error) { %>
+		<script>SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;</script>
+		<% } %>
+	</head>
+	<body>
+
+	<% if (siteType && siteType === 'STANDARD'){ %>
+		<div id='div__header' style="overflow: hidden;" class='noprint' leftmargin='0' topmargin='0' marginwidth='1' >
+			<table border='0' cellspacing='0' cellpadding='0' width='100%'>
+				<%= getPageTop() %>
+			</table>
+		</div>
+	<% } %>
+		<noscript>
+			<div class="alert alert-error alert-noscript">
+				<strong>Javascript is disabled on your browser.</strong><br>
+				To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+			</div>
+		</noscript>
+
+		<div id="main" class="main"></div>
+		{{#if distro.isSCLite}}
+		<script type="text/javascript" src="<%= ROOT %>tmp/myaccount-templates.js"></script>
+
+		<% 
+			var js_files = _.difference(app_includes.myaccount.js, app_includes.myaccount.templates);
+			for(var i=0; i < js_files.length; i++)
+			{
+		%>
+				<script src="<%= session.getAbsoluteUrl(js_files[i]) %>?t={{timestamp}}"></script>
+		<%
+			}
+		%>
+		
+		{{else}}
+		<script data-main="<%= ROOT %>javascript/myaccount.js" src="<%= ROOT %>javascript/require.js"></script>
+		<script type="text/javascript">
+		if (!window.require)
+		{
+			var script = document.createElement('script');
+			script.src = '<%= ROOT %>javascript/myaccount.js';
+			document.body.appendChild(script);
+		}
+		</script>
+		{{/if}}
+		<% if (SC.Configuration.cms.useCMS) { %>
+			<script>
+				if (SC.ENVIRONMENT.jsEnvironment === 'browser')
+				{
+					(function() {
+						var nlTimer = setInterval(function()
+						{
+							if (window.jQuery)
+							{
+								var adapter_version = '<%= SC.Configuration.cms.adapterVersion %>';
+
+								// Load CMS
+								jQuery.getScript('/cms/' + adapter_version + '/cms.js')
+									.done(function()
+									{
+										CMS.trigger('cms:load');
+									});
+
+								clearInterval(nlTimer);
+							}
+						}, 100);
+					})();
+				}
+			</script>
+		<% } %>
+
+		<script>
+			if ('<%= parameters.fragment %>' !== 'undefined')
+			{
+				window.location.hash = '<%= parameters.fragment %>';
+			}
+		</script>
+
+		<script type="text/javascript">
+		var script = document.createElement('script');
+		script.src = 'http://localhost:35729/livereload.js?snipver=1';
+		document.body.appendChild(script);
+		</script>
+
+	</body>
+</html>

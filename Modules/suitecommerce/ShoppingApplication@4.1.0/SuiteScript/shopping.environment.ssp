@@ -1,0 +1,196 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var	Environment
+	,	Language
+	,	Currency
+	,	SiteSettings
+	,	siteId
+	,	Content
+	,	DefaultPage
+	,	Merchandising
+	,	Error
+	,	Utils
+	,	Application
+	,	CMS
+	,	ReleaseMetadata
+	,	session;
+
+
+	try {
+
+		Application = require('Application');
+		Utils = require('Utils');
+		Environment = Application.getEnvironment(request);
+		SiteSettings = require('SiteSettings.Model').get();
+		siteId = SiteSettings.siteid;
+		Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		Currency = Environment.currentCurrency && Environment.currentCurrency.code || '';
+		session = require('SC.Models.Init').session;
+
+		// The use of CDS and CMS are mutually exclusive, if you use CMS you can't use CDS, or if you use CDS you can't use CMS
+		if (SC.Configuration.cms.useCMS)
+		{
+			try
+			{
+				var baseUrl = Utils.trim(SC.Configuration.cms.baseUrl || '') || request.getURL().match(/(^https?:\/\/[^\/]+)/i)[0];
+				CMS = require('CMSadapter.Model').getPages(baseUrl);
+			}
+			catch(e)
+			{
+				console.warn('CMS could not be loaded, reason: ' + JSON.stringify(e));
+			}
+		}
+		else
+		{
+			// Content depends on the instalation and inclusion of the
+			// ContentDeliverService provided as a separated boundle
+			// If you need to add more tags to the listURL function please consider
+			// moving this to the sc.user.environment.ssp (the current file is cached)
+			try
+			{
+				var content_tag = 'app:shopping';
+
+				if (Language)
+				{
+					content_tag += ',locale:' + Language.toLowerCase();
+				}
+
+				var content_model = require('Content.Model');
+
+				Content = content_model.listURL(siteId, content_tag);
+				DefaultPage = content_model.getDefault();
+			}
+			catch (e)
+			{
+				console.warn('Content Module not present in ShopFlow SSP');
+			}
+
+			if (typeof psg_dm !== 'undefined')
+			{
+				Merchandising = psg_dm.getMerchRule();
+			}
+			else
+			{
+				console.warn('Merchandising Module not present in ShopFlow SSP');
+			}
+		}
+
+		try {
+			ReleaseMetadata = require('ReleaseMetadata').get();
+		}
+		catch(e) {
+			console.warn('Failed to load release metadata.');
+		}
+
+		response.setCDNCacheable(response.CACHE_DURATION_MEDIUM);
+	}
+	catch (e)
+	{
+		response.setCDNCacheable(response.CACHE_DURATION_UNIQUE);
+		Error = Application.processError(e);
+	}
+
+	response.setContentType('JAVASCRIPT');
+%>
+
+<% if (Environment) { %>
+	// Server Environment Info
+	var env = <%= JSON.stringify(Environment) %>;
+	for (var i in env)
+	{
+		SC.ENVIRONMENT[i] = env[i];
+	}
+<% } %>
+
+<% if (SiteSettings) { %>
+	// Site Settings Info
+
+	SC.ENVIRONMENT.siteSettings = <%= JSON.stringify(SiteSettings) %>;
+
+	// SCTouchpoint indicates the touchpoint the user is effectively in. We can only know with certain this in the proper ssp
+	// because there is still code that depends on the touchpoint
+	// when in single ssp check if this it's necessary
+	SC.ENVIRONMENT.SCTouchpoint = 'shopping';
+
+	SC.DEFAULT_SESSION = {
+		currency: <%= JSON.stringify(_.find(SiteSettings.currencies, function(c) { return c.isdefault === 'T'; })) %>
+	,	language: <%= JSON.stringify(_.find(SiteSettings.languages, function(l) { return l.isdefault === 'T'; })) %>
+	,	priceLevel: <%= JSON.stringify(SiteSettings.defaultpricelevel) %>
+	,	touchpoints: {}
+	};
+<% } %>
+
+SC.CONFIGURATION = <%= JSON.stringify(SC.Configuration) %>;
+
+SC.ENVIRONMENT.REVIEWS_CONFIG = {
+	enabled: <%= Utils.recordTypeExists('customrecord_ns_pr_review') %>
+};
+
+<% if (Content) { %>
+	// The Content
+	SC.ENVIRONMENT.CONTENT = <%= JSON.stringify(Content) %>;
+
+	<% if (DefaultPage) { %>
+		// The Default Page
+		SC.ENVIRONMENT.DEFAULT_PAGE = <%= JSON.stringify(DefaultPage) %>;
+	<% } %>
+<% } %>
+
+<% if (Merchandising) { %>
+	// Merchandising
+	SC.ENVIRONMENT.MERCHANDISING = <%= JSON.stringify(Merchandising, {}) %>;
+<% } %>
+
+// CMS configuration
+<% if (SC.Configuration.cms.useCMS) { %>
+	SC.ENVIRONMENT.CMS = <%= JSON.stringify(CMS || {}) %>;
+<% } %>
+
+<% if (SC.Configuration.categories) { %>
+	SC.CATEGORIES = <%= JSON.stringify(require('Categories.Model').getCategoryTree(SC.Configuration.categories.menuLevel)) %>;
+<% } %>
+
+//Information generated at compilation time
+SC.ENVIRONMENT.BuildTimeInf = <%= JSON.stringify(BuildTimeInf || {}) %>;
+SC.ENVIRONMENT.isExtended = <%= isExtended %>;
+SC.ENVIRONMENT.themeAssetsPath = '<%= themeAssetsPath %>';
+	
+SC.ENVIRONMENT.RELEASE_METADATA = <%= JSON.stringify(ReleaseMetadata || {}) %>;
+
+// Sensors
+SC.ENVIRONMENT.SENSORS_ENABLED = <%= JSON.stringify(Utils.isFeatureEnabled('rum')) %>;
+
+// Touch Support
+// Checks if this is a touch enalbed device
+SC.ENVIRONMENT.isTouchEnabled = 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch;
+// Sets the class property of the html element
+// It is not checking if it was already set (be aware if the SEO engine)
+document.documentElement.className = SC.ENVIRONMENT.isTouchEnabled ? 'touch' : 'no-touch';
+
+SC.extensionModules = [];
+SC.addExtensionModule = function addExtensionModule(appModuleName)
+{
+	SC.extensionModules.push(appModuleName);
+};
+	
+<% if (Error) { %>
+	SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;
+
+	if (!SC.ENVIRONMENT.baseUrl)
+	{
+		SC.ENVIRONMENT.baseUrl = '<%=  session.getAbsoluteUrl('/{{file}}') %>';
+	}
+<% } %>
+
+SC.ENVIRONMENT.published = {};
+<% _.each(SC.Configuration.publish,function(i){
+	var res = require(i.model)[i.call]();
+%>
+	SC.ENVIRONMENT.published.<%= i.key %> = <%= JSON.stringify(res) %>;
+<% });%>

@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript": [
+			"mock-ajax.js"
+		]
+	}
+,	"jshint": "false"
+}

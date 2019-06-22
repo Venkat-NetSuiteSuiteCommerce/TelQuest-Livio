@@ -1,0 +1,15 @@
+{
+  "name": "awa-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "validate-es5": "npx es-check es5 ../Modules/**/{JavaScript,SuiteScript}/**/*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "es-check": "^5.0.0"
+  }
+}

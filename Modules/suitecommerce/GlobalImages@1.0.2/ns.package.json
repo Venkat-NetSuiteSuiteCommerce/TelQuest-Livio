@@ -1,0 +1,7 @@
+{
+    "gulp": {
+        "images": [
+            "Images/*"
+        ]
+    }
+}

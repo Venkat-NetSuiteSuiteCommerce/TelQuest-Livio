@@ -1,0 +1,11 @@
+{
+    "gulp": {
+        "templates": [
+            "Templates/*"
+        ]
+    },
+    "overrides": {
+        "suitecommerce/ItemRelations@3.0.2/Templates/item_relations_related_item.tpl": "Templates/item_relations_related_item.tpl",
+        "suitecommerce/ItemRelations@3.0.2/Templates/item_relations_related.tpl": "Templates/item_relations_related.tpl"
+    }
+}

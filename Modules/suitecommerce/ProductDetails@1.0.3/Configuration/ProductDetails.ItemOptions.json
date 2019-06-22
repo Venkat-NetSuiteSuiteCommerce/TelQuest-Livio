@@ -1,0 +1,13 @@
+{
+	"type": "object",
+
+	"properties": {
+		"ItemOptions.maximumOptionValuesQuantityWithoutPusher": {
+			"group": "catalog",
+			"type": "integer",
+			"title": "Maximum Option Values quantity without Pusher",
+			"description": "This number property indicates the maximum number of option values to appear in line on any mobile device's product details pages before displaying a pusher.",
+			"default": 8
+		}
+	}
+}

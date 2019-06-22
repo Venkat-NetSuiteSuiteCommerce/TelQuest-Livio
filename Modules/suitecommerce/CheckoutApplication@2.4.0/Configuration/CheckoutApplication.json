@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "group": {
+        "id": "checkoutApp",
+		"title": "Checkout",
+        "docRef": "bridgehead_4393268798",
+		"description": "Checkout Application configuration"
+    },
+    "subtab": {
+        "id": "checkoutForms",
+        "title": "Forms",
+        "docRef": "section_4700765645",
+        "description": "Checkout configuration related to web forms.",
+        "group": "checkoutApp"
+    },
+    "properties": {
+        "checkoutApp.skipLogin": {
+           "group": "checkoutApp",
+            "type": "boolean",
+            "title": "Skip Checkout Login",
+            "description": "Check this box to enable anonymous users to skip the login/register page when they navigate to Checkout.",
+            "default": false
+        },
+        "isMultiShippingEnabled": {
+            "group": "checkoutApp",
+            "type": "boolean",
+            "title": "Enable Multiple Shipping",
+            "description": "Check this box to let users specify multiple shipping addresses for an order.",
+            "default": false
+        },
+        "removePaypalAddress": {
+            "group": "checkoutApp",
+            "type": "boolean",
+            "title": "Remove Paypal Addresses",
+            "description": "Check this box to remove PayPal addresses from the NetSuite record after placing the order as they are not valid NetSuite records.",
+            "default": true
+        },
+        "isThreeDSecureEnabled": {
+            "group": "checkoutApp",
+            "type": "boolean",
+            "title": "Enable 3D Secure payments",
+            "description": "Check this box to enable 3D Secure payments for your site.",
+            "default": false
+        },
+        "checkoutApp.checkoutSteps": {
+            "group": "checkoutApp",
+            "type": "string",
+            "title": "Checkout Steps",
+            "description": "Choose an option to specify the checkout steps configuration of the Checkout application.",
+            "enum": ["Standard", "One Page", "Billing First"],
+            "default": "Standard"
+        },
+		"checkoutApp.paypalLogo": {
+			"group": "checkoutApp",
+			"type": "string",
+			"title": "PayPal logo url",
+			"description": "Enter the URL of the PayPal logo. SuiteCommerce Advanced displays this logo in the check out process.",
+			"default": "https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg"
+		},
+		"checkoutApp.invoiceTermsAndConditions": {
+			"group": "checkoutApp",
+			"type": "string",
+			"nsType": "textarea",
+			"title": "Invoice Terms and Conditions",
+			"description": "Enter the text of the invoice terms and conditions in HTML format.",
+			"default": "<h4>Invoice Terms and Conditions</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+		},
+        "autoPopulateNameAndEmail": {
+            "group": "checkoutApp",
+            "subtab": "checkoutForms",
+            "type": "boolean",
+            "title": "Auto populate name and email",
+            "description": "Check this box to enable auto-population of a guest shopper’s name and email in any forms during checkout. If this box is unchecked, no fields will populate automatically.",
+            "default": true
+        },
+        "forms.loginAsGuest.showName": {
+            "group": "checkoutApp",
+            "subtab": "checkoutForms",
+            "type": "boolean",
+            "title": "Login as guest, show name",
+            "description": "Check this box to show first and last name input fields when a user registers as a guest. If Auto Populate Name and Email is enabled, these names will be required and automatically populate throughout the checkout process where applicable. If unchecked, no fields populate automatically.",
+            "default": false
+        },
+        "forms.loginAsGuest.showEmail": {
+            "group": "checkoutApp",
+            "subtab": "checkoutForms",
+            "type": "boolean",
+            "title": "Login as guest, show email",
+            "description": "Check this box to show email address input fields when a user registers as a guest. If Auto Populate Name and Email is enabled, this address will be required and automatically populate throughout the checkout process where applicable. If unchecked, no fields populate automatically.",
+            "default": true
+        },
+        "forms.address.showAddressLineTwo": {
+            "group": "checkoutApp",
+            "subtab": "checkoutForms",
+            "type": "boolean",
+            "title": "Show address line 2",
+            "description": "Check this box to display a secondary address line during checkout.",
+            "default": true
+        }
+    }
+}

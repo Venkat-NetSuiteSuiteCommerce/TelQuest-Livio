@@ -1,0 +1,97 @@
+
+{
+    "type": "object",
+    "group": {
+        "id": "customSettings",
+        "title": "Custom Settings",
+        "description": "Custom Settings"
+    },
+    "subtab": {
+        "id": "productBadges",
+        "group": "customSettings",
+        "title": "Badges",
+        "description": "Item Badges"
+    },
+    "properties": {
+        "productBadges.badgesEnable": {
+            "group": "customSettings",
+            "type": "boolean",
+            "title": "Enable Badges",
+            "description": "Check to enable badges",
+            "default": true
+        },
+        "productBadges.badgesConfiguration": {
+            "group": "customSettings",
+            "type": "array",
+            "title": "Badges Configuration",
+            "description": "Badges Config",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "id",
+                        "enum": ["TOP_LEFT", "TOP_RIGHT", "BOTTOM_RIGHT", "BOTTOM_LEFT"],
+                        "description": "Badge Position"
+                    },
+
+                    "badge":{
+                        "type": "string",
+                        "title": "Badge Record",
+                        "description": "Badge Record"
+                    },
+                    "color":{
+                        "type": "string",
+                        "title": "HEX Color",
+                        "description": "Hex Color"
+                    },
+                    "image":{
+                        "type": "string",
+                        "title": "Image",
+                        "description": "Image"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "title": "active",
+                        "description": "badge is active"
+                    }
+                }
+            },
+
+            "default": [
+                {
+                    "id": "TOP_LEFT",
+                    "color": "",
+                    "badge": "",
+                    "image": "",
+                    "active": false
+
+                },
+                {
+                    "id": "TOP_RIGHT",
+                    "color": "",
+                    "badge": "",
+                    "image": "",
+                    "active": false
+
+                },
+                {
+                    "id": "BOTTOM_LEFT",
+                    "color": "",
+                    "badge": "",
+                    "image": "",
+                    "active": false
+
+                },
+                {
+                    "id": "BOTTOM_RIGHT",
+                    "color": "",
+                    "badge": "",
+                    "image": "",
+                    "active": false
+
+                }
+            ]
+        }
+    }
+}

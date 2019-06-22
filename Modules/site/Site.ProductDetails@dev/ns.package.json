@@ -1,0 +1,22 @@
+{
+	"gulp": {
+		"javascript": [
+			"JavaScript/*.js"
+		],
+		"sass": [
+			"Sass/**/*.scss"
+		],
+		"templates": [
+			"Templates/*"
+		]
+	},
+	"overrides": {
+		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_options_selector.tpl": "Templates/product_details_options_selector.tpl",
+		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_image_gallery.tpl": "Templates/product_details_image_gallery.tpl",
+		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_full.tpl": "Templates/product_details_full.tpl",
+		"suitecommerce/ProductDetails@1.0.3/Templates/product_details_information.tpl": "Templates/product_details_information.tpl",
+		"suitecommerce/Facets@3.2.0/Templates/facets_facets_display.tpl": "Templates/facets_facets_display.tpl",
+        "suitecommerce/GlobalViews@1.4.1/Templates/global_views_star_rating.tpl": "Templates/global_views_star_rating.tpl",
+        "suitecommerce/Facets@3.2.0/Templates/facets_browse_category_heading.tpl": "Templates/facets_browse_category_heading.tpl"
+	}
+}

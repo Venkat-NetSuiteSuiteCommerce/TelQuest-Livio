@@ -1,0 +1,26 @@
+/* Home Carousel variables */
+$sc-desktop-carousel-slide-height: 400px; /* editable({"type": "string", "label": "Home page desktop carousel slide height"}) */
+$sc-mobile-carousel-slide-height: 180px; /* editable({"type": "string", "label": "Home page mobile carousel slide height"}) */
+
+$sc-carousel-slide-caption-top-m: 140px; /* editable({"type": "string", "label": "Home page caption top distance - medium screens"}) */
+$sc-carousel-slide-caption-top-xs: 10px; /* editable({"type": "string", "label": "Home page caption top distance - very small screens"}) */
+$sc-carousel-slide-caption-top-s: 40px; /* editable({"type": "string", "label": "Home page caption top distance - small screens"}) */
+$sc-carousel-slide-caption-padding-left-m: 110px; /* editable({"type": "string", "label": "Home page caption left padding - medium screens"}) */
+
+$sc-carousel-title-size-desktop: 50px; /* editable({"type": "string", "label": "Home page slide title font size - desktop"}) */
+$sc-carousel-title-size-mobile: 35px; /* editable({"type": "string", "label": "Home page slide title font size - mobile"}) */
+$sc-carousel-title-color: $sc-neutral-shade-0; /* editable({"type": "color", "label": "Home page slide title color"}) */
+$sc-carousel-slide-caption-title-weight: $sc-font-weight-light; /* editable({"type": "string", "label": "Home page slide title font weight"}) */
+
+$sc-carousel-text-size: 19px; /* editable({"type": "string", "label": "Home page slide text font-size"}) */
+$sc-carousel-text-color: $sc-neutral-shade-0; /* editable({"type": "color", "label": "Home page slide text color"}) */
+$sc-carousel-slide-caption-text-weight: $sc-font-weight-normal; /* editable({"type": "string", "label": "Home page slide text font weight"}) */
+$sc-carousel-slide-caption-text-width: 400px; /* editable({"type": "string", "label": "Home page slide text box width"}) */
+$sc-carousel-slide-caption-text-line-height: 30px; /* editable({"type": "string", "label": "Home page slide text line height"}) */
+
+$sc-carousel-button-color: $sc-color-primary; /* editable({"type": "color", "label": "Home page carousel button color"}) */
+$sc-carousel-button-border-color: $sc-color-skyblue; /* editable({"type": "color", "label": "Home page carousel button border color"}) */
+$sc-carousel-button-hover-color: $sc-color-skyblue; /* editable({"type": "color", "label": "Home page carousel button hover color"}) */
+$sc-carousel-button-border-hover-color: $sc-color-skyblue; /* editable({"type": "color", "label": "Home page carousel button border hover color"}) */
+$sc-carousel-button-underline-size: 4px; /* editable({"type": "string", "label": "Home page carousel button underline size"}) */
+$sc-carousel-button-underline-color: $sc-color-skyblue; /* editable({"type": "color", "label": "Home page carousel button underline color"}) */

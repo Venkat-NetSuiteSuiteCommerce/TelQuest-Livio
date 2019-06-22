@@ -1,0 +1,22 @@
+{
+	"type": "object",
+
+	"subtab": {
+        "id": "faviconPath",
+        "title": "Favicon Path",
+        "description": "Configure the Favicon",
+        "group": "advancedSettings"
+    },    
+   
+	"properties": {
+		"faviconPath": {
+            "group": "advancedSettings",
+            "subtab": "faviconPath",
+			"type": "string",
+			"title": "Favicon of the Website",
+			"description": "Add the path to the site's favicon.",
+			"default": ""
+		}
+	}
+
+}

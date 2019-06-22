@@ -1,0 +1,111 @@
+{
+  "type": "object",
+  "group": {
+    "id": "extras",
+    "title": "Extras",
+    "description": "Configuration Extras"
+  },
+  "subtab": {
+    "id": "contactUs",
+    "title": "Contact Us",
+    "group": "extras"
+  },
+  "properties": {
+    "contactUs.enabled": {
+      "group": "extras",
+      "subtab": "contactUs",
+      "type": "boolean",
+      "title": "Enabled",
+      "default": false
+    },
+    "contactUs.formId": {
+      "group": "extras",
+      "subtab": "contactUs",
+      "type": "string",
+      "title": "Form ID"
+    },
+    "contactUs.hash": {
+      "group": "extras",
+      "subtab": "contactUs",
+      "type": "string",
+      "title": "Generated Hash"
+    },
+    "contactUs.urlcomponent": {
+      "group": "extras",
+      "subtab": "contactUs",
+      "type": "string",
+      "title": "Url Component",
+      "mandatory": true,
+      "default": "lead-form"
+    },
+    "contactUs.pagename": {
+      "group": "extras",
+      "subtab": "contactUs",
+      "type": "string",
+      "title": "Page Name",
+      "mandatory": true,
+      "default": "Lead Form"
+    },
+    "contactUs.pagetitle": {
+      "group": "extras",
+      "subtab": "contactUs",
+      "type": "string",
+      "title": "Page Title",
+      "mandatory": true,
+      "default": "Lead Form"
+    },
+    "contactUs.meta": {
+      "group": "extras",
+      "subtab": "contactUs",
+      "type": "string",
+      "nsType": "textarea",
+      "title": "Meta Description"
+    },
+    "contactUs.fields": {
+      "group": "extras",
+      "type": "array",
+      "subtab": "contactUs",
+      "title": "Additional Case Form Fields",
+      "description": "",
+      "items": {
+        "type": "object",
+        "properties": {
+          "displayName" : {
+            "type": "string",
+            "title": "Display Name",
+            "description": ""
+          },
+          "fieldId" : {
+            "type": "string",
+            "title": "Field Id",
+            "description": ""
+          },
+          "mandatory" : {
+            "type": "boolean",
+            "title": "Mandatory",
+            "description": ""
+          },
+          "requiredmsg" : {
+            "type": "string",
+            "title": "Error Message (IF Mandatory)",
+            "description": ""
+          }
+        }
+      },
+      "default": [
+        {
+          "displayName": "First Name",
+          "fieldId": "firstname",
+          "mandatory": true,
+          "requiredmsg": "First name is required"
+        },
+        {
+          "displayName": "Last Name",
+          "fieldId": "lastname",
+          "mandatory": true,
+          "requiredmsg": "Last name is required"
+        }
+      ]
+    }
+  }
+}

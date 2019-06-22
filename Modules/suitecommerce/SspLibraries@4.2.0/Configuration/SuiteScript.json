@@ -1,0 +1,164 @@
+{
+    "type": "object",
+    "subtab": {
+        "id": "backend",
+        "group": "advancedSettings",
+        "title": "Backend",
+        "docRef": "bridgehead_4667044390",
+        "description": "SuiteScript related configuration"
+    },
+    "properties": {
+        "orderShoppingFieldKeys.keys": {
+            "group": "advancedSettings",
+			"subtab": "backend",
+            "title": "Shopping's Order",
+            "description": "These are the fields of Shopping's order record, a.k.a the Cart",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "title": "Keys"
+            },
+            "default": [
+                "shipaddress",
+                "summary",
+                "promocodes"
+            ]
+        },
+        "orderShoppingFieldKeys.items": {
+            "group": "advancedSettings",
+			"subtab": "backend",
+            "title": "Shopping's Order Items",
+            "description": "These are the fields for each item of Shopping's order record, a.k.a the Cart",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "title": "Items"
+            },
+            "default": [
+                "amount",
+                "promotionamount",
+                "promotiondiscount",
+                "orderitemid",
+                "quantity",
+                "minimimquantity",
+                "onlinecustomerprice_detail",
+                "internalid",
+                "options",
+                "itemtype",
+                "rate",
+                "rate_formatted",
+                "taxrate1",
+                "taxtype1",
+                "taxrate2",
+                "taxtype2",
+                "tax1amt",
+                "discounts_impact"
+            ]
+        },
+        "orderCheckoutFieldKeys.keys": {
+            "group": "advancedSettings",
+			"subtab": "backend",
+            "title": "Checkout's Order",
+            "description": "These are the fields for Checkout's order record",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "title": "Keys"
+            },
+            "default": [
+                "giftcertificates",
+                "shipaddress",
+                "billaddress",
+                "payment",
+                "summary",
+                "promocodes",
+                "shipmethod",
+                "shipmethods",
+                "agreetermcondition",
+                "purchasenumber"
+            ]
+        },
+        "orderCheckoutFieldKeys.items": {
+            "group": "advancedSettings",
+			"subtab": "backend",
+            "type": "array",
+            "title": "Checkout's Order Items",
+            "description": "These are the fields for each item of Checkout's order record",
+            "uniqueItems": true,
+            "items": {
+                "type": "string",
+                "title": "Items"
+            },
+            "default": [
+                "amount",
+                "promotionamount",
+                "promotiondiscount",
+                "orderitemid",
+                "quantity",
+                "minimumquantity",
+                "onlinecustomerprice_detail",
+                "internalid",
+                "rate",
+                "rate_formatted",
+                "options",
+                "itemtype",
+                "itemid",
+                "taxrate1",
+                "taxtype1",
+                "taxrate2",
+                "taxtype2",
+                "tax1amt",
+                "discounts_impact"
+            ]
+        },
+        "suitescriptResultsPerPage": {
+            "group": "advancedSettings",
+			"subtab": "backend",
+            "type": "integer",
+            "title": "nlapiSearchRecord Results Per Page",
+            "description": "This integer specifies the default number of search results displayed per page. Any SuiteCommerce Advanced feature that displays search results uses this value by default.",
+            "default": 20
+        },
+        "fieldKeys.itemsFieldsAdvancedName": {
+            "group": "advancedSettings",
+			"subtab": "backend",
+            "type": "string",
+            "title": "Items Fields Advanced Name",
+            "description": "This name sets the Field Set to be used when using the Item Search API to return item details.",
+            "default": "order"
+        },
+        "fieldKeys.itemsFieldsStandardKeys": {
+            "group": "advancedSettings",
+			"subtab": "backend",
+            "title": "Item Fields Standard",
+            "description": "These are the fields for items in the order of SiteBuilder",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "title": "Keys"
+            },
+            "default": [
+                "canonicalurl",
+                "displayname",
+                "internalid",
+                "itemid",
+                "itemoptions_detail",
+                "itemtype",
+                "minimumquantity",
+                "onlinecustomerprice_detail",
+                "pricelevel1",
+                "pricelevel1_formatted",
+                "isinstock",
+                "ispurchasable",
+                "isbackordable",
+                "outofstockmessage",
+                "stockdescription",
+                "showoutofstockmessage",
+                "storedisplayimage",
+                "storedisplayname2",
+                "storedisplaythumbnail",
+                "isfullfillable"
+            ]
+        }
+    }
+}

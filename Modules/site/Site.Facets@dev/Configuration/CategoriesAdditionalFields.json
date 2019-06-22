@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "modifications": [
+    {
+      "target": "$.resource.fields.commercecategory",
+      "action": "add",
+      "value": "custrecord_description_for_brands"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*"
+        ],
+        "configuration": [
+            "Configuration/*.json"
+        ]
+    },
+    "jshint": "false"
+}

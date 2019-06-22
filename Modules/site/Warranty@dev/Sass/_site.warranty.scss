@@ -1,0 +1,51 @@
+.cart-warranty-modal-view-copy {
+  @extend .col-sm-4;
+  h5 {
+    color: #000;
+  }
+  p {
+    font-weight: 700;
+  }
+  small {
+    font-size: 14px;
+    color: #767d84;
+    margin: 10px 0;
+    display: block;
+
+  }
+}
+.modal-warranty-cart {
+  .cart-lines-table-last-warranty {
+    @extend .col-sm-4;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+  }
+}
+.global-views-confirmation-confirm-button {
+  @extend .cart-summary-button-proceed-checkout;
+  padding: 15px 10px;
+  width: 48%;
+  display: inline-block;
+  margin-right: 5px;
+  @media(max-width: $screen-xs) {
+    width: 100%;
+    display: block;
+  }
+}
+.global-views-confirmation-cancel-button {
+  @extend .cart-confirmation-modal-continue-shopping-button;
+  background-color: #C6D0D6;
+  color: #726F6F;
+  margin-left: 5px;
+  width: 48%;
+  display: inline-block;
+  border: 0;
+  &:hover {
+    border: 0;
+  }
+  @media(max-width: $screen-xs) {
+    width: 100%;
+    display: block;
+    margin: 0 !important;
+  }
+}

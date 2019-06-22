@@ -1,0 +1,71 @@
+{
+	"type": "object"
+,	"group": {
+		"id": "myAccountApp"
+	,	"title": "My Account"
+	,	"description": "My Account configuration"
+	}
+,	"subtab": {
+		"id": "transactionRecordOriginMapping"
+	,	"title": "SCIS Integration"
+	,	"description": "SCIS Integration"
+	,   "group": "myAccountApp"
+	,	"docRef": "bridgehead_4678713532"
+	}
+,	"properties": {
+		"transactionRecordOriginMapping": {
+			"group": "myAccountApp"
+		,	"subtab": "transactionRecordOriginMapping"
+		,	"type": "array"
+		,	"title": "Transaction Record Origin Mapping"		
+		,	"description": ""
+		,	"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+                    	"type": "string"
+                    ,	"title": "ID"
+                	,	"description": ""
+                    }
+				,	"origin": {
+                    	"type": "integer"
+                    ,	"title": "Origin"
+                	,	"description": ""
+                    }
+				,	"name": {
+                    	"type": "string"
+                    ,	"title": "Name"
+                	,	"description": ""
+					,	"translate": true
+                    }
+				,	"detailedName": {
+                    	"type": "string"
+                    ,	"title": "Detailed name"
+                	,	"description": ""
+					,	"translate": true
+                    }
+				}
+			}
+		,	"default": [
+				{
+					"id": "backend"
+				,	"origin": 0
+				,	"name": ""
+				,	"detailedName": "Purchase"
+				}
+			,	{
+					"id": "inStore"
+				,	"origin": 1
+				,	"name": "In Store"
+				,	"detailedName": "In Store Purchase"
+				}
+			,	{
+					"id": "online"
+				,	"origin": 2
+				,	"name": "Online"
+				,	"detailedName": "Online Purchase"
+				}
+			]
+		}
+	}
+}

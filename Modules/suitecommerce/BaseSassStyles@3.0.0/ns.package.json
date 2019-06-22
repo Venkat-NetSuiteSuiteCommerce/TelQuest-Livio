@@ -1,0 +1,8 @@
+{
+    "gulp": {
+        "sass": [
+            "Sass/**/*.scss",
+            "!main.scss"
+        ]
+    }
+}

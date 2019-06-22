@@ -1,0 +1,122 @@
+{
+    "type": "object",
+    "group": {
+        "id": "storeLocator",
+        "title": "Store Locator",
+        "description": "Store Locator"
+    },
+    "subtab": {
+        "id": "storeLocatorGeneral",
+        "group": "storeLocator",
+        "title": "Store Locator",
+        "docRef": "section_4700825017",
+        "description": "Store locator settings"
+    },
+    "properties": {
+        "storeLocator.icons.stores": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "string",
+            "title": "Icons > Stores",
+            "description": "Enter the URL for the store marker icon.This icon appears in the store list, next to the name of the store and in the Store Information popup (if enabled).",
+            "default": "img/default-marker.png"
+        },
+        "storeLocator.icons.position": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "string",
+            "title": "Icons > Position",
+            "description": "Enter the URL for the store marker icon to appear on the map at the stores relative location.",
+            "default": "img/position-marker.png"
+        },
+        "storeLocator.icons.autocomplete": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "string",
+            "title": "Icons > Autocomplete",
+            "description": "Enter the URL for the store marker icon to appear to the left of the store name within the predicted results of the auto-complete list.",
+            "default": "img/position-marker.png"
+        },
+        "storeLocator.zoomInDetails": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "integer",
+            "title": "Zoom level in PDP",
+            "description": "Enter the zoom level to be applied in the map when viewing specific store details (applied in StoreLocator.Details.View.js).",
+            "default": 17
+        },
+        "storeLocator.openPopupOnMouseOver": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "boolean",
+            "title": "Show Store popup",
+            "description": "Check this box to enable the Store Information popup on the map when a user hovers the pointer over the associated store in the Store Locator list.",
+            "default": true
+        },
+        "storeLocator.title": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "string",
+            "title": "Title",
+            "description": "Enter the title of the Store Locator feature as rendered on the main view and in the header. The default is Store Locator.",
+            "translate": true,
+            "default": "Store Locator"
+        },
+        "storeLocator.isEnabled": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "boolean",
+            "title": "Is Enabled",
+            "description": "Check this box to enable the Store Locator feature.",
+            "default": true
+        },
+        "storeLocator.radius": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "integer",
+            "title": "Radius",
+            "description": "Enter a number to specify the search radius from the current location or entered address in which to display stores on the map. The radius units can be configured for kilometers or miles.",
+            "default": 50
+        },
+        "storeLocator.showLocalizationMap": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "boolean",
+            "title": "Show Localization Map",
+            "description": "Check this box to enable a mobile-device-only search map. If this property is set to true, a small map appears at the top of the screen on mobile devices while searching for an address.",
+            "default": true
+        },
+        "storeLocator.showAllStoresRecordsPerPage": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "integer",
+            "title": "Number of Stores Per Page",
+            "description": "Enter a number to specify the number of stores listed per page if a shopper selects the See Complete List of Stores link. ",
+            "default": 28
+        },
+        "storeLocator.defaultTypeLocations": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "string",
+            "title": "Default type of locations",
+            "description": "Enter the type of stores to return (stores, warehouses, or both). If no property is specified, the map and list display both location types. 1 = stores. 2 = warehouses, blank = both",
+            "default": "1"
+        },
+        "storeLocator.defaultQuantityLocations": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "integer",
+            "title": "Default quantity locations",
+            "description": "Enter the maximum number of locations returned if no results exist within the search radius specified using the Radius property.",
+            "default": 3
+        },
+        "storeLocator.distanceUnit": {
+            "group": "storeLocator",
+            "subtab": "storeLocatorGeneral",
+            "type": "string",
+            "title": "Distance unit",
+            "description": "Enter mi to configure the radius measurement in miles. Enter km to configure the radius measurement in kilometers. ",
+            "default": "mi"
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "addThis",
+        "group": "integrations",
+        "title": "addThis",
+        "docRef": "bridgehead_4667036451",
+        "description": "addThis sharing service"
+    },
+
+    "properties": {
+        "addThis.enable": {
+            "group": "integrations",
+            "subtab": "addThis",
+            "type": "boolean",
+            "title": "Enable",
+            "description": "Check this box to enable the AddThis sharing service.",
+            "default": false
+        },
+        "addThis.pubId": {
+            "group": "integrations",
+            "subtab": "addThis",
+            "type": "string",
+            "title": "Public Id",
+            "description": "Enter your AddThis Profile ID here.",
+            "default": "ra-50abc2544eed5fa5"
+        },
+        "addThis.toolboxClass": {
+            "group": "integrations",
+            "subtab": "addThis",
+            "type": "string",
+            "title": "Toolbox class",
+            "description": "This string specifies the class to be added to the AddThis Toolbox.",
+            "default": "addthis_default_style addthis_toolbox addthis_button_compact"
+        },
+        "addThis.servicesToShow": {
+            "group": "integrations",
+            "subtab": "addThis",
+            "type": "array",
+            "title": "Services to show",
+            "description": "Services to show",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "title": "Key",
+                        "description": ""
+                    },
+                    "value": {
+                        "type": "string",
+                        "title": "Value",
+                        "description": "",
+                        "translate": true
+                    }
+                }
+            },
+            "default": [
+                {
+                    "key": "facebook",
+                    "value": "Facebook"
+                },
+                {
+                    "key": "google_plusone",
+                    "value": ""
+                },
+                {
+                    "key": "email",
+                    "value": "Email"
+                },
+                {
+                    "key": "expanded",
+                    "value": "More"
+                }
+            ]
+
+        },
+        "addThis.options": {
+            "group": "integrations",
+            "subtab": "addThis",
+            "type": "array",
+            "title": "Options",
+            "description": "addThis options",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "title": "Key",
+                        "description": ""
+                    },
+                    "value": {
+                        "type": "string",
+                        "title": "Value",
+                        "description": "",
+                        "translate": true
+                    }
+                }
+            },
+            "default": [
+                {
+                    "key": "username",
+                    "value": ""
+                },
+                {
+                    "key": "data_track_addressbar",
+                    "value": true
+                }
+            ]
+
+        }
+    }
+}

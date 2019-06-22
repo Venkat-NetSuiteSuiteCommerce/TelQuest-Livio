@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript": [
+			"backbone.stickit.js"
+		]
+	}
+,	"jshint": "false"
+}

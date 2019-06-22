@@ -1,0 +1,72 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "facetDelimiters",
+        "group": "catalog",
+        "title": "Facets Delimiters",
+        "docRef": "bridgehead_4667037342",
+        "description": "Facets SEO Limits.  Limits for the SEO generated links in the facets browser. Once the limits are hitted the url is replaced with # in the links"
+    },
+
+    "properties": {
+        "facetDelimiters.betweenFacetNameAndValue": {
+            "type": "string",
+            "group": "catalog",
+            "subtab": "facetDelimiters",
+            "title": "Between facet name and value",
+            "description": "Add a character to appear in the URL between the facet name and value.",
+            "default": "/"
+        },
+        "facetDelimiters.betweenDifferentFacets": {
+            "type": "string",
+            "group": "catalog",
+            "subtab": "facetDelimiters",
+            "title": "Between different facets",
+            "description": "Add a character to appear in the URL between the different facets.",
+            "default": "/"
+        },
+        "facetDelimiters.betweenDifferentFacetsValues": {
+            "type": "string",
+            "group": "catalog",
+            "subtab": "facetDelimiters",
+            "title": "Between different facets values",
+            "description": "Add a character to appear in the URL between the different facet values.",
+            "default": ","
+        },
+        "facetDelimiters.betweenRangeFacetsValues": {
+            "type": "string",
+            "group": "catalog",
+            "subtab": "facetDelimiters",
+            "title": "Between range facets values",
+            "description": "Add a character to appear in the URL and delimit facet ranges.",
+            "default": "to"
+        },
+        "facetDelimiters.betweenFacetsAndOptions": {
+            "type": "string",
+            "group": "catalog",
+            "subtab": "facetDelimiters",
+            "title": "Between facets and options",
+            "description": "Add a character to appear in the URL between the different facet and its options.",
+            "default": "?"
+        },
+        "facetDelimiters.betweenOptionNameAndValue": {
+            "type": "string",
+            "group": "catalog",
+            "subtab": "facetDelimiters",
+            "title": "Between option name and value",
+            "description": "Add a character to appear in the URL between the option name and its value.",
+            "default": "="
+        },
+        "facetDelimiters.betweenDifferentOptions": {
+            "type": "string",
+            "group": "catalog",
+            "subtab": "facetDelimiters",
+            "title": "Between different options",
+            "description": "Add a character to appear in the URL between two options.",
+            "default": "&"
+        }
+    }
+
+
+}

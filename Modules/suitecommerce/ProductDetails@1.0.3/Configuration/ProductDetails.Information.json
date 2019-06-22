@@ -1,0 +1,47 @@
+{
+	"type": "object",
+
+    "properties": {
+
+        "productDetailsInformation": {
+            "group": "catalog",
+            "type": "array",
+            "title": "Product Details Information",
+            "docRef": "bridgehead_4667037522",
+            "description": "Details fields to be displayed on a stacked list on the PDP. Multiple item fields can be shown in sections.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Label to use in the UI to reference this detail option.",
+                        "translate": true,
+                        "mandatory": true
+                    },
+                    "contentFromKey": {
+                        "type": "string",
+                        "title": "id",
+                        "description": "Item record's field to show its value in this item detail section",
+                        "mandatory": true
+                    },
+                    "itemprop": {
+                        "type": "string",
+                        "title": "itemprop",
+                        "description": "Optional. The name of the 'itemprop' schema.org HTML attribute. "
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "name": "Details",
+                    "contentFromKey": "storedetaileddescription",
+                    "itemprop": "description"
+                }
+            ]
+        }
+
+    }
+
+}

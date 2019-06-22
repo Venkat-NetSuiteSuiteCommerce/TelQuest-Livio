@@ -1,0 +1,14 @@
+.idea
+node_modules/*
+**/node_modules
+bin/*
+*.log
+.nsdeploy*
+payload.json
+LocalDistribution
+DeployDistribution
+.DS_Store
+**/.DS_Store
+templates-manifest-checkout.json
+templates-manifest-myaccount.json
+templates-manifest-shopping.json

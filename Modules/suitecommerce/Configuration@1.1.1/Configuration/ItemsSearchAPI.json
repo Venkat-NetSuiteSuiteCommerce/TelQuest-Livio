@@ -1,0 +1,81 @@
+{
+	"type": "object",
+    "group": {
+        "id": "advancedSettings",
+        "title": "Advanced",
+        "description": "Advanced application configuration"
+    },
+    "subtab": {
+        "id": "searchApi",
+        "group": "advancedSettings",
+        "title": "Search Results",
+        "docRef": "bridgehead_4667044776",
+        "description": "Search Results related configuration "
+    },
+    "properties": {
+        "searchApiMasterOptions": {
+            "group": "advancedSettings",
+            "subtab": "searchApi",
+            "type": "array",
+            "title": "Search API Fieldsets",
+            "description": "Options to be passed when querying the Items Search API",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "id",
+                        "enum": ["Facets", "itemDetails", "relatedItems", "correlatedItems", "merchandisingZone", "typeAhead", "itemsSearcher", "CmsAdapterSearch"],
+                        "description": "The search type of resource"
+                    },
+                    "fieldset": {
+                        "type": "string",
+                        "title": "fieldset",
+                        "description": "The 'fieldset' parameter value"
+                    },
+                    "include": {
+                        "type": "string",
+                        "title": "include",
+                        "description": "The 'include' parameter value"
+                    }
+                }
+            },
+
+            "default": [
+                {
+                    "id": "Facets",
+                    "fieldset": "search",
+                    "include": "facets"
+                },
+                {
+                    "id": "itemDetails",
+                    "fieldset": "details",
+                    "include": "facets"
+                },
+                {
+                    "id": "relatedItems",
+                    "fieldset": "relateditems_details"
+                },
+                {
+                    "id": "correlatedItems",
+                    "fieldset": "correlateditems_details"
+                },
+                {
+                    "id": "merchandisingZone"
+                },
+                {
+                    "id": "typeAhead",
+                    "fieldset": "typeahead"
+                },
+                {
+                    "id": "itemsSearcher",
+                    "fieldset": "itemssearcher"
+                },
+				{
+					"id": "CmsAdapterSearch",
+					"fieldset": "search"
+				}
+            ]
+        }
+    }
+}
