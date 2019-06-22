@@ -1,8 +1,0 @@
-{
-	"gulp": {
-		"javascript": [
-			"jquery.zoom.js"
-		]
-	}
-,	"jshint": "false"
-}

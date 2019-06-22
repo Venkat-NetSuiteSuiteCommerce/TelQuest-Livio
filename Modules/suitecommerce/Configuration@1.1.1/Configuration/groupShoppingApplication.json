@@ -1,8 +1,0 @@
-{
-    "type": "object"
-,   "group": {
-        "id": "shoppingApplication"
-    ,   "title": "Shopping"
-    ,   "description": "Shopping Application configuration"
-    }
-}

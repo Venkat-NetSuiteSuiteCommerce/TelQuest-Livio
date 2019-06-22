@@ -1,8 +1,0 @@
-{
-	"gulp": {
-		"javascript": [
-			"typeahead.bundle.js"
-		]
-	}
-,	"jshint": "false"
-}

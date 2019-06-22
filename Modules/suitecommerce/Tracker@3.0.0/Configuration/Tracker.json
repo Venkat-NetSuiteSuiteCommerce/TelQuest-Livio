@@ -1,8 +1,0 @@
-{
-	"type": "object"
-,	"group": {
-		"id": "tracking"
-	,	"title": "Tracking Services"
-	,	"description": "Configure tracking services like Analytics and Tag Manager"
-	}
-}
