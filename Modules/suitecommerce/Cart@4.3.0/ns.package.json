@@ -1,0 +1,28 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ],
+        "templates": [
+            "Templates/*.*"
+        ],
+        "unit-test-files": [
+            "Tests/*.js"
+        ],
+        "unit-test-entry-point": [
+            "Tests/UnitTest.Cart.js"
+        ],
+        "sass": [
+            "Sass/**/*.scss"
+        ],
+        "configuration": [
+            "Configuration/*.json"
+        ],
+        "ssp-libraries": [
+            "SuiteScript/*.js"
+        ],
+        "backend-tests": [
+            "SuiteScriptTests/*.js"
+        ]
+    }
+}

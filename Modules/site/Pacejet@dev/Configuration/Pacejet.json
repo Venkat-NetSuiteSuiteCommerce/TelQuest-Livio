@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "thirdparties.freeshipping": {
+            "group": "thirdpartiesGroup",
+            "type": "string",
+            "subtab": "thirdparties",
+            "title": "Free Shipping Method",
+            "default": "77004"
+        }
+    }
+}
+

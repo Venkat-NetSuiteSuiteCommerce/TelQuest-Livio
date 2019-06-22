@@ -1,0 +1,11 @@
+{
+	"gulp": {
+		"javascript": [
+			"jquery.bxslider.custom.js"
+		]
+	,	"images": [
+			"Images/*"
+		]
+	}
+,	"jshint": "false"
+}

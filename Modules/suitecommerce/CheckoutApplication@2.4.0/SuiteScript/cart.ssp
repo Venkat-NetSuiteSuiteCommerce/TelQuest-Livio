@@ -1,0 +1,157 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+	var SiteSettings
+	,	parameters
+	,	siteType
+	,	Environment
+	,	Language
+	,	Currency
+	,	Error
+	,	cart_bootstrap
+	,	login
+	,	Application;
+
+	try
+	{
+		Application = require('Application');
+		SiteSettings = require('SiteSettings.Model').get();
+		siteType = SiteSettings.sitetype;
+
+		Environment = Application.getEnvironment(request);
+		Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		Currency = Environment.currencyCodeSpecifiedOnUrl;
+
+		cart_bootstrap = true;
+
+	}
+	catch (e)
+	{
+		Error = Application.processError(e);
+	}
+%>
+
+<!DOCTYPE html>
+<html <%= Language ? 'lang="' + Language.replace('_', '-') + '"' : '' %>>
+	<head>
+		<link rel="shortcut icon" href="<%= session.getAbsoluteUrl("img/favicon.ico") %>" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Shopping Cart</title>
+		<% if (siteType === 'STANDARD') { %>
+			<%= getPageFullHead() %>
+		<% } %>
+		<script>
+			var SC = window.SC = {
+				ENVIRONMENT: {
+					jsEnvironment: (typeof nsglobal === 'undefined') ? 'browser' : 'server'
+				}
+			,	isCrossOrigin: function() { return '<%= Environment.currentHostString %>' !== document.location.hostname; }
+			,	isPageGenerator: function() { return typeof nsglobal !== 'undefined'; }
+			,	getSessionInfo: function(key)
+				{
+					var session = SC.SESSION || SC.DEFAULT_SESSION || {};
+					return (key) ? session[key] : session;
+				}
+			,	getPublishedObject: function(key)
+				{
+					return SC.ENVIRONMENT && SC.ENVIRONMENT.published && SC.ENVIRONMENT.published[key] ? SC.ENVIRONMENT.published[key] : null;
+				}
+			};
+			<% /* Define a function to load script at runtime
+				The script can be removed of the generated html by the server seo, please see SCA.Checkout.Starter.js. */ %>
+			function loadScript (data)
+			{
+				'use strict';
+
+				var element;
+				if (data.url)
+				{
+					element = '<script src="'+ data.url +'"></' + 'script>';
+				}
+				else
+				{
+					element = '<script>'+ data.code + '</' + 'script>';
+				}
+				if (data.seo_remove)
+				{
+					document.write(element);
+				}
+				else
+				{
+					document.write('</div>'+ element +'<div class="seo-remove">');
+				}
+			}
+		</script>
+
+
+		<!--[if !IE]><!-->
+			<link rel="stylesheet" href="<%= session.getAbsoluteUrl('css/checkout.css') %>">
+		<!--<![endif]-->
+
+		<!--[if lte IE 9]>
+		{{#each cssnumbers}}
+			<link rel="stylesheet" href="<%= session.getAbsoluteUrl('css_ie/checkout_{{this}}.css') %>">
+				{{/each}}
+		  	<link rel="stylesheet" href="<%= session.getAbsoluteUrl('css_ie/checkout.css') %>">
+		<![endif]-->
+
+		<!--[if lt IE 9]>
+			<script src="<%= session.getAbsoluteUrl('javascript/html5shiv.min.js') %>"></script>
+		  	<script src="<%= session.getAbsoluteUrl('javascript/respond.min.js') %>"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<noscript>
+			<div class="container">
+				<div class="alert alert-error alert-noscript">
+					<strong>Javascript is disabled on your browser.</strong><br>
+					To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+				</div>
+			</div>
+		</noscript>
+
+		<% if (siteType && siteType === 'STANDARD') { %>
+			<div id='div__header' style="overflow: hidden;" class='noprint' leftmargin='0' topmargin='0' marginwidth='1' >
+				<table border='0' cellspacing='0' cellpadding='0' width='100%'>
+					<%= getPageTop() %>
+				</table>
+			</div>
+		<% } %>
+
+		<div id="main" class="main"></div>
+
+		<script>
+			loadScript({
+				url: '<%= session.getAbsoluteUrl("checkout.environment.ssp?lang=" + Language + "&cur=" + Currency + "&cart-bootstrap=T" + "&X-SC-Touchpoint=checkout") %>&t=' + (new Date().getTime())
+			});
+		</script>
+
+		<% if (Error) { %>
+			<script>SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;</script>
+		<% } %>
+
+		<%
+		   var js_files = app_includes.checkout.js;
+		   for(var i=0; i < js_files.length; i++)
+		   {
+		%>
+				<script src="<%= session.getAbsoluteUrl(js_files[i]) %>?t={{timestamp}}"></script>
+		<%   
+		   }
+		%>
+
+		<script>
+			window.location.hash = 'cart';
+		</script>
+
+		<% if (typeof(release_metadata) != 'undefined') { %>
+		<!-- <%= JSON.stringify(release_metadata) %> -->
+		<% } %>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "recentlyvieweditems",
+        "group": "catalog",
+        "title": "Recently Viewed Items",
+        "docRef": "bridgehead_4667037511",
+        "description": "Recently Viewed Items"
+    },
+
+    "properties": {
+
+       "recentlyViewedItems.useCookie": {
+            "group": "catalog",
+            "subtab": "recentlyvieweditems",
+            "type": "boolean",
+            "title": "Use cookies for Recently Viewed Items",
+            "description": "Check this box to track recently viewed items with a browser cookie.",
+            "default": true
+        },
+
+        "recentlyViewedItems.numberOfItemsDisplayed": {
+            "group": "catalog",
+            "subtab": "recentlyvieweditems",
+            "type": "string",
+            "title": "Number of displayed items",
+            "description": "Enter the number of recently viewed items to display in the browser.",
+            "default": "6"
+        }
+
+    }
+
+}

@@ -1,0 +1,51 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "cookieWarningBanner",
+        "title": "Cookies Warning Banner",
+        "description": "cookie Warning Banner",
+        "docRef": "bridgehead_4393102020",
+        "group": "layout"
+    },
+    "properties": {
+
+        "cookieWarningBanner.closable": {
+            "group": "layout",
+            "subtab": "cookieWarningBanner",
+            "subtab": "cookieWarningBanner",
+            "type": "boolean",
+            "title": "User may dismiss banner",
+            "description": "Check this box to let users close the cookie warning banner.",
+            "default": true
+        },
+        "cookieWarningBanner.saveInCookie": {
+            "group": "layout",
+            "subtab": "cookieWarningBanner",
+            "type": "boolean",
+            "title": "Save in cookie",
+            "description": "Check this box to save the value of the User May Dismiss Banner property is stored in a browser cookie.",
+            "default": true
+        },
+        "cookieWarningBanner.anchorText": {
+            "group": "layout",
+            "subtab": "cookieWarningBanner",
+            "type": "string",
+            "title": "Anchor text",
+            "description": "Enter the text used in the link to a modal dialog whose content is defined in the Message property.",
+            "translate": true,
+            "default": "Learn More"
+        },
+        "cookieWarningBanner.message": {
+            "group": "layout",
+            "subtab": "cookieWarningBanner",
+            "type": "string",
+            "title": "message",
+            "nsType": "textarea",
+            "description": "Enter the text of the modal dialog. This text is displayed when the user clicks the link defined in the Anchor Text property.",
+            "translate": true,
+            "default": "To provide a better shopping experience, our website uses cookies. Continuing use of the site implies consent."
+        }
+
+    }
+}

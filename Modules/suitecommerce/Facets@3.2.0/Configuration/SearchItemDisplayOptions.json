@@ -1,0 +1,227 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "resultDisplayOptions",
+        "title": "Result Display Options",
+        "description": "Result Display Options",
+        "group": "searchConfig"
+    },
+
+    "properties": {
+
+        "itemsDisplayOptions": {
+            "group": "searchConfig",
+            "subtab": "resultDisplayOptions",
+            "type": "array",
+            "title": "Desktop",
+            "docRef": "bridgehead_4667040161",
+            "description": "Available views for the item list by selecting the templates",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "id",
+                        "description": "The id for this display option",
+                        "mandatory": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Label to use in the UI to reference this sort option.",
+                        "translate": true,
+                        "mandatory": true
+                    },
+                    "template": {
+                        "type": "string",
+                        "title": "template",
+                        "source": "$resource.template.facets-item-cell",
+                        "description": "Template to use in the results of this option",
+                        "mandatory": true
+                    },
+                    "columns": {
+                        "type": "integer",
+                        "title": "columns",
+                        "description": "Number of columns to show in this result list",
+                        "mandatory": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "title": "icon",
+                        "description": "Icon to use in the UI for this option"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "title": "Is default ?",
+                        "description": "Is default ? "
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "id": "list",
+                    "name": "List",
+                    "template": "facets_item_cell_list.tpl",
+                    "columns": 1,
+                    "icon": "icon-display-list"
+                },
+                {
+                    "id": "table",
+                    "name": "Table",
+                    "template": "facets_item_cell_table.tpl",
+                    "columns": 2,
+                    "icon": "icon-display-table"
+                },
+                {
+                    "id": "grid",
+                    "name": "Grid",
+                    "template": "facets_item_cell_grid.tpl",
+                    "columns": 4,
+                    "icon": "icon-display-grid",
+                    "isDefault": true
+                }
+            ]
+        },
+        "itemsDisplayOptionsPhone": {
+            "group": "searchConfig",
+            "subtab": "resultDisplayOptions",
+            "type": "array",
+            "title": "Phone",
+            "description": "Available views for the item list by selecting the templates",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "id",
+                        "description": "The id for this display option",
+                        "mandatory": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Label to use in the UI to reference this sort option.",
+                        "translate": true,
+                        "mandatory": true
+                    },
+                    "template": {
+                        "type": "string",
+                        "title": "template",
+                        "source": "$resource.template.facets-item-cell",
+                        "description": "Template to use in the results of this option",
+                        "mandatory": true
+                    },
+                    "columns": {
+                        "type": "integer",
+                        "title": "columns",
+                        "description": "Number of columns to show in this result list",
+                        "mandatory": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "title": "icon",
+                        "description": "Icon to use in the UI for this option"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "title": "Is default ?",
+                        "description": "Is default ? "
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "id": "list",
+                    "name": "List",
+                    "template": "facets_item_cell_list.tpl",
+                    "columns": 1,
+                    "icon": "icon-display-list"
+                },
+                {
+                    "id": "table",
+                    "name": "Table",
+                    "template": "facets_item_cell_table.tpl",
+                    "columns": 2,
+                    "icon": "icon-display-table",
+                    "isDefault": true
+                }
+            ]
+        },
+        "itemsDisplayOptionsTablet": {
+            "group": "searchConfig",
+            "subtab": "resultDisplayOptions",
+            "type": "array",
+            "title": "Tablet",
+            "description": "Available views for the item list by selecting the templates",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "id",
+                        "description": "The id for this display option",
+                        "mandatory": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Label to use in the UI to reference this sort option.",
+                        "translate": true,
+                        "mandatory": true
+                    },
+                    "template": {
+                        "type": "string",
+                        "title": "template",
+                        "source": "$resource.template.facets-item-cell",
+                        "description": "Template to use in the results of this option",
+                        "mandatory": true
+                    },
+                    "columns": {
+                        "type": "integer",
+                        "title": "columns",
+                        "description": "Number of columns to show in this result list",
+                        "mandatory": true
+                    },
+                    "icon": {
+                        "type": "string",
+                        "title": "icon",
+                        "description": "Icon to use in the UI for this option"
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "title": "Is default ?",
+                        "description": "Is default ? "
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "id": "list",
+                    "name": "List",
+                    "template": "facets_item_cell_list.tpl",
+                    "columns": 1,
+                    "icon": "icon-display-list"
+                },
+                {
+                    "id": "table",
+                    "name": "Table",
+                    "template": "facets_item_cell_table.tpl",
+                    "columns": 2,
+                    "icon": "icon-display-table"
+                },
+                {
+                    "id": "grid",
+                    "name": "Grid",
+                    "template": "facets_item_cell_grid.tpl",
+                    "columns": 4,
+                    "icon": "icon-display-grid",
+                    "isDefault": true
+                }
+            ]
+        }
+    }
+}

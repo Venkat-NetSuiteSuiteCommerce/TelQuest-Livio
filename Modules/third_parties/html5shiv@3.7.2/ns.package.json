@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript-move" : [
+			"dist/html5shiv.min.js"
+		]
+	}
+,	"jshint": "false"
+}

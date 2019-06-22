@@ -1,0 +1,142 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "pinterest",
+        "group": "integrations",
+        "title": "Pinterest",
+        "docRef": "bridgehead_4667036133",
+        "description": "Pinterest"
+    },
+
+    "properties": {
+        "pinterest.enableHover": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "boolean",
+            "title": "Enable hover",
+            "description": "Check this box to enable the Pinterest Pin It to hover over the image.",
+            "default": true
+        },
+        "pinterest.enableButton": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "boolean",
+            "title": "Enable button",
+            "description": "Check this box to enable the Pinterest PinIt button.",
+            "default": true
+        },
+        "pinterest.imageSize": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Image size",
+            "description": "Enter the Pinterest image size ID to show on Pinterest.",
+            "default": "main"
+        },
+        "pinterest.popupOptions.status": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Pinterest popup status",
+            "description": "Select yes to enable the Pinterest popup.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "pinterest.popupOptions.resizable": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Pinterest popup resizable",
+            "description": "Select yes to make the Pinterest popup resizable. Select no to restrict resizing.",
+            "enum": ["yes", "no"],
+            "default": "yes"
+        },
+        "pinterest.popupOptions.scrollbars": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Pinterest popup scrollbars",
+            "description": "Select yes to show scrollbars on the Pinterest popup menu. Select no to hide them.",
+            "enum": ["yes", "no"],
+            "default": "yes"
+        },
+        "pinterest.popupOptions.personalbar": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Pinterest popup personalbar",
+            "description": "Select yes to show a personal bar on the Pinterest popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "pinterest.popupOptions.directories": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Pinterest popup directories",
+            "description": "Select yes to show a directories bar on the Pinterest popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "pinterest.popupOptions.location": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Pinterest popup location",
+            "description": "Select yes to show a location bar on the Pinterest popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "pinterest.popupOptions.toolbar": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Pinterest popup toolbar",
+            "description": "Select yes to show a tool bar on the Pinterest popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "pinterest.popupOptions.menubar": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "string",
+            "title": "Pinterest popup menubar",
+            "description": "Select yes to show a menu bar on the Pinterest popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "pinterest.popupOptions.width": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "integer",
+            "title": "Pinterest popup width",
+            "description": "Enter the width (in pixels) of the Pinterest popup.",
+            "default": 680
+        },
+        "pinterest.popupOptions.height": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "integer",
+            "title": "Pinterest popup height",
+            "description": "Enter the height (in pixels) of the Pinterest popup.",
+            "default": 300
+        },
+        "pinterest.popupOptions.left": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "integer",
+            "title": "Pinterest popup left",
+            "description": "Enter the left offset (in pixels) of the Pinterest popup.",
+            "default": 0
+        },
+        "pinterest.popupOptions.top": {
+            "group": "integrations",
+            "subtab": "pinterest",
+            "type": "integer",
+            "title": "Pinterest popup top",
+            "description": "Enter the top offset (in pixels) of the Pinterest popup.",
+            "default": 0
+        }
+    }
+}

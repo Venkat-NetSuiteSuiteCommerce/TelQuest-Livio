@@ -1,0 +1,14 @@
+{
+  "type": "object",
+
+  "properties": {
+    "likehelpinformation": {
+      "group": "catalog",
+      "subtab": "cart",
+      "type": "string",
+      "title": "Like New Help Information",
+      "description": "Help information for tag Like New",
+      "default": "test"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%	
+	var _ = require('underscore');
+	var Application = require('Application');
+	
+	
+	function nlobjSelectOptionsToNativeObjects(nlobjSelectOptions)
+	{
+		return _.map(nlobjSelectOptions, function(value){
+			return {
+				id: value.getId(),
+				text: value.getText()
+			};
+		});
+	}
+	
+	
+	var cache = nlapiGetCache('customFieldsMetadata');
+
+	function setCache(recordType)
+	{	
+		var recordTypeMetadata = {};
+		var record = nlapiCreateRecord(recordType);
+		_.each(record.getAllFields(), function(fieldId)
+		{
+			if(fieldId.indexOf('custbody') === 0)
+			{
+				var fieldMetadata = record.getField(fieldId);			
+				recordTypeMetadata[fieldId] = {
+					label: fieldMetadata.getLabel(),
+					type: fieldMetadata.getType(),
+					mandatory: fieldMetadata.mandatory
+				};					
+				if (fieldMetadata.getType() === 'select' || fieldMetadata.getType() === 'multiselect')
+		        {
+		        	recordTypeMetadata[fieldId].options = nlobjSelectOptionsToNativeObjects(fieldMetadata.getSelectOptions());
+		        }
+	        }
+		});
+		//two hours cache
+		cache.put(recordType, JSON.stringify(recordTypeMetadata), 7200);
+		return recordTypeMetadata;
+	}	
+	
+	var metadata = {};
+	_.each(SC.Configuration.customFields, function(fieldIds, recordType)
+	{
+		if(fieldIds.length > 0)
+		{			
+			var record = cache.get(recordType);
+			if(record)
+			{	
+				record = JSON.parse(record);
+			}
+			else
+			{				
+				record = setCache(recordType);
+			}
+			var recordTypeMetadata = metadata[recordType] = {};
+			_.each(fieldIds, function(fieldId)
+			{
+				var fieldMetadata = record[fieldId];
+				//reload meta-data if no information is found for a field
+				if(!fieldMetadata)
+				{
+					record = setCache(recordType);
+					fieldMetadata = record[fieldId];
+				}
+				if(fieldMetadata)
+				{
+					recordTypeMetadata[fieldId] = fieldMetadata;
+				}
+			});
+		}
+	});	
+
+	response.write('SC.ENVIRONMENT.customFieldsMetadata=' + JSON.stringify(metadata));
+%>

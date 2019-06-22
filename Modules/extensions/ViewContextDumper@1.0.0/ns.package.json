@@ -1,0 +1,20 @@
+{
+	"gulp": {
+		"javascript": [
+			"JavaScript/*.js"
+		]
+	,	"instrumented-javascript": [
+			"JavaScript/almond.js"
+		]
+	,	"unit-test-files": [
+			"Tests/*.js"
+		]
+	,	"unit-test-entry-point": [
+			"Tests/UnitTest.ViewContextDumper.js"
+		]
+	,	"templates": [
+			"Templates/*"
+		]
+	}
+,	"jshint": "false"
+}

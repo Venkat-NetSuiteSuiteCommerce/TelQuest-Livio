@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript": [
+			"js/bootstrap-datepicker.js"
+		]
+	}
+,	"jshint": "false"
+}

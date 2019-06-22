@@ -1,0 +1,29 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ],
+        "templates": [
+            "Templates/*"
+        ],
+        "sass": [
+            "Sass/**/*.scss"
+        ],
+        "ssp-files": {
+            "SuiteScript/shopping.ssp": "shopping.ssp",
+            "Internals/index-local.ssp": "shopping-local.ssp",
+            "SuiteScript/searchApi.ssp": "searchApi.ssp",
+            "SuiteScript/goToCart.ssp": "goToCart.ssp",
+            "SuiteScript/hosts.config.js": "hosts.config.js",
+            "SuiteScript/logOut.ssp": "logOut.ssp",
+            "SuiteScript/shopping.environment.ssp": "shopping.environment.ssp",
+            "SuiteScript/shopping.user.environment.ssp": "shopping.user.environment.ssp"
+        },
+        "languages": [
+            "Languages/*.js"
+        ],
+        "configuration": [
+            "Configuration/*.json"
+        ]
+    }
+}

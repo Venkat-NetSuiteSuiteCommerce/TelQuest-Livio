@@ -1,0 +1,20 @@
+{
+	"type": "object",
+	"properties": {
+		"productline.multiImageOption": {
+			"group": "catalog",
+			"type": "array",
+			"title": "Multi-Image Option",
+			"description": "Configure what are the item option fields that filter images",
+			"docRef": "bridgehead_4700667446",
+			"items": {
+				"type": "string",
+				"title": "Multi-Image Option"
+			},
+			"default":[
+				"custcol4",
+				"custcol3"
+			]
+		}
+	}
+}

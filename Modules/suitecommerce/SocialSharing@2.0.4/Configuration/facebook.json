@@ -1,0 +1,134 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "facebook",
+        "group": "integrations",
+        "title": "Facebook",
+        "docRef": "bridgehead_4667036337",
+        "description": "Facebook"
+    },
+
+    "properties": {
+        "facebook.enable": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "boolean",
+            "title": "Enable",
+            "description": "Check this box to enable the Facebook addThis sharing service.",
+            "default": false
+        },
+        "facebook.appId": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Application id",
+            "description": "Enter your custom application ID to associate the domain to your application ID.",
+            "default": ""
+        },
+        "facebook.popupOptions.status": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Facebook popup status",
+            "description": "Select yes to enable the Facebook popup. Select no to disable it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "facebook.popupOptions.resizable": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Facebook popup resizable",
+            "description": "Select yes to make the popup resizable. Select no to restrict resizing.",
+            "enum": ["yes", "no"],
+            "default": "yes"
+        },
+        "facebook.popupOptions.scrollbars": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Facebook popup scrollbars",
+            "description": "facebook.popupOptions.scrollbars",
+            "enum": ["yes", "no"],
+            "default": "yes"
+        },
+        "facebook.popupOptions.personalbar": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Facebook popup personalbar",
+            "description": "Select yes to show a personal bar on the popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "facebook.popupOptions.directories": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Facebook popup directories",
+            "description": "Select yes to show a directories bar on the popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "facebook.popupOptions.location": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Facebook popup location",
+            "description": "Select yes to show a location bar on the popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "facebook.popupOptions.toolbar": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Facebook popup toolbar",
+            "description": "Select yes to show a tool bar on the popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "facebook.popupOptions.menubar": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "string",
+            "title": "Facebook popup menubar",
+            "description": "Select yes to show a menu bar on the popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "facebook.popupOptions.width": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "integer",
+            "title": "Facebook popup width",
+            "description": "Enter the width (in pixels) of the Facebook popup.",
+            "default": 500
+        },
+        "facebook.popupOptions.height": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "integer",
+            "title": "Facebook popup height",
+            "description": "Enter the height (in pixels) of the Facebook popup.",
+            "default": 250
+        },
+        "facebook.popupOptions.left": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "integer",
+            "title": "Facebook popup left",
+            "description": "Enter the left offset (in pixels) of the Facebook popup.",
+            "default": 0
+        },
+        "facebook.popupOptions.top": {
+            "group": "integrations",
+            "subtab": "facebook",
+            "type": "integer",
+            "title": "Facebook popup top",
+            "description": "Enter the top offset (in pixels) of the Facebook popup.",
+            "default": 0
+        }
+    }
+}

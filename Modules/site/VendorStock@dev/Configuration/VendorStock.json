@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "subtab": {
+    "id": "vendorstock",
+    "group": "catalog",
+    "title": "Stock Configuration",
+    "description": "Configurations for stock in pdp and plp"
+  },
+  "properties": {
+    "vendorstock.inStockMessage": {
+      "group": "catalog",
+      "subtab": "vendorstock",
+      "type": "string",
+      "title": "In Stock Message to display",
+      "description": "Message to display when an item is in stock",
+      "default": "In Stock"
+    },
+    "vendorstock.outOfStockMessage": {
+      "group": "catalog",
+      "subtab": "vendorstock",
+      "type": "string",
+      "title": "Out of Stock Message to display",
+      "description": "Message to display when an item is out stock",
+      "default": "Backorder Item - Call for availability"
+    }
+  }
+}

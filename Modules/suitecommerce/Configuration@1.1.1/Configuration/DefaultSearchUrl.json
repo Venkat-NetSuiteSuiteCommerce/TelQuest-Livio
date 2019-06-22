@@ -1,0 +1,12 @@
+{
+	"type": "object",
+    "properties": {
+        "defaultSearchUrl": {
+            "group": "catalog",
+            "title": "Default search url",
+            "description": "Enter the the default search URL.",
+            "type": "string",
+            "default": "search"
+        }
+    }
+}

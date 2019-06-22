@@ -1,0 +1,20 @@
+{
+	"type": "object"
+,    "subtab": {
+		"id": "address"
+	,	"group": "myAccountApp"
+	,	"title": "Addresses"
+	,	"description": "Support Addresses Configuration"
+	,	"docRef": "section_1495046472"
+	}
+,    "properties": {
+		"addresses.isPhoneMandatory": {
+			"group": "myAccountApp"
+		,	"subtab": "address"
+		,	"type": "boolean"
+		,	"title": "Require a phone number with addresses"
+		,	"description": "Check this box to make it mandatory to include a phone number when saving an address in My Account pages."
+		,	"default": true
+		}
+	}
+}

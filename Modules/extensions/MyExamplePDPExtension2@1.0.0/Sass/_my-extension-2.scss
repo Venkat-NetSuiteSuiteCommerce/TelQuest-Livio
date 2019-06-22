@@ -1,0 +1,17 @@
+.my-extension-2 {
+	@extend .col-sm-6;
+	float: none;
+}
+
+.my-extension-2-button {
+	@extend .button-tertiary;
+	@extend .button-large;
+	margin-top: $sc-base-margin * 3;
+	margin-left: 0;
+	font-weight: $sc-font-weight-semibold;
+	border: 1px solid $sc-color-theme;
+	width: 100%;
+	text-align:center;
+	cursor:pointer;
+	cursor:hand;
+}

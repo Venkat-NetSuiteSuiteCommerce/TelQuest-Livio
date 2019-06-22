@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "group": {
+        "id": "multiDomain",
+		"title": "Multi-Domain",
+		"description": "Multiple domains configuration. Enable it if you need to publish the same store in different languages or currencies, ugins different domains. "
+    },
+    "subtab": {
+        "id": "hosts",
+        "title": "Hosts",
+        "description": "List of hosts",
+        "docRef": "bridgehead_4688698792",
+        "group": "multiDomain"
+    },
+    "properties": {
+        "multiDomain.hosts.languages": {
+            "group": "multiDomain",
+            "subtab": "hosts",
+            "type": "array",
+            "title": "List of languages",
+            "description": "Use the following list to add your hosts by id. In given example, not enabled by default, two different hosts has been configured one for English and dollars alone, and the other with two currencies and two languages. <b>Important</b>, each language must have its own domain. ",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string",
+                        "title": "Host id",
+                        "description": "The host id we are talking about in this list line",
+                        "mandatory" : true
+                    },
+                    "locale": {
+                        "type": "string",
+                        "title": "Language",
+                        "description": "The host language"
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Language Title",
+                        "description": "The host language's title if non set it will use default naming or locale"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "title": "Language Domain",
+                        "description": "The host Language Domain"
+                    }
+                },
+                "default": [
+                ]
+            }
+        },
+        "multiDomain.hosts.currencies" : {
+            "group": "multiDomain",
+            "subtab": "hosts",
+            "type": "array",
+            "title": "List of currencies",
+            "description": "Use the following list to add your hosts by id. In given example, not enabled by default, two different hosts has been configured one for English and dollars alone, and the other with two currencies and two languages. <b>Important</b>, each language must have its own domain. ",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string",
+                        "title": "Host id",
+                        "description": "The host id we are talking about in this list line",
+                        "mandatory" : true
+                    },
+                    "title": {
+                        "type": "string",
+                        "title": "Title",
+                        "description": "The host language's title if non set it will use default naming or locale"
+                    },
+                    "code": {
+                        "type": "string",
+                        "title": "Code",
+                        "description": "This host currency"
+                    }
+                },
+                "default": [
+                ]
+            }
+        }
+    }
+}

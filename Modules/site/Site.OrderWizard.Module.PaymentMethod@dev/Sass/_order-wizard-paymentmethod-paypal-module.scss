@@ -1,0 +1,45 @@
+/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/
+
+.order-wizard-paymentmethod-paypal-module-row{
+  @extend .clearfix;
+}
+
+.order-wizard-paymentmethod-paypal-module-column-left{
+  @extend .col-xs-3;
+  @extend .col-sm-4;
+  padding-left: 0px;
+  @media (max-width: $screen-sm) {
+    width: 25% !important;
+  }
+}
+
+.order-wizard-paymentmethod-paypal-module-column-right{
+  @extend .col-xs-9;
+  @extend .col-sm-8;
+  padding-left: 0px;
+  @media (max-width: $screen-sm) {
+    width: 75% !important;
+  }
+}
+
+.order-wizard-paymentmethod-paypal-module-paypal-logo{}
+
+
+/**
+** AwaLabs Styles
+**/
+
+.order-wizard-paymentmethod-paypal-module-paypal-logo {
+  border: 1px solid #8f8f8f;
+  padding: 15px 50px;
+  background: #fff;
+  max-width: 250px;
+  @media (max-width: $screen-md) {
+    padding: 5px;
+  }
+}

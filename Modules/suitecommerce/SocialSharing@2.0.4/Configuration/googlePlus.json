@@ -1,0 +1,126 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "googlePlus",
+        "group": "integrations",
+        "title": "GooglePlus",
+        "docRef": "bridgehead_4667036226",
+        "description": "GooglePlus"
+    },
+
+    "properties": {
+        "googlePlus.enable": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "boolean",
+            "title": "Enable",
+            "description": "Check this box to enable the GooglePlus addThis property.",
+            "default": true
+        },
+        "googlePlus.popupOptions.status": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "string",
+            "title": "GooglePlus popup status",
+            "description": "Select yes to enable the GooglePlus popup.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "googlePlus.popupOptions.resizable": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "string",
+            "title": "GooglePlus popup resizable",
+            "description": "Select yes to make the GooglePlus popup resizable. Select no to restrict resizing.",
+            "enum": ["yes", "no"],
+            "default": "yes"
+        },
+        "googlePlus.popupOptions.scrollbars": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "string",
+            "title": "GooglePlus popup scrollbars",
+            "description": "Select yes to show scrollbars on the GooglePlus popup menu. Select no to hide them.",
+            "enum": ["yes", "no"],
+            "default": "yes"
+        },
+        "googlePlus.popupOptions.personalbar": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "string",
+            "title": "GooglePlus popup personalbar",
+            "description": "Select yes to show a personal bar on the GooglePlus popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "googlePlus.popupOptions.directories": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "string",
+            "title": "GooglePlus popup directories",
+            "description": "Select yes to show a directories bar on the GooglePlus popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "googlePlus.popupOptions.location": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "string",
+            "title": "GooglePlus popup location",
+            "description": "Select yes to show a location bar on the GooglePlus popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "googlePlus.popupOptions.toolbar": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "string",
+            "title": "GooglePlus popup toolbar",
+            "description": "Select yes to show a tool bar on the GooglePlus popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "googlePlus.popupOptions.menubar": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "string",
+            "title": "GooglePlus popup menubar",
+            "description": "Select yes to show a menu bar on the GooglePlus popup menu. Select no to hide it.",
+            "enum": ["yes", "no"],
+            "default": "no"
+        },
+        "googlePlus.popupOptions.width": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "integer",
+            "title": "GooglePlus popup width",
+            "description": "Enter the width (in pixels) of the GooglePlus popup.",
+            "default": 600
+        },
+        "googlePlus.popupOptions.height": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "integer",
+            "title": "GooglePlus popup height",
+            "description": "Enter the height (in pixels) of the GooglePlus popup.",
+            "default": 600
+        },
+        "googlePlus.popupOptions.left": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "integer",
+            "title": "GooglePlus popup left",
+            "description": "Enter the left offset (in pixels) of the GooglePlus popup.",
+            "default": 0
+        },
+        "googlePlus.popupOptions.top": {
+            "group": "integrations",
+            "subtab": "googlePlus",
+            "type": "integer",
+            "title": "GooglePlus popup top",
+            "description": "Enter the top offset (in pixels) of the GooglePlus popup.",
+            "default": 0
+        }
+    }
+}

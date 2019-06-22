@@ -1,0 +1,159 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "resultSorting",
+        "title": "Result Sorting",
+        "description": "Result Sorting",
+        "group": "searchConfig"
+    },
+
+    "properties": {
+
+        "sortOptions": {
+            "group": "searchConfig",
+            "subtab": "resultSorting",
+            "type": "array",
+            "title": "Desktop",
+            "docRef": "bridgehead_4667040114",
+            "description": "How the user can sort the search results, available sorting options for the Sort By dropdown",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "id",
+                        "description": "id has the format $field:$asc, examples : 'relevance:asc', 'onlinecustomerprice:asc', 'onlinecustomerprice:desc'. These ids must be configured in Setup Website > Search > Sort fields",
+                        "mandatory": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Label to use in the UI to reference this sort option.",
+                        "translate": true,
+                        "mandatory": true
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "title": "Is default",
+                        "description": "Is default ? If true, it will be the active search sort option by default. "
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "id": "relevance:asc",
+                    "name": "Relevance",
+                    "isDefault": true
+                },
+                {
+                    "id": "onlinecustomerprice:asc",
+                    "name": "Price, low to high",
+                    "isDefault": false
+                },
+                {
+                    "id": "onlinecustomerprice:desc",
+                    "name": "Price, high to low",
+                    "isDefault": false
+                }
+            ]
+        },
+        "sortOptionsPhone": {
+            "group": "searchConfig",
+            "subtab": "resultSorting",
+            "type": "array",
+            "title": "Phone",
+            "description": "How the user can sort the search results, available sorting options for the Sort By dropdown",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "id",
+                        "description": "id has the format $field:$asc, examples : 'relevance:asc', 'onlinecustomerprice:asc', 'onlinecustomerprice:desc'. These ids must be configured in Setup Website > Search > Sort fields",
+                        "mandatory": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Label to use in the UI to reference this sort option.",
+                        "translate": true,
+                        "mandatory": true
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "title": "Is default",
+                        "description": "Is default ? If true, it will be the active search sort option by default. "
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "id": "relevance:asc",
+                    "name": "Sort by relevance",
+                    "isDefault": true
+                },
+                {
+                    "id": "onlinecustomerprice:asc",
+                    "name": "Sort by price, low to high",
+                    "isDefault": false
+                },
+                {
+                    "id": "onlinecustomerprice:desc",
+                    "name": "Sort by price, high to low",
+                    "isDefault": false
+                }
+            ]
+        },
+        "sortOptionsTablet": {
+            "group": "searchConfig",
+            "subtab": "resultSorting",
+            "type": "array",
+            "title": "Tablet",
+            "description": "How the user can sort the search results, available sorting options for the Sort By dropdown",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "title": "id",
+                        "description": "id has the format $field:$asc, examples : 'relevance:asc', 'onlinecustomerprice:asc', 'onlinecustomerprice:desc'. These ids must be configured in Setup Website > Search > Sort fields",
+                        "mandatory": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Label to use in the UI to reference this sort option.",
+                        "translate": true,
+                        "mandatory": true
+                    },
+                    "isDefault": {
+                        "type": "boolean",
+                        "title": "Is default",
+                        "description": "Is default ? If true, it will be the active search sort option by default. "
+                    }
+                }
+            },
+
+            "default":[
+                {
+                    "id": "relevance:asc",
+                    "name": "Sort by relevance",
+                    "isDefault": true
+                },
+                {
+                    "id": "onlinecustomerprice:asc",
+                    "name": "Sort by price, low to high",
+                    "isDefault": false
+                },
+                {
+                    "id": "onlinecustomerprice:desc",
+                    "name": "Sort by price, high to low",
+                    "isDefault": false
+                }
+            ]
+        }
+    }
+}

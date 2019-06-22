@@ -1,0 +1,33 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ],
+        "templates": [
+            "Templates/*"
+        ],
+        "ssp-files": {
+            "SuiteScript/download.ssp": "download.ssp",
+            "SuiteScript/my_account.ssp": "my_account.ssp",
+            "SuiteScript/myaccount.environment.ssp": "myaccount.environment.ssp",
+            "SuiteScript/print-statement.ssp": "print-statement.ssp",
+            "SuiteScript/sc.environment.ssp": "sc.environment.ssp",
+            "Internal/index-local.ssp": "my_account-local.ssp"
+        },
+        "sass": [
+            "Sass/**/*.scss"
+        ],
+        "languages": [
+            "Languages/*.js"
+        ],
+        "images": [
+            "Images/*"
+        ],
+        "unit-test-files": [
+            "Tests/*.js"
+        ],
+        "unit-test-entry-point": [
+            "Tests/UnitTest.MyAccount.js"
+        ]
+    }
+}

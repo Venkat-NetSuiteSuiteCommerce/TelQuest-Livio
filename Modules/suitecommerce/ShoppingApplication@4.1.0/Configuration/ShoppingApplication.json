@@ -1,0 +1,29 @@
+{
+	"type": "object"
+,	"subtab": {
+		"id": "cache"
+	,	"group": "advancedSettings"
+	,	"title": "Cache"
+	,	"docRef": "bridgehead_4667044750"
+	,	"description": ""
+	}
+,	"properties": {
+		"cache.contentPageCdn": {
+			"group": "advancedSettings"
+		,	"subtab": "cache"
+		,	"type": "string"
+		,	"title": "Content page CDN"
+		,	"description": "Choose the CDN cache duration for content pages. Possible values are Short, Medium, and Long."
+		,	"enum": ["SHORT", "MEDIUM", "LONG"]
+		,	"default": "MEDIUM"
+		}
+	,	"cache.contentPageTtl": {
+			"group": "advancedSettings"
+		,	"subtab": "cache"
+		,	"type": "integer"
+		,	"title": "Content page TTL"
+		,	"description": "Enter the duration of the application cache for content pages in seconds. The total value must be between 300 (5 minutes) and 7200 (2 hours)."
+		,	"default": 7200
+		}
+	}
+}

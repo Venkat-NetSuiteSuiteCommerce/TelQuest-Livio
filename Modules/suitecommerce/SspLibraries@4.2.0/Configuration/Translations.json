@@ -1,0 +1,109 @@
+{
+   "type":"object",
+   "subtab": {
+        "id": "translations",
+        "title": "Translations",
+        "description": "List of translations",
+        "docRef": "bridgehead_4688691652",
+        "group": "multiDomain"
+    },
+   "properties":{
+      "extraTranslations":{
+         "group":"multiDomain",
+         "subtab": "translations",
+         "type":"array",
+         "title":"List of translations",
+         "description":"You can add new translations strings here or override existing ones. ",
+         "items":{
+            "type":"object",
+            "properties":{
+               "key":{
+                  "type":"string",
+                  "title":"key",
+                  "description":"This is the translation key",
+                  "mandatory":true
+               },
+               "cs_CZ":{
+                  "type":"string",
+                  "title":"cs_CZ"
+               },
+
+               "da_DK":{
+                  "type":"string",
+                  "title":"da_DK"
+               },
+               "de_DE":{
+                  "type":"string",
+                  "title":"de_DE"
+               },
+               "en_US":{
+                  "type":"string",
+                  "title":"en_US"
+               },
+               "es_AR":{
+                  "type":"string",
+                  "title":"es_AR"
+               },
+               "es_ES":{
+                  "type":"string",
+                  "title":"es_ES"
+               },
+               "fr_CA":{
+                  "type":"string",
+                  "title":"fr_CA"
+               },
+               "fr_FR":{
+                  "type":"string",
+                  "title":"fr_FR"
+               },
+               "it_IT":{
+                  "type":"string",
+                  "title":"it_IT"
+               },
+               "ja_JP":{
+                  "type":"string",
+                  "title":"ja_JP"
+               },
+               "ko_KR":{
+                  "type":"string",
+                  "title":"ko_KR"
+               },
+               "nl_NL":{
+                  "type":"string",
+                  "title":"nl_NL"
+               },
+               "pt_BR":{
+                  "type":"string",
+                  "title":"pt_BR"
+               },
+               "ru_RU":{
+                  "type":"string",
+                  "title":"ru_RU"
+               },
+               "sv_SE":{
+                  "type":"string",
+                  "title":"sv_SE"
+               },
+               "th_TH":{
+                  "type":"string",
+                  "title":"th_TH"
+               },
+               "tr_TR":{
+                  "type":"string",
+                  "title":"tr_TR"
+               },
+               "zh_CN":{
+                  "type":"string",
+                  "title":"zh_CN"
+               },
+               "zh_TW":{
+                  "type":"string",
+                  "title":"zh_TW"
+               }
+            }
+         },
+         "default":[
+         ]
+      }
+   }
+}

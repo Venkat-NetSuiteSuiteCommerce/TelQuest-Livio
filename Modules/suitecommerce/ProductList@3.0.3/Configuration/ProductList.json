@@ -1,0 +1,163 @@
+{
+	"type": "object"
+,	"subtab": {
+		"id": "productList"
+	,	"title": "Wishlist"
+	,	"docRef": "bridgehead_4667043957"
+	,	"description": "Wishlist configuration"
+    ,   "group": "shoppingApplication"
+	}
+,	"properties": {
+		"productList.additionEnabled": {
+			"group": "shoppingApplication"
+        ,   "subtab": "productList"
+		,	"type": "boolean"
+		,	"title": "Enable modification by customers"
+		,	"description": "Check this box to let users modify (add, edit, or delete) a private product list."
+		,	"default": true
+		}
+	,	"productList.loginRequired": {
+			"group": "shoppingApplication"
+        ,   "subtab": "productList"
+		,	"type": "boolean"
+		,	"title": "Login Required"
+		,	"description": "Check this box to require users to be logged in to modify a product list."
+		,	"default": true
+		}
+	,	"productList.listTemplates": {
+			"group": "shoppingApplication"
+        ,   "subtab": "productList"
+        ,	"type": "array"
+		,	"title": "Lists Templates"
+		,	"description": "Predefined lists, a.k.a templates: Administrators can define predefined list of templates. New customers will have these template lists by default. This lists will be of type=predefined and they cannot be modified/deleted. Note: Associated record will be created only when the customer add some product to the list."
+		,	"items": {
+				"type": "object"
+			,	"properties": {
+					"templateId": {
+						"type": "string"
+					,	"title": "Template Id"
+					,	"description": ""
+					}
+				,	"name": {
+						"type": "string"
+					,	"title": "Name"
+					,	"description": ""
+					}
+				,	"description": {
+						"type": "string"
+					,	"title": "Description"
+					,	"description": ""
+					}
+				,	"scopeId": {
+						"type": "integer"
+					,	"title": "Scope Id"
+					,	"description": ""
+					}
+				,	"scopeName": {
+						"type": "string"
+					,	"title": "Scope Name"
+					,	"description": ""
+					,	"enum": [
+							"public"
+						,	"private"
+						]
+					}
+				,	"typeId": {
+						"type": "string"
+					,	"title": "Type Id"
+					,	"description": ""
+					}
+				,	"typeName": {
+						"type": "string"
+					,	"title": "Type Name"
+					,	"description": ""
+					,	"enum": [
+							""
+						,	"later"
+						,	"quote"
+						]
+					}
+				}
+			}
+		,	"default": [
+				{
+					"templateId": "1"
+				,	"name": "My list"
+				,	"description": "An example predefined list"
+				,	"scopeId": 2
+				,	"scopeName": "private"
+				}
+			,	{
+					"templateId": "2"
+				,	"name": "Saved for Later"
+				,	"description": "This is for the cart saved for later items"
+				,	"scopeId": 2
+				,	"scopeName": "private"
+				,	"typeId": "2"
+				,	"typeName": "later"
+				}
+			,	{
+					"templateId": "3"
+				, 	"name": "Request a Quote"
+				, 	"description": "This is for the request a quote items"
+				, 	"scopeId":2
+				, 	"scopeName": "private"
+				,	"typeId": "4"
+				, 	"typeName": "quote"
+				}
+			]
+		}
+	,	"productList.templates": {
+            "group": "shoppingApplication"
+        ,   "subtab": "productList"
+		,	"type": "array"
+		,	"title": "Display modalities for product list items"
+		,	"description": "Display modalities for product list items"
+		,	"items": {
+				"type": "object"
+			,	"properties": {
+					"id": {
+						"type": "string"
+					,	"title": "ID"
+					,	"description": ""
+					}
+				,	"name": {
+						"type": "string"
+					,	"title": "Name"
+					,	"description": ""
+					}
+				,	"columns": {
+						"type": "integer"
+					,	"title": "Columns"
+					,	"description": ""
+					}
+				,	"icon": {
+						"type": "string"
+					,	"title": "Icon"
+					,	"description": ""
+					}
+				,	"isDefault": {
+						"type": "boolean"
+					,	"title": "Is default"
+					,	"description": ""
+					}
+				}
+			}
+		,	"default": [
+				{
+					"id": "list"
+				,	"name": "List"
+				,	"columns": 1
+				,	"icon": "list-header-view-icon-list"
+				,	"isDefault": true
+				}
+			,	{
+					"id": "condensed"
+				,	"name": "Condensed"
+				,	"columns": 1
+				,	"icon": "list-header-view-icon-condensed"
+				}
+			]
+		}
+	}
+}

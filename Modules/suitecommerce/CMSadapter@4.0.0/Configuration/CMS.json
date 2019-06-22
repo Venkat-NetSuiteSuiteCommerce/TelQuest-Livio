@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "group": {
+        "id": "integrations",
+		"title": "Integrations",
+		"description": "Integration with third party software"
+    },
+    "subtab": {
+        "id": "cms",
+        "title": "Site Management Tools",
+        "docRef": "bridgehead_4667032981",
+        "description": "CMS - Content Management System by CXM",
+        "group": "integrations"
+    },
+    "properties": {
+        "cms.useCMS": {
+            "group": "integrations",
+            "subtab": "cms",
+            "type": "boolean",
+            "title": "Use Site Management Tools",
+            "description": "Check this box to enable Site Management Tools integration in SuiteCommerce Advanced.",
+            "default": true
+        },
+        "cms.escToLoginDisabled": {
+            "group": "integrations",
+            "subtab": "cms",
+            "type": "boolean",
+            "title": "Disable ESC key to login",
+            "description": "Check this box to disable the Escape to Login to CMS feature. Instead, access the CMS Administrator using http://my.webstore/cms/2/admin/cms.jsp.",
+            "default": false
+        },
+        "cms.baseUrl": {
+            "group": "integrations",
+            "subtab": "cms",
+            "type": "string",
+            "title": "Landing Pages URL",
+            "description": "Specify the base URL, consisting of the protocol + hostname, for accessing landing pages. For example, enter https://system.sandbox.netsuite.com when working in a sandbox account. Leave the field blank to access landing pages on the production account.",
+            "default": ""
+        },
+        "cms.adapterVersion": {
+            "group": "integrations",
+            "subtab": "cms",
+            "type": "string",
+            "hidden": true,
+            "title": "CMS Adapter Version",
+            "description": "Select the CMS Adapter version to be used by the domain.",
+            "enum": ["2", "3"],
+            "default": "3"
+        }
+    }
+}

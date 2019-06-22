@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "subtab": {
+        "id": "newsletter",
+        "group": "shoppingApplication",
+        "title": "Newsletter",
+        "docRef": "bridgehead_4685031554",
+        "description": "Configuration of the Newsletter subscription"
+    },
+    "properties": {
+
+        "newsletter.genericFirstName": {
+            "group": "shoppingApplication",
+			"subtab": "newsletter",
+            "type": "string",
+            "title": "Generic first name",
+            "description": "Enter the generic first name to populate in a new Lead record when a user opts in for the newsletter.",
+            "default": "unknown"
+        },
+        "newsletter.genericLastName": {
+            "group": "shoppingApplication",
+			"subtab": "newsletter",
+            "type": "string",
+            "title": "Generic last name",
+            "description": "Enter the generic last name to populate in a new Lead record when a user opts in for the newsletter.",
+            "default": "unknown"
+        },
+        "newsletter.companyName": {
+            "group": "shoppingApplication",
+            "subtab": "newsletter",
+            "type": "string",
+            "title": "Company Name",
+            "description": "The default generic company name to populate in a new Lead record when a user opts in for the newsletter.",
+            "default": "unknown"
+        }
+    }
+}

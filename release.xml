@@ -1,0 +1,22 @@
+<Bundle>
+  <param>
+    <name>SuiteCommerce Advanced</name>
+    <nslogin>psgreleasetest@netsuite.com</nslogin>
+    <nscompany>NetSuite Platform Solutions Group - SuiteCommerce Advanced Kilimanjaro</nscompany>
+    <nsaccnt></nsaccnt>
+    <bundle_id></bundle_id>
+    <qabundle_testfolder_id></qabundle_testfolder_id>
+    <prodcompany>NA</prodcompany>
+    <prodaccount>NA</prodaccount>
+    <prodbundle_id>NA</prodbundle_id>
+    <devaccnt>NA</devaccnt>
+    <devbundle_id></devbundle_id>
+    <baselabel>SCA_Kilimanjaro</baselabel>
+    <version>Kilimanjaro</version>
+    <datelabel>2017.00.00</datelabel>
+    <buildno>0</buildno>
+    <scrum>Scrum-PSGECommerce@netsuite.com</scrum>
+    <versioningmode>MINOR</versioningmode>
+    <qabundle_folder_id>NA</qabundle_folder_id>
+  </param>
+</Bundle>

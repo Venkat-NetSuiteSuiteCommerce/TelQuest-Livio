@@ -1,0 +1,41 @@
+{
+  "type": "object",
+
+  "properties": {
+    "defaultSiteSearchName": {
+      "group": "searchConfig",
+      "subtab": "catalogsearch",
+      "type": "string",
+      "title": "Site name for SEO on search",
+      "description": "",
+      "default": "ATHQ",
+      "translate": true
+    },
+    "allowedFacets": {
+      "group": "searchConfig",
+      "subtab": "catalogsearch",
+      "type": "array",
+      "title": "Allowed Facets",
+      "items": {
+        "type": "object",
+        "properties": {
+          "facetid": {
+            "type": "string",
+            "title": "facet field id",
+            "description": "",
+            "mandatory": true
+          }
+        }
+      },
+      "default":[
+        {
+          "facetid": "brand"
+        },
+        {
+          "facetid": "model"
+        }
+      ]
+    }
+  }
+
+}

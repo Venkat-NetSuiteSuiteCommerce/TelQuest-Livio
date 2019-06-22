@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "subtab": {
+    "id": "upsell",
+    "title": "Upsell",
+    "group": "customSettings"
+  },
+  "properties": {
+    "upsell.itemField": {
+      "group": "customSettings",
+      "subtab": "upsell",
+      "type": "string",
+      "title": "Field Id for upsell json",
+      "default": "custitem_awa_upsell_items"
+    },
+    "upsell.itemOption": {
+      "group": "customSettings",
+      "subtab": "upsell",
+      "type": "string",
+      "title": "Upsell Item Option Id",
+      "default": "custcol_awa_upsell_association"
+    },
+    "upsell.selectedOption": {
+      "group": "customSettings",
+      "subtab": "upsell",
+      "type": "string",
+      "title": "Transaction column fields for upsell items",
+      "default": "custcol_awa_selected_upsells"
+    },
+    "upsell.pricelevel": {
+      "group": "customSettings",
+      "subtab": "upsell",
+      "type": "string",
+      "title": "Upsell pricelevel",
+      "default": "pricelevel15"
+    }
+  },
+  "modifications" : [
+    {
+      "target": "$.properties[searchApiMasterOptions].default",
+      "action": "add",
+      "value": {"fieldset": "upsell", "id": "Upsell"}
+    },
+    {
+      "target": "$.properties.searchApiMasterOptions.items.properties.id.enum",
+      "action": "add",
+      "value": "Upsell"
+    }
+  ]
+}

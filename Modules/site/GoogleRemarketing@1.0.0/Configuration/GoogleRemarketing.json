@@ -1,0 +1,28 @@
+{
+	"type": "object",
+    "subtab": {
+        "id": "googleremarketing",
+        "title": "Google Remarketing",
+        "docRef": "",
+        "description": "Google Remarketing",
+        "group": "integrations"
+    }
+,	"properties": {
+		"googleremarketing.conversionId": {
+			"group": "integrations"
+		,	"subtab": "googleremarketing"
+		,	"type": "integer"
+		,	"title": "Conversion ID"
+		,	"description": ""
+		,	"default": ""
+		},
+		"googleremarketing.conversionLabel": {
+			"group": "integrations"
+		,	"subtab": "googleremarketing"
+		,	"type": "string"
+		,	"title": "Conversion Label"
+		,	"description": ""
+		,	"default": ""
+		}
+	}
+}

@@ -1,0 +1,97 @@
+{
+	"type": "object",
+
+	"subtab": {
+		"id": "itemoptions",
+		"group": "catalog",
+		"title": "Item Options",
+		"description": "General configuration for all item options across the application",
+		"docRef": "bridgehead_4667044038"
+	},
+
+	"properties": {
+		"ItemOptions.showOnlyTheListedOptions": {
+			"group": "catalog",
+			"subtab": "itemoptions",
+            "type": "boolean",
+            "title": "Show only items listed in: Item options and custom transaction column fields",
+            "description" : "Check this box to show only the fields listed in: \"Item Options and Custom Transaction Column Fields\" on your webstore.",
+            "default": false
+		}
+
+	,	"ItemOptions.optionsConfiguration": {
+			"group": "catalog",
+			"subtab": "itemoptions",
+			"type": "array",
+			"title": "Item options and custom transaction column fields",
+			"description": "Settings for displaying each of the item options in the Detailed Page. Each of the item options are objects that extend whats comming of the api.  This options should have (but not limited to) these documented properties. We have provided some templates for you to use but you are encouraged to create your own:<br/> For the selector we have created: item_views_option_color_tpl, item_views_option_text_tpl, item_views_option_tile_tpl, and for the selected we have created: item_views_selected_option_tpl, item_views_selected_option_color_tpl",
+			"items": {
+				"type": "object",
+				"properties": {
+				   "cartOptionId": {
+						"type": "string",
+						"title": "Cart Option Id",
+						"description": "The id of an option in the cart (!required, is the primary key for the mapping)",
+						"mandatory": true
+					},
+					"colors": {
+						"type": "string",
+						"title": "Color Palette",
+						"description": "Use the Facets color palette for this"
+					},
+					"label": {
+						"type": "string",
+						"title": "Label",
+						"description": "The label that the option will be shown ",
+						"translate": true
+					},
+					"urlParameterName": {
+						"type": "string",
+						"title": "URL Parameter Name",
+						"description": "The key of the option when its stored in the url"
+					},
+					"useLabelsOnUrl": {
+						"type": "boolean",
+						"title": "Use Labels on URL",
+						"description": "Indicate if this option should show the label's value when displayed in the URL or instead the internalid's value should be used (the second is the default)"
+					},					 
+					"index": {
+						"type": "integer",
+						"title": "Sort Index",
+						"description": "Position in which the current option should be shown (default value 10)"
+					}
+				}
+			},
+
+			"default":[
+				{
+					"cartOptionId": "custcol13",
+					"label": "Color",
+					"urlParameterName": "color",
+					"colors": "default",
+					"index": 10
+				}
+			,	{
+					"cartOptionId": "GIFTCERTFROM",
+					"urlParameterName": "from",
+					"label": "From"
+				}
+			,	{
+					"cartOptionId": "GIFTCERTRECIPIENTNAME",
+					"urlParameterName": "to",
+					"label": "To"
+				}
+			,	{
+					"cartOptionId": "GIFTCERTRECIPIENTEMAIL",
+					"urlParameterName": "to-email",
+					"label": "To email"
+				}
+			,	{
+					"cartOptionId": "GIFTCERTMESSAGE",
+					"urlParameterName": "message",
+					"label": "Message"
+				}
+			]
+		}
+	}
+}

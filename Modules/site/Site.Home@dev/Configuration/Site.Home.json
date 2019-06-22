@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "group": {
+    "id": "athqHome",
+    "title": "ATHQ Home",
+    "description": "ATHQ Home"
+  },
+  "subtab": {
+      "id": "athqHomeSeo",
+      "title": "SEO",
+      "description": "ATHQ Home page SEO settings",
+      "group": "athqHome"
+  },
+  "properties": {
+    "athqHome.homeSlides": {
+      "group": "athqHome",
+      "type": "array",
+      "title": "Slides Information",
+      "description": "",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Slide Title",
+            "description": "Slide Title"
+          },
+          "text": {
+            "type": "string",
+            "title": "Slide Text",
+            "description": "Slide Text"
+          },
+          "buttonText": {
+            "type": "string",
+            "title": "Button Text",
+            "description": "Button Text"
+          },
+          "buttonURL": {
+            "type": "string",
+            "title": "Button Url",
+            "description": "Button Url"
+          },
+          "imageUrl": {
+            "type": "string",
+            "title": "Image Url",
+            "description": "Image Url"
+          },
+          "mobileImageUrl": {
+            "type": "string",
+            "title": "Mobile Image Url",
+            "description": "Mobile Image Url"
+          },
+          "fullUrlImage": {
+            "type": "string",
+            "title": "Link for full size slide",
+            "description": "Link for full size slide"
+          }
+        }
+      }
+    },
+    "athqHome.title": {
+        "group": "athqHome",
+        "subtab": "athqHomeSeo",
+        "type": "string",
+        "title": "Title",
+        "default": "ATHQ – Exclusive discounts for our customers",
+        "description": "Home page document's title"
+    }, 
+    "athqHome.description": {
+        "group": "athqHome",
+        "subtab": "athqHomeSeo",
+        "type": "string",
+        "title": "Description",
+        "default": "ATHQ is focused on bringing it’s customers exclusive discounts, the right products, and the best service. With over 30 years of experience selling telecommunications equipment, we know how to help our customers find exactly what they need. We offer exclusive discounts to our valued customers.",
+        "description": "Home page meta description for SEO"
+    },
+    "athqHome.keywords": {
+        "group": "athqHome",
+        "subtab": "athqHomeSeo",
+        "type": "string",
+        "title": "Keywords",
+        "default": "business phones Systems, business voip phones, ip phone, cordless phones, wireless phones, headsets, conference phones, office phones, office phone system",
+        "description": "Home page meta keywords for SEO"
+    },
+    "athqHome.canonical": {
+        "group": "athqHome",
+        "subtab": "athqHomeSeo",
+        "type": "string",
+        "title": "Canonical URL",
+        "default": "http://www.athq.com/",
+        "description": "Home page canonical URL for SEO"
+    }
+  }
+}

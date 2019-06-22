@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "subtab": {
+    "id": "fakematrix",
+    "group": "catalog",
+    "title": "Matrix Configuration",
+    "description": "Configurations for matrix items"
+  },
+
+  "properties": {
+    "fakematrix.options": {
+      "group": "catalog",
+      "subtab": "fakematrix",
+      "type": "array",
+      "title": "Fake Matrix Options",
+      "description": "Configuration for matrix options",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Matrix Option Name"
+          },
+          "fieldId": {
+            "type": "string",
+            "title": "Field Id",
+            "description": "Matrix Option Id"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "Matrix Option Display Label"
+          },
+          "list": {
+            "type": "string",
+            "title": "Custom List Id",
+            "description": "Matrix Option List Id"
+          },
+          "url":{
+            "type": "string",
+            "title": "Url Component",
+            "description": ""
+          },
+          "defaultValue": {
+            "type": "string",
+            "title": "Default Value",
+            "description": ""
+          }
+        }
+      }
+    }
+  }
+}

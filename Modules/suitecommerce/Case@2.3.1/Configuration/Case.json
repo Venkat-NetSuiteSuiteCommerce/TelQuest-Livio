@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "subtab": {
+        "id": "case",
+        "title": "Cases",
+        "docRef": "bridgehead_4678713315",
+        "description": "Support Cases Configuration",
+        "group": "myAccountApp"
+    },
+    "properties": {
+        "cases.defaultValues.statusStart.id" : {
+            "group": "myAccountApp",
+            "subtab": "case",
+            "type": "string",
+            "title": "Status start id",
+            "description": "Enter the NetSuite case status used to indicate that a case has been started.",
+            "default" : "1"
+        },
+        "cases.defaultValues.statusClose.id" : {
+            "group": "myAccountApp",
+            "subtab": "case",
+            "type": "string",
+            "title": "Status close id",
+            "description": "Enter the NetSuite case status used to indicate that a case has been closed.",
+            "default" : "5"
+        },
+        "cases.defaultValues.origin.id" : {
+            "group": "myAccountApp",
+            "subtab": "case",
+            "type": "string",
+            "title": "Origin id",
+            "description": "Enter the internal identifier of the case origin.",
+            "default" : "-5"
+        }
+    }
+}

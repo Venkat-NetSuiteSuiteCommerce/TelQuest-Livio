@@ -1,0 +1,28 @@
+{
+	"type": "object",
+    "subtab": {
+        "id": "bronto",
+        "title": "Bronto",
+        "docRef": "bridgehead_4667035811",
+        "description": "Bronto email marketing solutions integrations",
+        "group": "integrations"
+    },
+	"properties": {
+		"bronto.accountId": {
+			"group": "integrations"
+		,	"subtab": "bronto"
+		,	"type": "string"
+		,	"title": "Account ID"
+		,	"description": "Enter your Bronto account ID."
+		,	"default": ""
+		}
+	,	"bronto.adapterUrl": {
+			"group": "integrations"
+		,	"subtab": "bronto"
+		,	"type": "string"
+		,	"title": "Adapter URL"
+		,	"description": "Enter the URL of the Bronto adapter."
+		,	"default": "https://cdn.bronto.com/netsuite/configure.js"
+		}
+	}
+}

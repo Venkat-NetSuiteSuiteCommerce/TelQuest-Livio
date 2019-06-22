@@ -1,0 +1,40 @@
+{
+    "subtab": {
+        "id": "facetsSeoLimits",
+        "group": "catalog",
+        "title": "Facets SEO",
+        "docRef": "bridgehead_4667037495",
+        "description": "Facets SEO"
+    },
+
+    "properties": {
+        "facetsSeoLimits.numberOfFacetsGroups": {
+            "type": "integer",
+            "group": "catalog",
+            "subtab": "facetsSeoLimits",
+            "title": "Number of Facets groups",
+            "description": "Enter a number to specify how many facet groups are indexed.",
+            "default": 2
+        },
+        
+        "facetsSeoLimits.numberOfFacetsValues": {
+            "type": "integer",
+            "group": "catalog",
+            "subtab": "facetsSeoLimits",
+            "title": "Number of Facets Values",
+            "description": "Enter a number to specify how many multi-facet groups are grouped together.",
+            "default": 2
+        },
+        
+        "facetsSeoLimits.options": {
+            "type": "string",
+            "group": "catalog",
+            "subtab": "facetsSeoLimits",
+            "title": "Options",
+            "description": "Multi-select which URL options are indexed. If an option is not included here, it is not indexed when appearing in a URL.",
+            "enum": ["order", "page", "show", "display", "keywords"],
+            "default": ["page", "keywords"],
+            "multiselect": true
+        }
+    }
+}

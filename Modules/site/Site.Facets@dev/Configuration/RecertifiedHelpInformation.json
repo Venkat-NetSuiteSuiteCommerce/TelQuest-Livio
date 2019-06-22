@@ -1,0 +1,14 @@
+{
+  "type": "object",
+
+  "properties": {
+    "recertifiedhelpinformation": {
+      "group": "catalog",
+      "subtab": "cart",
+      "type": "string",
+      "title": "Recertified Help Information",
+      "description": "Help information for tag Recertified",
+      "default": ""
+    }
+  }
+}

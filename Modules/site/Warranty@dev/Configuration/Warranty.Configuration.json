@@ -1,0 +1,95 @@
+{
+  "type": "object",
+  "subtab": {
+    "id": "warranty",
+    "title": "Warranty",
+    "group": "customSettings"
+  },
+  "properties": {
+    "warranty.itemId": {
+      "group": "customSettings",
+      "subtab": "warranty",
+      "type": "integer",
+      "title": "Warranty Item Id",
+      "default": "131572"
+    },
+    "warranty.itemOption": {
+      "group": "customSettings",
+      "subtab": "warranty",
+      "type": "string",
+      "title": "Selected Warranty Item Option",
+      "default": "custcol_awa_warranty_selected"
+    },
+    "warranty.itemOptionAssociation": {
+      "group": "customSettings",
+      "subtab": "warranty",
+      "type": "string",
+      "title": "Warranty Association Field",
+      "default": "custcol_awa_warranty_association"
+    },
+    "warranty.fields": {
+      "group": "customSettings",
+      "type": "array",
+      "subtab": "warranty",
+      "title": "Warranty Fields",
+      "description": "Warranty Fields",
+      "items": {
+        "type": "object",
+        "properties": {
+          "displayName" : {
+            "type": "string",
+            "title": "Warranty Display Name",
+            "description": "Display Name for the Warranty Option"
+          },
+          "fieldId" : {
+            "type": "string",
+            "title": "Field Id",
+            "description": "Field Id for the Warranty Item field"
+          },
+          "days" : {
+            "type": "number",
+            "title": "Days of Warranty",
+            "description": "Number of days of warranty"
+          },
+          "selectedDisplay": {
+            "type": "string",
+            "title": "Warranty Short Display Name",
+            "description": "Short Display Name for the Warranty Option"
+          }
+        }
+      },
+      "default": [
+        {
+          "displayName": "3 Month Warranty",
+          "fieldId": "custitem_awa_warranty_90",
+          "days": 90,
+          "selectedDisplay": "3 Month"
+        },
+        {
+          "displayName": "6 Month Warranty",
+          "fieldId": "custitem_awa_warranty_180",
+          "days": 180,
+          "selectedDisplay": "6 Month"
+        },
+        {
+          "displayName": "1 Year Warranty",
+          "fieldId": "custitem_awa_warranty_365",
+          "days": 365,
+          "selectedDisplay": "1 Year"
+        },
+        {
+          "displayName": "2 Year Warranty",
+          "fieldId": "custitem_awa_warranty_730",
+          "days": 730,
+          "selectedDisplay": "2 Year"
+        },
+        {
+          "displayName": "3 Year Warranty",
+          "fieldId": "custitem_awa_warranty_1095",
+          "days": 1095,
+          "selectedDisplay": "3 Year"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*"
+        ],
+        "unit-test-files": [
+            "Tests/*.js"
+        ],
+        "templates": [
+            "Templates/*"
+        ],
+        "sass": [
+            "Sass/*.scss"
+        ],
+        "unit-test-entry-point": [
+            "Tests/UnitTest.SocialSharing.js"
+        ],
+        "images": [
+            "Images/*"
+        ],
+        "configuration": [
+            "Configuration/*.json"
+        ]
+    }
+}

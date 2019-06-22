@@ -1,0 +1,33 @@
+{
+	"type": "object",
+
+    "subtab": {
+        "id": "catalogsearch",
+        "group": "searchConfig",
+        "title": "Search Results",
+        "docRef": "bridgehead_4667040100",
+        "description": "Search Results related configuration "
+    },
+
+    "properties": {
+      "defaultSearchTitle": {
+            "group": "searchConfig",
+            "subtab": "catalogsearch",
+            "type": "string",
+            "title": "Search results title",
+            "description": "Enter the title for the facet browse view that appears in the application header.",
+            "default": "Products",
+            "translate": true
+        },
+
+        "searchPrefs.maxLength": {
+            "group": "searchConfig",
+            "subtab": "catalogsearch",
+            "type": "integer",
+            "title": "Search Keyword Max Length",
+            "description": "Enter the maximum number of characters the user can enter in the search field.",
+            "default": 40
+        }
+    }
+
+}

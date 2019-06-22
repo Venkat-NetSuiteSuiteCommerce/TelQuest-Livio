@@ -1,0 +1,8 @@
+{
+    "gulp": {
+        "ssp-libraries": [
+            "jQuery.Deferred.js"
+        ]
+    },
+    "jshint": "false"
+}

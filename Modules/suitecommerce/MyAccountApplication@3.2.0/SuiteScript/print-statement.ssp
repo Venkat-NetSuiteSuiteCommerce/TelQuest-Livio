@@ -1,0 +1,91 @@
+<%/*
+	© 2017 NetSuite Inc.
+	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+	provided, however, if you are an authorized user with a NetSuite account or log-in, you
+	may use this code subject to the terms that govern your access and use.
+*/%>
+
+<%
+
+	var SiteSettings
+	,	siteType
+	,	Environment
+	,	Language
+	,	Currency
+	,	Error
+	,	PrintStatement
+	,	Application;
+
+	try
+	{
+		Application = require('Application');
+		SiteSettings = require('SiteSettings.Model').get();
+		siteType = SiteSettings.sitetype;
+
+		Environment = Application.getEnvironment(request);
+		Language = Environment.currentLanguage && Environment.currentLanguage.locale || '';
+		Currency = Environment.currencyCodeSpecifiedOnUrl;
+
+		var parameters = request.getAllParameters();
+		// Access control, if you are not loged this will send you to the log in page
+		if (!session.isLoggedIn2() || session.getCustomer().isGuest())
+		{
+			delete parameters.sitepath;
+			parameters.origin = 'customercenter';
+
+			if (parameters.fragment)
+			{
+				parameters.origin_hash = parameters.fragment;
+				delete parameters.fragment;
+			}
+
+			return nlapiSetRedirectURL('EXTERNAL', SiteSettings.touchpoints.login, null, false, parameters);
+		}
+
+		return nlapiSetRedirectURL('EXTERNAL', require('PrintStatement.Model').getUrl(parameters), null, false);
+
+	} catch (e) {
+		Error = Application.processError(e);
+	}
+%>
+<!DOCTYPE html>
+<html <%= Language ? 'lang="' + Language.replace('_', '-') + '"' : '' %>>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>My Account</title>
+		<% if (siteType && siteType === 'ADVANCED') { %>
+		<link rel="stylesheet" href="<%= session.getAbsoluteUrl('skins/standard/styles.css') %>">
+		<% }
+		   else { %>
+		<link rel="stylesheet" href="<%= session.getAbsoluteUrl('skins/standard/styles-sitebuilder.css') %>">
+		<% } %>
+		<%= (siteType && siteType === 'STANDARD') ? getPageFullHead() : '' %>
+		<script src="<%= session.getAbsoluteUrl('js/utils/BootUtilities-014102fa185a.js') %>"></script>
+		<script src="<%= session.getAbsoluteUrl('sc.environment.ssp?lang=' + Language + '&cur=' + Currency) %>"></script>
+		<% if (Error) { %>
+		<script>SC.ENVIRONMENT.contextError = <%= JSON.stringify(Error) %>;</script>
+		<% } %>
+		<script src="<%= session.getAbsoluteUrl('js/Application-014078b6c30d.js') %>"></script>
+		<script src="<%= session.getAbsoluteUrl('templates/Templates-014078b6b841.js') %>"></script>
+	</head>
+	<body>
+
+	<% if (siteType && siteType === 'STANDARD'){ %>
+		<div id='div__header' style="overflow: hidden;" class='noprint' leftmargin='0' topmargin='0' marginwidth='1' >
+			<table border='0' cellspacing='0' cellpadding='0' width='100%'>
+				<%= getPageTop() %>
+			</table>
+		</div>
+	<% } %>
+		<noscript>
+			<div class="alert alert-error alert-noscript">
+				<strong>Javascript is disabled on your browser.</strong><br>
+				To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+			</div>
+		</noscript>
+
+		<div id="main"></div>
+
+	</body>
+</html>

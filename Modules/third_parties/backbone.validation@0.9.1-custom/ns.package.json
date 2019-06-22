@@ -1,0 +1,11 @@
+{
+	"gulp": {
+		"javascript": [
+			"backbone-validation.js"
+		]
+	,	"ssp-libraries": [
+			"backbone-validation.server.custom.js"
+		] 
+	}
+,	"jshint": "false"
+}

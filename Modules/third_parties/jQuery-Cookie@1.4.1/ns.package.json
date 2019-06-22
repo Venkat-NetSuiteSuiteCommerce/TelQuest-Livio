@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript": [
+			"src/jquery.cookie.js"
+		]
+	}
+,	"jshint": "false"
+}

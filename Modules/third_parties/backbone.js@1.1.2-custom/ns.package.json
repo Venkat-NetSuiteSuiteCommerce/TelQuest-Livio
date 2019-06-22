@@ -1,0 +1,8 @@
+{
+	"gulp": {
+		"javascript": [
+			"backbone.custom.js"
+		]
+	}
+,	"jshint": "false"
+}

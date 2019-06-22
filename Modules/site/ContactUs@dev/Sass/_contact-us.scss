@@ -1,0 +1,96 @@
+.contact-us-container {
+	@extend .container;
+	margin-bottom: $sc-margin-lv6;
+}
+
+.contact-us-title{
+	//@extend .page-title;
+}
+
+.contact-us-header {
+	margin-bottom: $sc-margin-lv3;
+	text-align: center;
+}
+
+.contact-us-header-cms {
+	margin-top: $sc-margin-lv3;
+}
+
+.contact-us-button-back {
+    @extend .button-back;
+}
+
+.contact-us-button-back-icon {
+	@extend .button-back-icon;
+}
+
+.contact-us-required {
+	display:block;
+	margin-top: $sc-margin-lv3;
+	margin-bottom: $sc-margin-lv4;
+	font-weight: 300;
+
+}
+
+.contact-us-form-controls-group {
+	@extend .control-group;
+	margin-bottom: 15px;
+}
+
+.contact-us-message{
+	margin-bottom: 15px;
+}
+
+.contact-us-form{
+	margin-bottom: 30px;
+}
+
+.contact-us-form-required {
+	@extend .input-required;
+}
+
+.contact-us-form-input,
+.contact-us-form-case-category {
+	@extend .input-large;
+}
+
+
+.contact-us-form-textarea {
+	display: block;
+	margin-bottom: $sc-margin-base * 2;
+	width: 100%;
+}
+
+.contact-us-info-block{
+	margin-bottom: 20px;
+	font-weight: 300;
+	h4{
+		//@extend .text-uppercase;
+		margin-bottom: 10px;
+		font-weight: 400;
+		font-size: 18px;
+	}
+}
+
+.contact-us-button-submit {
+	@extend .button-medium;
+	@extend .button-primary;
+}
+
+.contact-us-button-back {
+	@extend .button-back;
+}
+
+.contact-us-button-back-icon {
+	@extend .button-back;
+}
+
+.contact-us-form-container{
+	@extend .col-sm-6;
+	@media(min-width: $screen-sm){
+		border-left: 1px solid $sc-color-theme-200;
+	}
+}
+.contact-us-info-container{
+	@extend .col-sm-6;
+}

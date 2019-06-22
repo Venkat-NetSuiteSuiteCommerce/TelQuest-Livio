@@ -1,0 +1,226 @@
+.header-right-menu {
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: $screen-md) {
+    margin: 0;
+    float: left;
+    width: calc(100% - 160px);
+    padding-left: 30px;
+  }
+  @media(max-width: 680px){
+    width: 100%;
+    padding-left: 0;
+    position: relative;
+  }
+  .itemssearcher-input {
+    @media (max-width: $screen-md) {
+      width: 200px;
+    }
+    @media (max-width:680px) {
+      width: 100%;
+      box-sizing: border-box;
+      height: 48px;
+    }
+  }
+}
+.header-mini-cart-button-view-cart, .header-mini-cart-button-checkout {
+  font-size: 14px;
+}
+.header-mini-cart-menu-cart-legend {
+  float: none;
+  padding: 0;
+  height: 24px;
+  display: flex;
+  width: 24px;
+  max-width: 24px;
+  min-width: 24px;
+  max-height: 24px;
+  min-height: 24px;
+  color: #fff;
+  background: $sc-color-prices;
+  text-align: center;
+  border-radius: 20px;
+  //border: 1px solid $sc-color-primary;
+  left: 30px;
+  top: 0;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+.header-mini-cart-menu-cart-icon {
+  margin-top: 5px;
+}
+.header-mini-cart-menu-cart-link-enabled, .header-menu-cart-dropdown {
+  min-width: 50px;
+}
+.sec_wizard {
+  .header-simplified-header, .header-subheader {
+    background-color: transparent !important;
+  }
+}
+.header-menu-cart {
+  margin-left: 0;
+  width: 60px;
+}
+.header-profile-welcome-link {
+  text-align: center;
+  @media (max-width: 1199px) {
+    line-height: 20px;
+  }
+}
+// Disable reset button to avoid empty keyword search
+.site-search-input-reset{
+  right: 50px;
+  height: 45px;
+  display: none !important;
+}
+.site-search-input-reset-icon{
+  color: #0B6B96;
+}
+
+.sales_rep_phone{
+  @extend .icon-question-circle;
+  color: $sc-ink4;
+  font-size: 30px;
+  line-height: 30px;
+  transition: all 0.2s;
+  &:hover{
+    color: $sc-ink5;
+  }
+}
+
+.header-profile-login-icon{
+  color: $sc-ink4;
+  font-size: 30px;
+  line-height: 30px;
+  transition: all 0.2s;
+  &:hover{
+    color: $sc-ink5;
+  }
+}
+
+.header-icon-container{
+  width: 60px;
+  display: inline-block;
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-top: $sc-margin-lv3;
+}
+
+.header-menu-support{
+  width: 50px;
+  .header-icon-container{
+    margin-top: 0;
+  }
+}
+
+.header-menu-right-menu-search {
+  width: 75%;
+}
+.header-menu-right-icons {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+}
+.header-logo-image {
+  margin-left: 10px;
+  @media(max-width: 992px){
+    width: auto;
+    max-height: 100%;
+    margin-left: 0;
+  }
+}
+
+.header-profile-name{
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.header-profile-menu-login-container{
+  text-align: center;
+  padding-top: 20px;
+  @media(max-width: 992px){
+    padding: 15px;
+    text-align: left;
+    span.header-profile-name{
+      display: inline-block;
+      font-size: 12px;
+      margin-top: 5px;
+      color: white;
+      margin-left: 15px;
+    }
+  }
+}
+.header-sidebar-toggle-wrapper {
+  margin-left: 10px;
+  margin-top: 15px;
+}
+.header-sidebar-toggle{
+  background: $sc-ink2;
+}
+.header-menu-profile {
+  display: block !important;
+  width: 60px;
+  @media(max-width: 992px){
+    display: none !important;
+  }
+}
+.header-menu-support {
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+.header-icon-container-logged {
+  width: 110px;
+  line-height: 1;
+  margin-top: 0;
+  height: auto;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  @media (max-width: $screen-xs) {
+    width: 150px !important;
+  }
+}
+
+.header-menu-right-icons {
+  @media (max-width:992px) {
+    width: 50px;
+    float: right;
+    display: block;
+  }
+  @media (max-width:680px) {
+    position: absolute;
+    top: -65px;
+    right: 0;
+  }
+}
+.header-menu-right-menu-search {
+  @media (max-width: 680px) {
+    width: 100%;
+  }
+}
+.site-search-content-input{
+  padding: 0 18px;
+}
+.header-content{
+  @media(max-width: 992px){
+    padding-top: 10px;
+  }
+}
+.header-sidebar-wrapper{
+  .header-profile-login-icon{
+    color: white;
+  }
+}
+.header-logo-wrapper{
+  @media(max-width: 680px){
+    float: none;
+    margin-bottom: 10px;
+  }
+}
