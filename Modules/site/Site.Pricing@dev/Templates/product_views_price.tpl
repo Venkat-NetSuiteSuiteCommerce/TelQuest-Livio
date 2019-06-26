@@ -22,7 +22,7 @@
     {{#each fakeMatrixPrices}}
         {{#if showComparePrice}}
             <p class="product-views-price-old only-plp">
-                {{translate 'MSRP: '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
+                {{translate 'Advertised Price: '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
             </p>
         {{/if}}
     {{/each}}
@@ -39,7 +39,7 @@
                         <!-- Single -->
                         {{#if showComparePrice}}
                             <p class="product-views-price-old">
-                                {{translate 'MSRP: '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
+                                {{translate 'Advertised Price: '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
                             </p>
                             {{#if percentDiff}}
                                 <div class="product-views-price-discount message-info">
@@ -49,7 +49,7 @@
                         {{/if}}
 
                         <p class="product-views-price-lead" data-rate="{{price}}">
-                            <span>{{translate 'Your Price'}}</span>
+                            <span>{{translate 'Advertised Price'}}</span>
                             <span itemprop="price">{{priceFormatted}}</span>
                         </p>
 
