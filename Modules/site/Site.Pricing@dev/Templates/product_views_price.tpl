@@ -32,6 +32,7 @@
 	{{#if isPriceEnabled}}
 		{{#if fakeMatrixPrices}}
             {{#each fakeMatrixPrices}}
+                {{#if isNew}}
                 <div class="prices-internal-description">
                     <span class="product-views-price-exact" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 				        <meta itemprop="priceCurrency" content="{{currencyCode}}"/>
@@ -46,16 +47,19 @@
                                 </div>
                             {{/if}}
                         {{/if}}
+
                         <p class="product-views-price-lead" data-rate="{{price}}">
                             <span>{{translate 'Your Price'}}</span>
                             <span itemprop="price">{{priceFormatted}}</span>
                         </p>
+
 			    </span>
                     <div class="product-views-price-internal-condition-container">
                         <span class="prices-internal-description-condition">{{custitem_awa_condition}}</span>
-                            <i data-toggle="tooltip" class="cart-summary-expander-tooltip" title="{{#if isLikeNew}}{{../likeNewMessage}}{{else if isNew}}{{../newMessage}}{{else}}{{../recertifiedMessage}}{{/if}}" ></i>
+                            <i data-toggle="tooltip" class="cart-summary-expander-tooltip" title="{{# if isNew}}{{../newMessage}}{{/if}}" ></i>
                     </div>
                 </div>
+                        {{/if}}
             {{/each}}
 
         {{else if isPriceRange}}
@@ -92,7 +96,7 @@
                 {{/if}}
                 {{#if priceFormatted}}
                     <p class="product-views-price-lead" data-rate="{{price}}">
-                            <span>{{translate 'Your Price'}}</span>
+                            <span>{{translate 'Your Price '}}</span>
                             <span itemprop="price">{{priceFormatted}}</span>
                         </p>
                 {{/if}}

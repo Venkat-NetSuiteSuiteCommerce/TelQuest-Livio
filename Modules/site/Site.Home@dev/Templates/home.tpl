@@ -136,6 +136,9 @@
         <div id="home-features-cms" class="home-features-cms" data-cms-area="home-features-cms" data-cms-area-filters="path"></div>
     </div>
 
+    <div class="banner-container" data-cms-area="second-banner-container" data-cms-area-filters="path"></div>
+
+
     <div class="container">
 
         <div data-cms-area="home-title-3" data-cms-area-filters="path"></div>

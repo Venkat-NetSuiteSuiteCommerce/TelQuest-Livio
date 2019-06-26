@@ -108,7 +108,7 @@
       }
       &.open{
         button{
-            background-color: #f5f5f5;
+          background-color: #f5f5f5;
         }
         ul.dropdown-menu{
           border-radius: 0;
@@ -683,29 +683,39 @@ button.product-detail-to-quote-add-to-quote-button, button.product-list-control-
 button.product-list-control-button-wishlist{
   text-align: left;
 }
-ul.product-details-information-content-tabs{
+ul.product-details-information-content-tabs {
   @extend .clearfix;
-  margin-bottom: 0;
-  li.product-details-information-tab-title{
-    display: inline-block;
+  background-color: #004672;
+  width: 150%;
+  margin-left: -20%;
+  padding-left: 400px;
+
+  li.product-details-information-tab-title {
+    display: block;
     margin-right: 5px;
     float: left;
-    a{
-      background: $sc-ink3;
+    background: #004672;
+
+    a {
+      background: #004672;
+      color: white;
       border: none;
-      height: 50px;
-      padding: 0 15px;
-      line-height: 50px;
+      height: 25px;
+      padding: 20px 60px 20px;
+      line-height: 0px;
       display: block;
-      font-size: 16px;
+      font-size: 14px;
     }
-    &.active{
-      a{
-        background: $sc-ink4;
-        color: white;
+
+    &.active {
+      a {
+        background: white;
+        border: #004672;
+        color: #004672;
       }
-      &:hover{
-        a{
+
+      &:hover {
+        a {
           border: none;
         }
       }
@@ -715,9 +725,7 @@ ul.product-details-information-content-tabs{
 .product-details-information-tab-content{
   border: none;
   padding: 30px;
-  background: $sc-ink3;
   .product-details-information-tab-content-panel{
-    background: $sc-ink3;
     .product-details-information-tab-content-container{
       p , li{
         font-weight: 300;

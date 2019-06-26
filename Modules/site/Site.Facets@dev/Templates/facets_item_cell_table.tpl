@@ -13,11 +13,11 @@ may use this code subject to the terms that govern your access and use.
     <meta itemprop="name" content="{{name}}">
     <meta itemprop="url" content="{{url}}">
 
-    <div itemscope itemtype="https://schema.org/Product">
+    <p class="table-view-mpn">{{translate 'MPN: '}} {{mpn}} <span class="facets-item-cell-table-rating" itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" data-view="GlobalViews.StarRating"></span></p>
 
+    <div itemscope itemtype="https://schema.org/Product">
         <meta itemprop="name" content="{{name}}">
         <meta itemprop="url" content="{{url}}">
-
         <div class="facets-item-cell-table-image-wrapper">
             <a class="facets-item-cell-table-link-image" href="{{url}}">
                 <img class="facets-item-cell-table-image" src="{{resizeImage thumbnail.url 'thumbnail'}}" alt="{{thumbnail.altimagetext}}"
@@ -42,21 +42,19 @@ may use this code subject to the terms that govern your access and use.
                     </span>
                 </a>
             </h2>
-            <small>{{translate 'MPN: '}} {{mpn}}</small>
             <div class="facets-item-cell-table-price">
                 <div data-view="ItemViews.Price"></div>
             </div>
 
-            {{#if showRating}}
-            <div class="facets-item-cell-table-rating" itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating"
-                data-view="GlobalViews.StarRating">
-            </div>
-            {{/if}}
-            {{#if features}}
+
+          {{!--  {{#if features}}
+
             <div class="list-item-description">
                 <p>{{{features}}}</p>
             </div>
             {{/if}}
+
+         --}}
 
             <div data-view="ItemDetails.Options"></div>
 

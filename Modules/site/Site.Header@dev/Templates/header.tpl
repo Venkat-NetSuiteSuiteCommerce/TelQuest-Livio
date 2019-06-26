@@ -68,7 +68,7 @@
                                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
                             </head>
                             <body>
-                            <i class="fas fa-phone fa-lg sales_rep_phone" ></i>
+                            <i class="fas fa-headset fa-2x sales_rep_phone" ></i>
                             </body>
                         </a>
                     </div>

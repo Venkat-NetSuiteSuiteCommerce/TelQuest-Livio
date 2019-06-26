@@ -21,6 +21,8 @@
 		"suitecommerce/Facets@3.2.0/Templates/facets_faceted_navigation_item.tpl": "Templates/facets_faceted_navigation_item.tpl",
 		"suitecommerce/Facets@3.2.0/Templates/facets_category_cell.tpl": "Templates/facets_category_cell.tpl",
 		"suitecommerce/Facets@3.2.0/Templates/facets_items_collection_view_cell.tpl": "Templates/facets_items_collection_view_cell.tpl",
-		"suitecommerce/Facets@3.2.0/JavaScript/Facets.Translator.js": "JavaScript/Facets.Translator.js"
+		"suitecommerce/Facets@3.2.0/JavaScript/Facets.Translator.js": "JavaScript/Facets.Translator.js",
+		"suitecommerce/Facets@3.2.0/Sass/_facets-item-cell-table.scss": "Sass/_site.facets-item-cell-table.scss"
+
 	}
 }

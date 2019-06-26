@@ -4,6 +4,7 @@
 	provided, however, if you are an authorized user with a NetSuite account or log-in, you
 	may use this code subject to the terms that govern your access and use.
 }}
+
 <div class="product-details-full">
 	<div data-cms-area="item_details_banner" data-cms-area-filters="page_type"></div>
 
@@ -69,13 +70,16 @@
                         <div class="actions-container">
                             {{#if isPriceEnabled}}
                                 <div data-view="Quantity" class="clearfix"></div>
+                                <p>{{vendor_stock_message}}</p>
                                 <div class="price-container">
                                     <div data-view="Product.Price"></div>
                                 </div>
+
                                 <section class="product-details-full-actions">
 
                                     <div class="product-details-full-actions-container">
                                         {{#if showCart}}
+
                                             <div data-view="MainActionView"></div>
                                         {{/if}}
                                     </div>
@@ -88,6 +92,7 @@
                                 </section>
                             {{/if}}
                         </div>
+                        <div data-cms-area="aboveSocial" data-cms-area-filters="page_type"></div>
                         <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
                         <div data-view="PrintPage"></div>
                         {{!---- cms box under social ----}}
