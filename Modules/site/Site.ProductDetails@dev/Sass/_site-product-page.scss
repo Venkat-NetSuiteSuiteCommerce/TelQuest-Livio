@@ -3,6 +3,8 @@
 }
 
 .product-details-information-tab-content-container {
+  width: 80%;
+  margin: auto;
   ul, li {
     list-style: disc;
     margin: 10px;
@@ -686,9 +688,8 @@ button.product-list-control-button-wishlist{
 ul.product-details-information-content-tabs {
   @extend .clearfix;
   background-color: #004672;
-  width: 150%;
-  margin-left: -20%;
-  padding-left: 400px;
+  padding-left: 10%;
+
 
   li.product-details-information-tab-title {
     display: block;
