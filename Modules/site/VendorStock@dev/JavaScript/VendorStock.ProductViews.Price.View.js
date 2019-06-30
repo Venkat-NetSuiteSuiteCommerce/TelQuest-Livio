@@ -20,7 +20,7 @@ define('VendorStock.ProductViews.Price.View', [
 
         showInStockMessage: function showInStockMessage(item) {
             //return item.get('_isInStock') || (item.get('outofstockbehavior') === outOfStockBehavior) || (item.get('custitem_vendor_stock') > 0);
-            return item.get(item.get('custitem_vendor_stock') > 0);
+            return (item.get('custitem_vendor_stock') > 0);
 
         },
 
