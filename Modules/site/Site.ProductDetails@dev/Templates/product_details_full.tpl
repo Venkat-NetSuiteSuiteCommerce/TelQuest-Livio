@@ -131,15 +131,14 @@
         <div id="banner-details-bottom" class="product-details-full-banner-details-bottom" data-cms-area="item_info_bottom_path" data-cms-area-filters="path"></div>
         <div id="banner-details-bottom" class="product-details-full-banner-details-bottom" data-cms-area="item_info_bottom" data-cms-area-filters="page_type"></div>
 
-        </article>
-        </div>
+    </article>
+</div>
+
 
         <section data-view="Product.Information"></section>
 
-
-
-        <div class="product-details-full">
-            <article class="product-details-full-content" itemscope itemtype="https://schema.org/Product">
+    <div class ="product-details-full">
+    <article class="product-details-full-content" itemscope itemtype="https://schema.org/Product">
 
 
         <div class="product-details-full-content-related-items">
@@ -158,8 +157,9 @@
 
 	--}}
 		<div id="banner-details-bottom" class="content-banner banner-details-bottom" data-cms-area="item_details_banner_bottom" data-cms-area-filters="page_type"></div>
-            </article>
-        </div>
+	</article>
+</div>
+
 
 
 

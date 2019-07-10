@@ -1,7 +1,6 @@
 footer{
-  background: $sc-ink4;
   a{
-    color: #fff;
+    color: #00273f;
     &.social-link{
       &:hover{
         i{
@@ -58,13 +57,7 @@ footer{
     margin-right: 10px;
   }
 }
-.myaccount-layout-footer {
-  background-color: $sc-color-secondary;
-}
-.checkout-layout-footer {
-  background-color: $sc-color-secondary;
-  border-color: $sc-color-secondary;
-}
+
 
 .footer-cms-social-content-columns-logo-section {
   display: flex;
@@ -130,14 +123,16 @@ footer{
     margin-bottom: 25px;
   }
   padding:40px 0;
+
+
   p.footer-title{
-    color: white;
+    color: #00273f;
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 500;
   }
   .footernav a{
-    font-weight: 300;
+    font-weight: 400;
     font-size: 16px;
     display: block;
     margin-bottom: 8px;
@@ -153,36 +148,209 @@ footer{
       color: $sc-ink5;
     }
   }
-  .newsletter-container{
+}
+
+.newsletter-cms{
+  width: 20%;
+  float: top;
+  margin-left: 75%;
+
+}
+
+
+
+.newsletter-container{
+  height: 120px;
+  background-color: #00273f;
+
+
+  .newsletter-note{
+    display: block;
+    width: 100%;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .newsletter-subscribe{
+    margin-top: 20px;
+    width:33%;
+    float: left;
     small{
+      float: left;
       color: white;
       font-size: 12px;
-      margin-bottom: 20px;
       display: block;
     }
   }
+  .newsletter-title {
+    margin-top: 20px;
+    width: 33%;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+
+  }
+
+
+  .newsletter-subscription-form-container [data-validation-error="block"] {
+    padding: 5px;
+    width: 300px;
+    margin-right: 150px;
+    color: red;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+
+  .newsletter-alert-placeholder [data-validation-error="block"] {
+    padding: 5px;
+    width: 300px;
+    margin-right: 150px;
+    color: red;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+
+  button.newsletter-subscription-form-button-subscribe{
+    position: absolute;
+    width: 10%;
+    float: left;
+    background: $sc-ink5;
+    border:1px solid $sc-ink5;
+    transition: all 0.2s;
+    &:hover{
+      background: darken($sc-ink4 , 10%);
+      border:1px solid darken($sc-ink4 , 10%);
+    }
+    @media screen and (max-width: 600px) {
+      width: 40%;
+    }
+  }
+
+  .shopper-approved{
+    float: left;
+    width:33%;
+    text-align:center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
-.shopping-layout-footer{
-  .copy{
-    background: darken($sc-ink4 , 10%);
+
+
+
+
+
+
+
+
+
+  .newsletter-subs-form-container [data-validation-error="block"] {
+    padding: 5px;
+    margin-right: 150px;
+    color: red;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .newsletter-suscription-form-input{
+    width: 75% !important;
+    float: left;
+    position: relative;
+    border-radius:0;
+    height: 44px;
+    margin-bottom: 10px;
+    @media screen and (max-width: 600px) {
+      width: 100% !important;
+    }
+  }
+
+    button.newsletter-subform-button-subscribe{
+      float: right;
+      position: absolute;
+      width: 10%;
+      color: white;
+      padding-left: 15px;
+      padding-right: 15px;
+      font-size: 14px;
+      font-weight: 400;
+      height: 44px;
+      background: $sc-ink5;
+      border:1px solid $sc-ink5;
+      transition: all 0.2s;
+      &:hover{
+        background: darken($sc-ink4 , 10%);
+        border:1px solid darken($sc-ink4 , 10%);
+      }
+      @media screen and (max-width: 600px) {
+        width: 40%;
+      }
+    }
+
+
+
+
+
+
+  .shopper-approved{
+    float: left;
+    width:33%;
+    text-align:center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+
+
+
+.shopping-layout-footer .myaccount-layout-footer .checkout-layout-footer{
+    background-color: #00273f;
     small{
+      color: white;
       font-size: 12px;
       line-height: 40px;
       display: inline-block;
     }
   }
-}
-button.newsletter-subscription-form-button-subscribe{
-  background: $sc-ink5;
-  border:1px solid $sc-ink5;
-  transition: all 0.2s;
-  &:hover{
-    background: darken($sc-ink4 , 10%);
-    border:1px solid darken($sc-ink4 , 10%);
-  }
-}
-
 
 .footer_note {
+  background-color: #00273f;
   color: white;
+  font-size: .7rem;
+  font-weight: normal;
+}
+
+.copy{
+  background-color: #00273f;
+  color: white;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  .newsletter-container {
+    width: 100%;
+
+    .newsletter-note {
+      margin-top: 5%;
+      width: 100%;
+      height: 33%;
+    }
+
+    .newsletter-title {
+      width: 100%;
+      height: 33%;
+    }
+
+    .newsletter-subscribe {
+      display: inline;
+      height: 33%;
+      width: 60%;
+    }
+  }
 }

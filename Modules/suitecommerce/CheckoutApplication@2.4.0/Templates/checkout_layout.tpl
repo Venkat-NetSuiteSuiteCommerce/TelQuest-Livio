@@ -13,6 +13,7 @@
 		<div id="content" class="checkout-layout-content"></div>
 		<!-- / Main Content Area -->
 	</div>
+
 	<footer id="site-footer" class="checkout-layout-footer" data-view="Footer"></footer>
 </div>
 

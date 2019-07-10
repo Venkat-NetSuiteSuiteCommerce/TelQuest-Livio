@@ -687,18 +687,17 @@ button.product-list-control-button-wishlist{
 }
 ul.product-details-information-content-tabs {
   @extend .clearfix;
-  background-color: #004672;
+  background-color: #00273f;
   padding-left: 10%;
-
 
   li.product-details-information-tab-title {
     display: block;
     margin-right: 5px;
     float: left;
-    background: #004672;
+    background: #00273f;
 
     a {
-      background: #004672;
+      background: #00273f;
       color: white;
       border: none;
       height: 25px;

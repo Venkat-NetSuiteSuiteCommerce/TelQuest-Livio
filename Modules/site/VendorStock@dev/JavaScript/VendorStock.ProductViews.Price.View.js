@@ -19,10 +19,12 @@ define('VendorStock.ProductViews.Price.View', [
         },
 
         showInStockMessage: function showInStockMessage(item) {
-            //return item.get('_isInStock') || (item.get('outofstockbehavior') === outOfStockBehavior) || (item.get('custitem_vendor_stock') > 0);
-            return (item.get('custitem_vendor_stock') > 0);
+           // return item.get('_isInStock') || (item.get('outofstockbehavior') === outOfStockBehavior) || (item.get('custitem_vendor_stock') > 0);
+            return (item.get('custitem_vendor_stock') > 0 || item.get('custitem_show_add_to_cart'));
 
         },
+
+
 
         getContext: _.wrap(ProductViewsPriceView.prototype.getContext, function getContext(fn) {
             var context = fn.apply(this, _.toArray(arguments).slice(1));

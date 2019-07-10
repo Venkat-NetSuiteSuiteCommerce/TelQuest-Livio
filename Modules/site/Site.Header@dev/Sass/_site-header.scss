@@ -81,7 +81,7 @@
 
 .sales_rep_phone{
   @extend .icon-question-circle;
-  color: $sc-ink4;
+  color: white;
   font-size: 30px;
   line-height: 30px;
   transition: all 0.2s;
@@ -91,7 +91,7 @@
 }
 
 .header-profile-login-icon{
-  color: $sc-ink4;
+  color: white;
   font-size: 30px;
   line-height: 30px;
   transition: all 0.2s;
@@ -128,6 +128,7 @@
 }
 .header-logo-image {
   margin-left: 10px;
+  margin-top: 10px;
   @media(max-width: 992px){
     width: auto;
     max-height: 100%;
@@ -206,6 +207,7 @@
   }
 }
 .site-search-content-input{
+  height: 30px;
   padding: 0 18px;
 }
 .header-content{

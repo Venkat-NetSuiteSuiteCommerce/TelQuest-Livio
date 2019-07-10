@@ -22,6 +22,7 @@
         ]
     },
     "overrides": {
-        "suitecommerce/ProductViews@1.0.2/Templates/product_views_price.tpl": "Templates/product_views_price.tpl"
+        "suitecommerce/ProductViews@1.0.2/Templates/product_views_price.tpl": "Templates/product_views_price.tpl",
+        "suitecommerce/ProductViews@1.0.2/Sass/_product-views-price.scss": "Sass/_product-views-price.scss"
     }
 }

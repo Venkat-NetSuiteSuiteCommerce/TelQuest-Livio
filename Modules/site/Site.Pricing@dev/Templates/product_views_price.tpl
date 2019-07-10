@@ -6,11 +6,13 @@
 }}
 
 <div class="product-views-price">
-    <div>
+  {{!--  <div>
         {{#unless isLoggedIn}}
             <a data-target="fakeLogin">{{translate 'Login For Better Pricing'}}</a>
         {{/unless}}
     </div>
+
+ --}}
     {{#if showMessages}}
         {{#if isInStock}}
             <p class="stock-available">{{translate inStockMessage}}</p>
@@ -21,9 +23,11 @@
 
     {{#each fakeMatrixPrices}}
         {{#if showComparePrice}}
-            <p class="product-views-price-old only-plp">
-                {{translate 'Advertised Price: '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
+            {{#if isNew}}
+            <p class="table-product-ad-price ">
+                {{translate 'Advertised Price: '}} <span class="product-views-price-old price-strike table-product-ad-price">{{comparePriceFormatted}}</span>
             </p>
+            {{/if}}
         {{/if}}
     {{/each}}
 
@@ -49,17 +53,26 @@
                         {{/if}}
 
                         <p class="product-views-price-lead" data-rate="{{price}}">
-                            <span>{{translate 'Advertised Price'}}</span>
-                            <span itemprop="price">{{priceFormatted}}</span>
+                            <span>{{translate 'Your Price'}}</span>
+                            <p class="table-product-final-price" itemprop="price">{{priceFormatted}}<span class="stock-available product-table-new">{{custitem_awa_condition}}</span></p>
+
                         </p>
 
 			    </span>
-                    <div class="product-views-price-internal-condition-container">
+
+              {{!--     <div >
                         <span class="prices-internal-description-condition">{{custitem_awa_condition}}</span>
-                            <i data-toggle="tooltip" class="cart-summary-expander-tooltip" title="{{# if isNew}}{{../newMessage}}{{/if}}" ></i>
+                    <i data-toggle="tooltip" class="cart-summary-expander-tooltip" title="{{# if isNew}}{{../newMessage}}{{/if}}" ></i>
                     </div>
+
+                    --}}
                 </div>
-                        {{/if}}
+                {{/if}}
+                {{#if isRecertified}}
+                       <p class="stock-available used" data-rate="{{price}}">Used starting at: {{priceFormatted}}</p>
+                {{/if}}
+
+
             {{/each}}
 
         {{else if isPriceRange}}
@@ -90,7 +103,7 @@
                 {{#if showComparePrice}}
 
                     <p class="product-views-price-old">
-                        {{translate 'MSRP: '}}  <span class="price-strike">{{comparePriceFormatted}}</span>
+                        {{translate 'Advertised Price: '}}  <span class="price-strike">{{comparePriceFormatted}}</span>
                     </p>
 
                 {{/if}}

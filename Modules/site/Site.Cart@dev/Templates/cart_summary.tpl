@@ -194,7 +194,8 @@
     {{#if showActions}}
         <div class="cart-summary-button-container">
             <a id="btn-proceed-checkout" class="cart-summary-button-proceed-checkout {{#if showProceedButton}} cart-summary-button-proceed-checkout-sb {{/if}}" href="#" data-touchpoint="checkout" data-hashtag="#">
-                {{translate 'Proceed to Checkout'}}
+                {{translate 'Secure Checkout '}}
+                <i class="fa fa-lock"></i>
             </a>
 
             {{#if showPaypalButton}}

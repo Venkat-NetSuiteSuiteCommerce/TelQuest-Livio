@@ -57,13 +57,14 @@ define('ProductDetails.Base.View.Tags', [
         getContext: _.wrap(ProductDetailsBaseView.prototype.getContext, function getContext(fn) {
             var context = fn.apply(this, _.toArray(arguments).slice(1));
             var item = this.model.getItem();
+            var show_add_to_cart_checkbox = this.model.getItem().get('custitem_show_add_to_cart');
             var vendorStock = item.get('custitem_vendor_stock');
-            var add_to_cart_checkbox = item.get('custitem_show_add_to_cart') ;
+            console.log(vendorStock);
+            console.log(show_add_to_cart_checkbox);
             var vendor_stock_message = item.get('custitem_vendor_stock_message');
-
             _.extend(context, {
                 isLoggedIn: FakeLoginUtils.isLoggedIn(),
-                showCart: vendorStock && vendorStock > 0 || add_to_cart_checkbox,
+                showCart: (vendorStock && vendorStock > 0) || show_add_to_cart_checkbox,
                 vendor_stock_message: vendor_stock_message
             });
             return context;

@@ -13,7 +13,7 @@ may use this code subject to the terms that govern your access and use.
     <meta itemprop="name" content="{{name}}">
     <meta itemprop="url" content="{{url}}">
 
-    <p class="table-view-mpn">{{translate 'MPN: '}} {{mpn}} <span class="facets-item-cell-table-rating" itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" data-view="GlobalViews.StarRating"></span></p>
+    <p class="table-view-mpn"><span class="facets-item-cell-table-rating" itemprop="aggregateRating" itemscope="" itemtype="https://schema.org/AggregateRating" data-view="GlobalViews.StarRating"></span>{{translate 'MPN: '}} {{mpn}} </p>
 
     <div itemscope itemtype="https://schema.org/Product">
         <meta itemprop="name" content="{{name}}">
@@ -36,8 +36,8 @@ may use this code subject to the terms that govern your access and use.
         </div>
         <div class="facets-item-cell-table-content-wrapper">
             <h2 class="facets-item-cell-table-title">
-                <a href="{{url}}">
-                    <span itemprop="name">
+                <a  href="{{url}}">
+                    <span class="table-product-title" itemprop="name">
                         {{name}}
                     </span>
                 </a>
@@ -58,7 +58,7 @@ may use this code subject to the terms that govern your access and use.
 
             <div data-view="ItemDetails.Options"></div>
 
-            <div data-view="Cart.QuickAddToCart"></div>
+           <div data-view="Cart.QuickAddToCart"></div>
 
             <div class="facets-item-cell-table-stock">
                 <div data-view="ItemViews.Stock" class="facets-item-cell-table-stock-message"></div>

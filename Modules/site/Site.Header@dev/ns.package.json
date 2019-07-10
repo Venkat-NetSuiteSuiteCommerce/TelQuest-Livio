@@ -22,7 +22,6 @@
         ]
     },
     "overrides": {
-        "suitecommerce/Header@1.3.1/JavaScript/Header.View.js": "JavaScript/Header.View.js",
         "suitecommerce/Header@1.3.1/Templates/header_logo.tpl": "Templates/header_logo.tpl",
         "suitecommerce/Header@1.3.1/Templates/header.tpl": "Templates/header.tpl",
         "suitecommerce/Header@1.3.1/Templates/header_menu.tpl": "Templates/header_menu.tpl",

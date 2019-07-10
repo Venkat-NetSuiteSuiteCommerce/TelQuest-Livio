@@ -5,12 +5,19 @@
 	may use this code subject to the terms that govern your access and use.
 */
 
+
+.table-product-title{
+  font-size:14px;
+  color:black;
+}
+
 .facets-item-cell-table-content-wrapper{
   min-width:100%;
 }
 .table-view-mpn{
   text-align:right;
   font-size: 12px;
+  margin-bottom:20px;
 }
 .facets-item-cell-table {
   @extend .item-cell;
@@ -37,6 +44,7 @@
   }
 
   .cart-add-to-cart-button-container {
+
     width:100%;
     padding:0px;
   }
@@ -81,7 +89,8 @@
 
 .facets-item-cell-table-link-image {}
 
-.facets-item-cell-table-quick-view-icon {}
+.facets-item-cell-table-quick-view-icon {
+}
 
 .facets-item-cell-table-add-to-cart-itemid {}
 
@@ -137,3 +146,82 @@
 .facets-item-cell-table-stock-message {
   text-align:left;
 }
+
+.facets-item-cell-grid{
+  overflow:hidden;
+  transition: all 0.5s;
+}
+.facets-item-cell-grid:hover{
+  background:white;
+}
+.facets-item-cell-grid .cart-add-to-cart-button-container{
+  margin-top:-90px;
+  transform:translatey(140px);
+  transition: all 0.5s;
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
+}
+.facets-item-cell-grid:hover  .product-views-price-exact{
+  transform:translatey(-30px);
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+  background:#f2f2f2;
+}
+.facets-item-cell-grid:hover .cart-add-to-cart-button-container{
+  transform:translatey(55px);
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+
+
+
+}
+.facets-item-cell-grid:hover .table-product-ad-price{
+  transform:translatey(-30px);
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+  background:#f2f2f2;
+}
+
+.facets-item-cell-grid:hover .facets-item-cell-table-quick-view-link {
+  background: #00273f;
+  border: #00273f;
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+.facets-item-cell-grid:hover .facets-item-cell-table-quick-view-link:hover {
+  background: lighten($sc-ink4 , 15%);
+  transition: all 0.5s;
+}
+
+.facets-item-cell-grid:hover .stock-available{
+  transform:translatey(-30px);
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+  z-index:0;
+}
+.facets-item-cell-grid:hover .used{
+  transform:translatey(-30px);
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+  z-index:10001;
+  margin-top:5px;
+}
+
+
+.facets-item-cell-grid:hover .facets-item-cell-table-title{
+  transition-timing-function: ease-out;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+  background:#f2f2f2;
+  z-index:1000;
+}
+.product-views-price-exact{
+  margin-bottom:5px;
+}
+

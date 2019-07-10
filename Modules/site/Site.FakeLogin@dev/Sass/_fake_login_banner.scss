@@ -41,8 +41,17 @@
 }
 .header-icon-container-logged {
   @extend .header-icon-container;
+  color: white;
   width: 110px;
   line-height: 1;
   margin-top: 0;
   height: auto;
+}
+
+.open > [data-toggle="dropdown"] {
+  color: white;
+}
+
+.header-icon-container-logged:hover{
+  color: #0067b9;
 }

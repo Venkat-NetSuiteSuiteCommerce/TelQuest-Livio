@@ -7,7 +7,7 @@
 
 <div class="header-message" data-view="Message.Placeholder"></div>
 <div class="header-main-wrapper">
-    <div class="header-subheader">
+   {{!-- <div class="header-subheader">
         <div class="header-subheader-container" data-cms-area="header-subheader-container" data-cms-area-filters="global">
             {{!----
             <!--ul class="header-subheader-options">
@@ -33,9 +33,9 @@
                 <li data-view="QuickOrderHeaderLink"></li>
             </ul-->
             ----}}
-            <h4><a href="tel:800-475-0989">{{translate 'ORDER BY PHONE 800-475-0989'}}</a></h4>
+          {{!--  <h4><a href="tel:800-475-0989">{{translate 'ORDER BY PHONE 800-475-0989'}}</a></h4>
         </div>
-    </div>
+    </div> --}}
     <nav class="header-main-nav">
 
         <div id="banner-header-top" class="content-banner banner-header-top" data-cms-area="header_banner_top" data-cms-area-filters="global"></div>
@@ -63,12 +63,12 @@
                     </div>
 
                     <div class="header-menu-profile header-menu-support">
-                        <a data-action="show-salesrep-popup" class="header-icon-container" data-touchpoint="home">
+                        <a href="/sales-reps" data-hashtag="#sales-reps" class="header-icon-container" data-touchpoint="home">
                             <head>
                                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
                             </head>
                             <body>
-                            <i class="fas fa-phone fa-lg sales_rep_phone" ></i>
+                            <i class="fas fa-headset fa-2x sales_rep_phone" ></i>
                             </body>
                         </a>
                     </div>

@@ -12,7 +12,7 @@
 			<input name="quantity" data-action="setquantity" class="cart-quickaddtocart-quantity" type="number" min="{{minimumQuantity}}" value="{{quantity}}"/>
 		</div>
 	{{/if}}
-
+    
     {{#if isParent}}
         <div class="cart-add-to-cart-button-container">
             <div class="cart-add-to-cart-button">
@@ -22,6 +22,7 @@
             </div>
         </div>
     {{/if}}
+
 </form>
 
 

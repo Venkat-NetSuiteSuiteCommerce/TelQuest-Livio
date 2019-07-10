@@ -40,6 +40,7 @@ define('FakeMatrix.ProductViews.Price.View', [
                         internalid: currentChild.get('internalid'),
                         isNew: currentChild.get('custitem_awa_condition') === 'New',
                         isLikeNew: currentChild.get('custitem_awa_condition') === 'Like New',
+                        isRecertified: currentChild.get('custitem_awa_condition')=== 'Recertified',
                         custitem_awa_condition: currentChild.get('custitem_awa_condition'),
                         priceFormatted: onlinePrice.onlinecustomerprice_formatted,
                         price: onlinePrice.onlinecustomerprice,

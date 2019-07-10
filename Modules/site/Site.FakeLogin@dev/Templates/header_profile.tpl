@@ -12,9 +12,9 @@
             <i class="header-profile-welcome-carret-icon"></i>
             {{translate 'Welcome  $(0)' displayName}}<br>
 
-            {{#if salesrep}}
+        {{!-- {{#if salesrep}}
                 <small>{{translate 'Sales Rep: '}}{{salesrep}}</small>
-            {{/if}}
+            {{/if}} --}}
         </a>
 		<ul class="header-profile-menu-myaccount-container">
 			<li data-view="Header.Menu.MyAccount"></li>
