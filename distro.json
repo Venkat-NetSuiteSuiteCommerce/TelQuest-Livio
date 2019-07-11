@@ -313,7 +313,9 @@
                     "ComparePrice",
                     "FakeLogin",
                     "VendorStock",
-                    "Header.Profile.Site.View"
+                    "Header.Profile.Site.View",
+                    "Header.View.ShowSalesRepPopup",
+                    "SalesPopup.View"
                 ],
                 "amdclean": false,
                 "amdConfig": {

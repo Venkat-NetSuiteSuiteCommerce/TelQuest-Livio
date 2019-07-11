@@ -205,6 +205,7 @@ define(
 			,	show_languages = environment.availableHosts && environment.availableHosts.length > 1
 			,	show_currencies = environment.availableCurrencies && environment.availableCurrencies.length > 1 && !Configuration.get('header.notShowCurrencySelector');
 
+			var isLoggedIn = ProfileModel.getInstance().get('isLoggedIn');
 			// @class Header.View.Context
 			return {
 				// @property {Profile.Model} profileModel
@@ -221,6 +222,8 @@ define(
 			,	isHomeTouchpoint: Configuration.currentTouchpoint === 'home'
 				// @property {String} cartTouchPoint
 			,	cartTouchPoint: Configuration.get('modulesConfig.Cart.startRouter', false) ? Configuration.currentTouchpoint : 'viewcart'
+
+			,	isLoggedIn: isLoggedIn
 			};
 			// @class Header.View
 		}
