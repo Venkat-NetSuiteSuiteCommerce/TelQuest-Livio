@@ -5,6 +5,17 @@
 	may use this code subject to the terms that govern your access and use.
 */
 
+
+.stock-available-checkmark{
+	display: inline-block;
+	color: green;
+	height: 31px;
+	border-radius: 50px;
+	line-height: 30px;
+	font-size:14px;
+	font-weight: 600;
+}
+
 .product-table-new{
 	margin-left: 10px;
 }
@@ -34,10 +45,10 @@
 
 .product-views-price-login-to-see-prices-highlighted {
 	margin-top: $sc-margin-lv2;
-    margin-bottom: $sc-margin-lv2;
+	margin-bottom: $sc-margin-lv2;
 }
 .product-views-price-login-to-see-prices {
-    @extend .message;
+	@extend .message;
 }
 
 .product-views-price-message {
