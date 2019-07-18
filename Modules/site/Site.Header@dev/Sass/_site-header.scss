@@ -19,6 +19,8 @@
     }
     @media (max-width:680px) {
       width: 100%;
+      height: 35px !important;
+      padding: 0px !important;
       box-sizing: border-box;
       height: 48px;
     }
@@ -32,7 +34,7 @@
   padding: 0;
   height: 24px;
   display: flex;
-  width: 24px;
+  width: 30px;
   max-width: 24px;
   min-width: 24px;
   max-height: 24px;
@@ -60,8 +62,12 @@
   }
 }
 .header-menu-cart {
-  margin-left: 0;
-  width: 60px;
+  height: 50px;
+  width:50px;
+  @media (max-width: 680px) {
+    margin-left: 0;
+    width: 60px;
+  }
 }
 .header-profile-welcome-link {
   text-align: center;
@@ -129,7 +135,8 @@
 .header-logo-image {
   margin-left: 10px;
   margin-top: 10px;
-  @media(max-width: 992px){
+  @media(max-width: 680px){
+    padding-bottom: 10px !important;
     width: auto;
     max-height: 100%;
     margin-left: 0;
@@ -162,21 +169,28 @@
   margin-top: 15px;
 }
 .header-sidebar-toggle{
-  background: $sc-ink2;
+  background: #00273f;
+}
+.header-sidebar-toggle-icon{
+  color:white;
 }
 .header-menu-profile {
   display: block !important;
-  width: 60px;
-  @media(max-width: 992px){
-    display: none !important;
+  width: 50px;
+  margin-left:0px;
+  @media(max-width: 680px){
+    float: left;
+    position: relative;
   }
 }
 .header-menu-support {
-  @media (max-width: 992px) {
-    display: none !important;
+  @media (max-width: 680px) {
+    margin-left: 0;
+    width: 60px;
   }
 }
 .header-icon-container-logged {
+  color: white;
   width: 110px;
   line-height: 1;
   margin-top: 0;
@@ -184,14 +198,15 @@
   display: inline-block;
   float: left;
   text-align: center;
-  @media (max-width: $screen-xs) {
+  @media (max-width:  992px) {
+    display: none;
     width: 150px !important;
   }
 }
 
 .header-menu-right-icons {
   @media (max-width:992px) {
-    width: 50px;
+    width: 125px;
     float: right;
     display: block;
   }
@@ -211,23 +226,26 @@
   padding: 0 18px;
 }
 .header-content{
-  @media(max-width: 992px){
+  @media(max-width: 680px){
     padding-top: 10px;
   }
 }
-.header-sidebar-wrapper{
-  .header-profile-login-icon{
+.header-sidebar-wrapper {
+  background: #00273f;
+
+  .header-profile-login-icon {
     color: white;
   }
+
+  @media(max-width: 680px) {
+    background: #00273f;
+  }
 }
+
+
 .header-logo-wrapper{
   @media(max-width: 680px){
     float: none;
     margin-bottom: 10px;
   }
-}
-
-.sales-rep-modal{
-  width: 400px;
-  text-align: center;
 }
