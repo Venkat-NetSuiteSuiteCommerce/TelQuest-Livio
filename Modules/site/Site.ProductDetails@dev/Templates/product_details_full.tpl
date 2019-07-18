@@ -6,7 +6,8 @@
 }}
 
 <div class="product-details-full">
-	<div data-cms-area="item_details_banner" data-cms-area-filters="page_type"></div>
+    <div data-cms-area="item_details_top_banner" data-cms-area-filters="page_type"></div>
+    <div data-cms-area="item_details_banner" data-cms-area-filters="page_type"></div>
 
 
 	<article class="product-details-full-content" itemscope itemtype="https://schema.org/Product">
