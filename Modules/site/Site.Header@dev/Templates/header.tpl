@@ -64,7 +64,7 @@
 
                     <div class="header-menu-profile header-menu-support">
                         {{#if isLoggedIn}}
-                            <a data-action="show-salesrep-popup" class="header-icon-container" data-touchpoint="home">
+                            <a href="#" data-action="show-salesrep-popup" class="header-icon-container">
                                 <head>
                                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
                                 </head>
@@ -98,8 +98,6 @@
 </div>
 
 <div class="header-site-search"  style="display:block;"></div>
-
-
 
 {{!----
 Use the following context variables when customizing this template:
