@@ -1,10 +1,3 @@
-/*
-	© 2016 NetSuite Inc.
-	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
-	provided, however, if you are an authorized user with a NetSuite account or log-in, you
-	may use this code subject to the terms that govern your access and use.
-*/
-
 //@module SalesPopup
 define(
 	'SalesPopup.View'
@@ -32,16 +25,17 @@ define(
 			//@property {Function} template
 			template: sales_popup_tpl,
 
-            modalClass: 'sales-rep-modal'
+            title: _('Sales Rep Information').translate(),
 
-			,	initialize: function (options)
-			{
+            modalClass: 'sales-rep-modal',
 
-			}
-			,	getContext: function getContext()
-			{
-				var profile = ProfileModel.getInstance()
-					,   salesrep = profile.get('salesrep');
+			initialize: function (options) {
+
+			},
+
+			getContext: function getContext() {
+				var profile = ProfileModel.getInstance();
+				var salesrep = profile.get('salesrep');
 				return {
 					salesRep : salesrep
 				};

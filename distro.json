@@ -437,7 +437,8 @@
                     "NProgress",
                     "UpsellItems",
                     "AddOnItems",
-                    "Header.Profile.Site.View"
+                    "Header.Profile.Site.View",
+                    "Header.View.ShowSalesRepPopup"
                 ],
                 "amdclean": false,
                 "amdConfig": {
@@ -557,7 +558,8 @@
                     "UpsellItems",
                     "AddOnItems",
                     "FakeLogin.Checkout",
-                    "Header.Profile.Site.View"
+                    "Header.Profile.Site.View",
+                    "Header.View.ShowSalesRepPopup"
                 ],
                 "amdclean": false,
                 "amdConfig": {

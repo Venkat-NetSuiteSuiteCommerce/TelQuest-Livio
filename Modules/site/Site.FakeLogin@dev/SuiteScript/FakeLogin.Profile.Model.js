@@ -59,10 +59,7 @@ define('FakeLogin.Profile.Model', [
     // };
 
     ProfileModel.getSalesRep = function getSalesRep() {
-        var loggedIn = ModelsInit.session.isLoggedIn();
         var loggedIn2 = ModelsInit.session.isLoggedIn2();
-        nlapiLogExecution('DEBUG', 'loggedIn', JSON.stringify(loggedIn));
-        nlapiLogExecution('DEBUG', 'loggedIn2', JSON.stringify(loggedIn2));
         if (loggedIn2) {
             try {
                 var url = nlapiResolveURL(
