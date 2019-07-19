@@ -16,7 +16,8 @@
 					{{translate 'Filter'}} <i class="list-header-view-filter-button-icon" ></i>
 				</button>
 			</div>
-			<div class="list-header-view-accordion-body {{initiallyCollapsed}}" data-type="accordion-body" {{{accordionStyle}}}>
+
+                <div class="list-header-view-accordion-body {{initiallyCollapsed}}" data-type="accordion-body" {{{accordionStyle}}}>
 				<div class="list-header-view-accordion-body-header {{classes}}">
 
 					{{#if rangeFilter}}

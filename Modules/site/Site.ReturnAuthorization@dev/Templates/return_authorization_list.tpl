@@ -14,7 +14,7 @@
 
 <section class="return-authorization-list">
 	<header class="return-authorization-list-header">
-     <h5><a href="#return-form" >Request a return</a></h5>
+     <h5><a href="#return-form">Request a return</a></h5>
 	</header>
 
 	{{#if showMessage}}
