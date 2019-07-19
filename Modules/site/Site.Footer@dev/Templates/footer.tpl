@@ -5,7 +5,7 @@
 	may use this code subject to the terms that govern your access and use.
 }}
 
-<div  data-cms-area="global_cms_over_footer" data-cms-area-filters="global">
+<div  data-cms-area="global_cms_over_footer" data-cms-area-filters="global"></div>
 
 <div class="newsletter-container">
     <div><p class="newsletter-title">{{translate 'SIGN UP FOR OUR NEWSLETTER'}}</p></div>
