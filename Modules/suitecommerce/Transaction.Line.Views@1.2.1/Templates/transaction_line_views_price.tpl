@@ -24,15 +24,15 @@
 	<div class="transaction-line-views-price-login-to-see-prices">
 		<p class="transaction-line-views-price-message">
 			{{translate '<a href="$(0)">Log in</a> to see price' urlLogin}}
-		</p>
+		</p>www
 	</div>
 {{/if}}
 
 
 
 {{!----
-Use the following context variables when customizing this template: 
-	
+Use the following context variables when customizing this template:
+
 	model (Object)
 	model.item (Object)
 	model.item.internalid (Number)

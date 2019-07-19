@@ -52,6 +52,7 @@
         "site/Site.FakeLogin": "dev",
         "site/Site.Search": "dev",
         "site/VendorStock": "dev",
+        "site/Site.Transaction.Line.Views": "dev",
         "site/Site.OrderWizard.Module.PaymentMethod": "dev",
         "extensions/MyExampleCartExtension1": "1.0.0",
         "extensions/MyExamplePDPExtension1": "1.0.0",

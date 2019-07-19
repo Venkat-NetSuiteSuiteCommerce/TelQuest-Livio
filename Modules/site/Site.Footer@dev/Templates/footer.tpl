@@ -4,7 +4,11 @@
 	provided, however, if you are an authorized user with a NetSuite account or log-in, you
 	may use this code subject to the terms that govern your access and use.
 }}
+
+<div  data-cms-area="global_cms_over_footer" data-cms-area-filters="global"></div>
+
 <div class="newsletter-container">
+
     <div><p class="newsletter-title">{{translate 'SIGN UP FOR OUR NEWSLETTER'}}</p></div>
     <div class="newsletter-subscribe" data-view="FooterContent">
 
@@ -39,6 +43,7 @@
 
 
     </div>
+
 
     <div><p class="newsletter-note">{{translate 'By signing up, you agree to receive our email notifications'}}</p></div>
     <div class="newsletter-cms" data-cms-area="newseltter-cms" data-cms-area-filters="global">

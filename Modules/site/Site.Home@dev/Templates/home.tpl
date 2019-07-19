@@ -129,20 +129,20 @@
         <div id="home-first-cms-content" class="home-first-cms-content carousel-merch" data-cms-area="home-first-cms-content" data-cms-area-filters="path"></div>
     </div>
 
-    <div class="banner-container" data-cms-area="banner-container" data-cms-area-filters="path"></div>
+    <div class="banner-container carousel-merch" data-cms-area="banner-container" data-cms-area-filters="path"></div>
 
     <div class="container">
         <div data-cms-area="home-title-2" data-cms-area-filters="path"></div>
-        <div id="home-features-cms" class="home-features-cms" data-cms-area="home-features-cms" data-cms-area-filters="path"></div>
+        <div id="home-features-cms" class="home-features-cms carousel-merch" data-cms-area="home-features-cms" data-cms-area-filters="path"></div>
     </div>
 
-    <div class="banner-container" data-cms-area="second-banner-container" data-cms-area-filters="path"></div>
+    <div id="home-first-cms-content" class="banner-container carousel-merch" data-cms-area="second-banner-container" data-cms-area-filters="path"></div>
 
 
     <div class="container">
 
         <div data-cms-area="home-title-3" data-cms-area-filters="path"></div>
-        <div id="home-features-cms" class="home-more-deals row" data-cms-area="home-more-deals" data-cms-area-filters="path">
+        <div id="home-features-cms" class="home-more-deals row carousel-merch" data-cms-area="home-more-deals" data-cms-area-filters="path">
 
         </div>
     </div>

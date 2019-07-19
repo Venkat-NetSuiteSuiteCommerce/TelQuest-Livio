@@ -6,11 +6,11 @@
 }}
 
 
-
+{{!--
 <div class="transaction-line-views-options-selected-content" data-action="pushable" data-id="transaction-line-views-options">
 	<div data-view="Options.Collection"></div>
 </div>
-
+--}}
 
 
 {{!----
