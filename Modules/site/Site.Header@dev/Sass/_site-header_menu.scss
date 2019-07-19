@@ -5,8 +5,8 @@
     text-align: center;
     a{
       font-size: 14px;
-font-weight: 400;
-letter-spacing: 1px;
+      font-weight: 400;
+      letter-spacing: 1px;
     }
   }
 }
@@ -25,6 +25,9 @@ letter-spacing: 1px;
 }
 .site-search {
   border: 0;
+  @media(max-width: 680px) {
+    padding-bottom: 10px !important;
+  }
 }
 .site-search-content {
   height: 40px;
@@ -102,7 +105,9 @@ letter-spacing: 1px;
   }
 }
 .header-mini-cart-menu-cart-link {
+  width: 60px;
   .header-mini-cart-menu-cart-icon{
+    margin-top: 10px;
     transition: all 0.2s;
     color:white;
   }
@@ -147,7 +152,7 @@ letter-spacing: 1px;
     }
     &:hover{
       a {
-            background: $sc-ink3;
+        background: $sc-ink3;
       }
       ul.header-menu-level3{
         display: block;
