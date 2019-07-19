@@ -94,6 +94,7 @@
                             {{/if}}
                         </div>
 
+                        <div data-cms-area="payment_methods" data-cms-area-filters="page_type"></div>
                         {{#if webstore_free_shipping}}
                         <div data-cms-area="free_shipping_banner" data-cms-area-filters="page_type"></div>
                         {{/if}}
