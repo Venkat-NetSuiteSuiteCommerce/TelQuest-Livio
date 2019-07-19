@@ -15,6 +15,7 @@
         {{!-- {{#if salesrep}}
                 <small>{{translate 'Sales Rep: '}}{{salesrep}}</small>
             {{/if}} --}}
+
         </a>
 		<ul class="header-profile-menu-myaccount-container">
 			<li data-view="Header.Menu.MyAccount"></li>
@@ -34,11 +35,14 @@
 
 	{{#if showLoginMenu}}
 		{{#if showLogin}}
-			<div class="header-icon-container">
-                <a class="header-icon-link" title="My Account" href="#" data-touchpoint="customercenter">
-                    <i class="header-profile-login-icon"></i>
-                </a>
-			</div>
+            <div class="header-icon-container">
+            <a class="header-icon-container-logged-out" title="My Account" href="#" data-touchpoint="customercenter">
+                <i class="header-profile-login-icon"></i>
+                <br>{{translate 'Log In'}}<br>
+			</a>
+            </div>
+
+
 		{{/if}}
 	{{else}}
 		<a class="header-profile-loading-link">

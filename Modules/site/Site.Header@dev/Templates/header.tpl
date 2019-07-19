@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="header-menu-profile header-menu-support">
+                    <div class="header-menu-profile-support header-menu-support">
                         {{#if isLoggedIn}}
                             <a href="#" data-action="show-salesrep-popup" class="header-icon-container">
                                 <head>
@@ -85,6 +85,10 @@
                     </div>
                     <div class="header-menu-profile" data-view="Header.Profile">
                     </div>
+
+
+
+
                 </div>
             </div>
         </div>
