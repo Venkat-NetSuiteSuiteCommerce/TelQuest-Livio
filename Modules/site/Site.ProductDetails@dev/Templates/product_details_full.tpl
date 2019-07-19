@@ -160,11 +160,11 @@
 
 
 
-	{{!--	<div class="product-details-full-content-correlated-items">
+	<div class="product-details-full-content-correlated-items">
 			<div data-view="Correlated.Items"></div>
 		</div>
 
-	--}}
+
 		<div id="banner-details-bottom" class="content-banner banner-details-bottom" data-cms-area="item_details_banner_bottom" data-cms-area-filters="page_type"></div>
 	</article>
 </div>
