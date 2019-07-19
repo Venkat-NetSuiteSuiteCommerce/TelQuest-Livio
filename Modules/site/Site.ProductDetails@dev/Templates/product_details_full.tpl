@@ -5,8 +5,8 @@
 	may use this code subject to the terms that govern your access and use.
 }}
 
+<div data-cms-area="item_details_top_banner" data-cms-area-filters="page_type"></div>
 <div class="product-details-full">
-    <div data-cms-area="item_details_top_banner" data-cms-area-filters="page_type"></div>
     <div data-cms-area="item_details_banner" data-cms-area-filters="page_type"></div>
 
 
@@ -93,7 +93,14 @@
                                 </section>
                             {{/if}}
                         </div>
-                        <div data-cms-area="aboveSocial" data-cms-area-filters="page_type"></div>
+
+                        {{#if webstore_free_shipping}}
+                        <div data-cms-area="free_shipping_banner" data-cms-area-filters="page_type"></div>
+                        {{/if}}
+
+                        {{#if showCart}}
+                            <div data-cms-area="request_price_match" data-cms-area-filters="page_type"></div>
+                        {{/if}}
                         <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
                         <div data-view="PrintPage"></div>
                         {{!---- cms box under social ----}}

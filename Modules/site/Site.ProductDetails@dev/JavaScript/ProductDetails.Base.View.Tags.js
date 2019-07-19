@@ -59,13 +59,13 @@ define('ProductDetails.Base.View.Tags', [
             var item = this.model.getItem();
             var show_add_to_cart_checkbox = this.model.getItem().get('custitem_show_add_to_cart');
             var vendorStock = item.get('custitem_vendor_stock');
-            console.log(vendorStock);
-            console.log(show_add_to_cart_checkbox);
+            var webstore_free_shipping = item.get('custitem_awa_freeshipping');
             var vendor_stock_message = item.get('custitem_vendor_stock_message');
             _.extend(context, {
                 isLoggedIn: FakeLoginUtils.isLoggedIn(),
                 showCart: (vendorStock && vendorStock > 0) || show_add_to_cart_checkbox,
-                vendor_stock_message: vendor_stock_message
+                vendor_stock_message: vendor_stock_message,
+                webstore_free_shipping: webstore_free_shipping || show_add_to_cart_checkbox
             });
             return context;
         })
