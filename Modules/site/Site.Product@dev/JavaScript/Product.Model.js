@@ -44,7 +44,12 @@ define('Product.Model'
 						var current_quantity = parseInt(new_quantity, 10)
 						,   vendor_quantity = this.getItem().get('custitem_vendor_stock')
 
-						//console.log(vendor_quantity)
+						if(vendor_quantity > 250) {
+							vendor_quantity = 250
+						}
+
+
+						console.log(vendor_quantity)
 
 						if(current_quantity > vendor_quantity)   //And the quantityAvailable is greater than current_quantity
 						{
@@ -83,11 +88,11 @@ define('Product.Model'
 				console.log(vendor_quantity)
 				if(vendor_quantity != '' && vendor_quantity != null)
 			    {
-			    	this.set('quantity', vendor_quantity, {silent: false}); 
-			    	
+			    	this.set('quantity', vendor_quantity, {silent: false});
+
 			    }
 			}
-				
+
 			//@method initialize Override default initialize method to assure the correct data structure
 			//@param {Object} attributes
 			//@return {Void}
