@@ -1,60 +1,72 @@
 /*
-	© 2017 NetSuite Inc.
-	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
-	provided, however, if you are an authorized user with a NetSuite account or log-in, you
-	may use this code subject to the terms that govern your access and use.
+   © 2017 NetSuite Inc.
+   User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+   provided, however, if you are an authorized user with a NetSuite account or log-in, you
+   may use this code subject to the terms that govern your access and use.
 */
 
 
 .stock-available-checkmark{
-	display: inline-block;
-	color: green;
-	height: 31px;
-	border-radius: 50px;
-	line-height: 30px;
-	font-size:14px;
-	font-weight: 600;
+  display: inline-block;
+  color: green;
+  height: 31px;
+  border-radius: 50px;
+  line-height: 30px;
+  font-size:14px;
+  font-weight: 600;
 }
 
 .product-table-new{
-	margin-left: 10px;
+  margin-left: 10px;
 }
 
 
 .table-product-final-price{
-	font-size:23px;
-	color:black;
-	height: 28px;
-	line-height:1.3;
+  font-size:23px;
+  color:black;
+  height: 28px;
+  line-height:1.3;
 }
 
 .table-product-ad-price{
-	line-height: 1.9;
-	font-size:12px;
-	color:red;
+  line-height: 1.9;
+  font-size:12px;
+  color:red;
 }
 
 .product-views-price-lead{
-	@extend .middle-price;
+  @extend .middle-price;
 }
 
 .product-views-price-old{
-	color: red;
-	@extend .old-price;
+  color: red;
+  @extend .old-price;
 }
 
 .product-views-price-login-to-see-prices-highlighted {
-	margin-top: $sc-margin-lv2;
-	margin-bottom: $sc-margin-lv2;
+  margin-top: $sc-margin-lv2;
+  margin-bottom: $sc-margin-lv2;
 }
 .product-views-price-login-to-see-prices {
-	@extend .message;
+  @extend .message;
 }
 
 .product-views-price-message {
-	font-weight: normal;
+  font-weight: normal;
 }
 
 .product-views-price{}
 .product-views-price-range{}
 .product-views-price-exact{}
+
+
+.Online_Price_Only_Message {
+  font-size:16px;
+  color:#00273f;
+  height: 16px;
+  line-height:1.3;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+

@@ -1,8 +1,8 @@
 {{!
-	© 2017 NetSuite Inc.
-	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
-	provided, however, if you are an authorized user with a NetSuite account or log-in, you
-	may use this code subject to the terms that govern your access and use.
+   © 2017 NetSuite Inc.
+   User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+   provided, however, if you are an authorized user with a NetSuite account or log-in, you
+   may use this code subject to the terms that govern your access and use.
 }}
 
 <div data-cms-area="item_details_top_banner" data-cms-area-filters="page_type"></div>
@@ -10,12 +10,12 @@
     <div data-cms-area="item_details_banner" data-cms-area-filters="page_type"></div>
 
 
-	<article class="product-details-full-content" itemscope itemtype="https://schema.org/Product">
-		<meta itemprop="url" content="{{itemUrl}}">
-		<div id="banner-details-top" class="product-details-full-banner-top-details"></div>
+    <article class="product-details-full-content" itemscope itemtype="https://schema.org/Product">
+        <meta itemprop="url" content="{{itemUrl}}">
+        <div id="banner-details-top" class="product-details-full-banner-top-details"></div>
 
-		<section class="product-details-full-main-content">
-			<div class="product-details-full-main-content-left">
+        <section class="product-details-full-main-content">
+            <div class="product-details-full-main-content-left">
                 <div class="product-details-full-image-gallery-container">
                     <div id="banner-image-top" class="content-banner banner-image-top"></div>
                     <div data-view="Product.ImageGallery"></div>
@@ -28,9 +28,9 @@
                     <div class="product-detail-full-cms-banner-area" data-cms-area="product-detail-full-cms-banner-area" id="product-detail-full-cms-banner-area" data-cms-area-filters="page_type"></div>
                 {{/unless}}
 
-			</div>
+            </div>
 
-			<div class="product-details-full-main-content-right">
+            <div class="product-details-full-main-content-right">
                 <div class="product-details-full-content-header">
                     <div>
                         <h1 class="product-details-full-content-header-title" itemprop="name">{{pageHeader}}</h1>
@@ -91,17 +91,22 @@
                                     </div>
 
                                 </section>
+                                {{#if webstore_free_shipping}}
+                                    <p class="free_shipping_banner"><i class="fa fa-truck"></i>  Free Shipping</p>
+                                {{/if}}
+                                {{#if online_price_only}}
+                                    <p class="Online_Price_Only_Message">
+                                        <span> {{translate 'Online Price Only'}} </span>
+                                    </p>
+                                {{/if}}
+
                             {{/if}}
                         </div>
 
                         <div data-cms-area="payment_methods" data-cms-area-filters="page_type"></div>
-                        {{#if webstore_free_shipping}}
-                        <div data-cms-area="free_shipping_banner" data-cms-area-filters="page_type"></div>
-                        {{/if}}
 
-                        {{#if showCart}}
-                            <div data-cms-area="request_price_match" data-cms-area-filters="page_type"></div>
-                        {{/if}}
+                        <div data-cms-area="request_price_match" data-cms-area-filters="page_type"></div>
+
                         <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
                         <div data-view="PrintPage"></div>
                         {{!---- cms box under social ----}}
@@ -109,34 +114,34 @@
                     </div>
                 </div>
 
-			<div class="product-details-full-main">
-				{{#if isItemProperlyConfigured}}
-					<form id="product-details-full-form" data-action="submit-form" method="POST">
+                <div class="product-details-full-main">
+                    {{#if isItemProperlyConfigured}}
+                        <form id="product-details-full-form" data-action="submit-form" method="POST">
 
-						<section class="product-details-full-info">
-							<div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
-						</section>
+                            <section class="product-details-full-info">
+                                <div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
+                            </section>
 
 
-						<div data-view="Quantity.Pricing"></div>
+                            <div data-view="Quantity.Pricing"></div>
 
-						<div data-view="Product.Stock.Info"></div>
+                            <div data-view="Product.Stock.Info"></div>
 
-                        <section data-view="Warranty.Options"></section>
+                            <section data-view="Warranty.Options"></section>
 
-						<div data-view="StockDescription"></div>
+                            <div data-view="StockDescription"></div>
 
-						<div class="product-details-full-main-bottom-banner">
-							<div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
-						</div>
-					</form>
-				{{else}}
-					<div data-view="GlobalViewsMessageView.WronglyConfigureItem"></div>
-				{{/if}}
+                            <div class="product-details-full-main-bottom-banner">
+                                <div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
+                            </div>
+                        </form>
+                    {{else}}
+                        <div data-view="GlobalViewsMessageView.WronglyConfigureItem"></div>
+                    {{/if}}
 
-			</div>
-			</div>
-		</section>
+                </div>
+            </div>
+        </section>
         <div id="banner-details-bottom" class="product-details-full-banner-details-bottom" data-cms-area="item_info_bottom_path" data-cms-area-filters="path"></div>
         <div id="banner-details-bottom" class="product-details-full-banner-details-bottom" data-cms-area="item_info_bottom" data-cms-area-filters="page_type"></div>
 
@@ -144,9 +149,9 @@
 </div>
 
 
-        <section data-view="Product.Information"></section>
+<section data-view="Product.Information"></section>
 
-    <div class ="product-details-full">
+<div class ="product-details-full">
     <article class="product-details-full-content" itemscope itemtype="https://schema.org/Product">
 
 
@@ -154,19 +159,19 @@
             <div data-view="Related.Items"></div>
         </div>
 
-		<div class="product-details-full-divider-desktop"></div>
+        <div class="product-details-full-divider-desktop"></div>
 
-		<div data-view="ProductReviews.Center"></div>
-
-
-
-	<div class="product-details-full-content-correlated-items">
-			<div data-view="Correlated.Items"></div>
-		</div>
+        <div data-view="ProductReviews.Center"></div>
 
 
-		<div id="banner-details-bottom" class="content-banner banner-details-bottom" data-cms-area="item_details_banner_bottom" data-cms-area-filters="page_type"></div>
-	</article>
+
+        <div class="product-details-full-content-correlated-items">
+            <div data-view="Correlated.Items"></div>
+        </div>
+
+
+        <div id="banner-details-bottom" class="content-banner banner-details-bottom" data-cms-area="item_details_banner_bottom" data-cms-area-filters="page_type"></div>
+    </article>
 </div>
 
 
@@ -175,22 +180,22 @@
 {{!----
 Use the following context variables when customizing this template:
 
-	model (Object)
-	model.item (Object)
-	model.item.internalid (Number)
-	model.item.type (String)
-	model.quantity (Number)
-	model.options (Array)
-	model.options.0 (Object)
-	model.options.0.cartOptionId (String)
-	model.options.0.itemOptionId (String)
-	model.options.0.label (String)
-	model.options.0.type (String)
-	model.location (String)
-	model.fulfillmentChoice (String)
-	pageHeader (String)
-	itemUrl (String)
-	isItemProperlyConfigured (Boolean)
-	isPriceEnabled (Boolean)
+   model (Object)
+   model.item (Object)
+   model.item.internalid (Number)
+   model.item.type (String)
+   model.quantity (Number)
+   model.options (Array)
+   model.options.0 (Object)
+   model.options.0.cartOptionId (String)
+   model.options.0.itemOptionId (String)
+   model.options.0.label (String)
+   model.options.0.type (String)
+   model.location (String)
+   model.fulfillmentChoice (String)
+   pageHeader (String)
+   itemUrl (String)
+   isItemProperlyConfigured (Boolean)
+   isPriceEnabled (Boolean)
 
 ----}}

@@ -24,7 +24,7 @@
 	<div class="transaction-line-views-price-login-to-see-prices">
 		<p class="transaction-line-views-price-message">
 			{{translate '<a href="$(0)">Log in</a> to see price' urlLogin}}
-		</p>www
+		</p>
 	</div>
 {{/if}}
 
