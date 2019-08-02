@@ -22,6 +22,9 @@
         ]
     },
     "overrides": {
-        "suitecommerce/GlobalViews@1.4.1/Templates/global_views_pagination.tpl": "Templates/global_views_pagination.tpl"
+        "suitecommerce/GlobalViews@1.4.1/Templates/global_views_pagination.tpl": "Templates/global_views_pagination.tpl",
+        "suitecommerce/GlobalViews@1.4.1/Templates/global_views_message.tpl": "Templates/global_views_pagination.tpl"
+
+
     }
 }

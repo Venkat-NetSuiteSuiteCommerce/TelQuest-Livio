@@ -1,8 +1,8 @@
 {{!
-	© 2017 NetSuite Inc.
-	User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
-	provided, however, if you are an authorized user with a NetSuite account or log-in, you
-	may use this code subject to the terms that govern your access and use.
+   © 2017 NetSuite Inc.
+   User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
+   provided, however, if you are an authorized user with a NetSuite account or log-in, you
+   may use this code subject to the terms that govern your access and use.
 }}
 
 <div class="product-views-price">
@@ -21,6 +21,8 @@
         {{/if}}
     {{/if}}
 
+
+
     {{#each fakeMatrixPrices}}
         {{#if showComparePrice}}
             {{#if isNew}}
@@ -33,18 +35,20 @@
 
 
 
+
     {{#if isPriceEnabled}}
         {{#if fakeMatrixPrices}}
             {{#each fakeMatrixPrices}}
                 {{#if isNew}}
                     <div class="prices-internal-description">
                     <span class="product-views-price-exact" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-				        <meta itemprop="priceCurrency" content="{{currencyCode}}"/>
+                    <meta itemprop="priceCurrency" content="{{currencyCode}}"/>
                         <!-- Single -->
                         {{#if showComparePrice}}
                             <p class="product-views-price-old">
                                 {{translate 'Advertised Price: '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
                             </p>
+
                             {{#if percentDiff}}
                                 <div class="product-views-price-discount message-info">
                                     {{translate '$(0)% discount' percentDiff}}
@@ -52,13 +56,20 @@
                             {{/if}}
                         {{/if}}
 
+                        {{#if OnlinePriceOnly}}
+                            <p class="Online_Price_Only_Message">
+                            <span> {{translate 'Online Price Only'}} </span>
+                            </p>
+                        {{/if}}
+
                         <p class="product-views-price-lead" data-rate="{{price}}">
                             <span>{{translate 'Your Price'}}</span>
-                            <p class="table-product-final-price" itemprop="price">{{priceFormatted}}<span class="stock-available product-table-new">{{custitem_awa_condition}}</span></p>
+                            <p class="table-product-final-price" itemprop="price">{{priceFormatted}}<span class="stock-available product-table-new"></span></p>
+
 
                         </p>
 
-			    </span>
+                         </span>
 
                         {{!--     <div >
                                   <span class="prices-internal-description-condition">{{custitem_awa_condition}}</span>
@@ -76,7 +87,7 @@
             {{#if fakeMatrixPricesRecertified}}
                 {{#each fakeMatrixPricesRecertified}}
                     {{#if isRecertified}}
-                           <p class="stock-available used" data-rate="{{price}}">Used starting at: {{priceFormatted}}</p>
+                        <p class="stock-available used" data-rate="{{price}}">Used starting at: {{priceFormatted}}</p>
                     {{/if}}
 
 
@@ -85,11 +96,11 @@
             {{/if}}
         {{else if isPriceRange}}
             <span class="product-views-price-range" itemprop="offers" itemscope itemtype="https://schema.org/AggregateOffer">
-				<meta itemprop="priceCurrency" content="{{currencyCode}}"/>
+            <meta itemprop="priceCurrency" content="{{currencyCode}}"/>
                 <!-- Price Range -->
-				<p class="product-detail-views-price-lead">
-                    {{translate '<span itemprop="lowPrice" data-rate="$(0)" >$(1)</span> to <span itemprop="highPrice" data-rate="$(2)">$(3)</span>' minPrice minPriceFormatted maxPrice maxPriceFormatted}}
-                </p>
+            <p class="product-detail-views-price-lead">
+                {{translate '<span itemprop="lowPrice" data-rate="$(0)" >$(1)</span> to <span itemprop="highPrice" data-rate="$(2)">$(3)</span>' minPrice minPriceFormatted maxPrice maxPriceFormatted}}
+            </p>
                 {{#if showComparePrice}}
                     <small class="product-views-price-old">
                         {{comparePriceFormatted}}
@@ -101,26 +112,31 @@
                     {{/if}}
                 {{/if}}
                 <link itemprop="availability" href="{{#if isInStockOrBackOrderable}}https://schema.org/InStock{{else}}https://schema.org/OutOfStock{{/if}}"/>
-			</span>
+         </span>
 
         {{else}}
         <div class="product-views-price-exact" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
             <meta itemprop="priceCurrency" content="{{currencyCode}}"/>
             <!-- Single -->
             <div class="prices-internal-description">
-                {{#if showComparePrice}}
 
+
+                {{#if showComparePrice}}
                     <p class="product-views-price-old">
                         {{translate 'Advertised Price: '}}  <span class="price-strike">{{comparePriceFormatted}}</span>
                     </p>
-
                 {{/if}}
+
+
+
                 {{#if priceFormatted}}
                     <p class="product-views-price-lead" data-rate="{{price}}">
                         <span>{{translate 'Your Price '}}</span>
                         <span itemprop="price">{{priceFormatted}}</span>
                     </p>
                 {{/if}}
+
+
                 {{#if percentDiff}}
                     <div class="product-views-price-discount message-info">
                         {{translate '$(0)% discount' percentDiff}}
