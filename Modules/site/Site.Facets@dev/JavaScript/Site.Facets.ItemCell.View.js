@@ -14,7 +14,8 @@ define('Site.Facets.ItemCell.View', [
     FacetsItemCell.prototype.childViews['GlobalViews.StarRating'] = function generateNewChildView() {
         var ratingCount = this.model.get('_ratingsCount') || 0;
         var view;
-        if (ratingCount > 0) {
+
+        if (ratingCount >= 0) {
             view = new GlobalViewsStarRating({
                 model: this.model,
                 showRatingCount: false,

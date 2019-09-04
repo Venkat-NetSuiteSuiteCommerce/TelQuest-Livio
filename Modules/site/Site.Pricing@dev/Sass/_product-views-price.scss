@@ -6,6 +6,17 @@
 */
 
 
+.out-of-stock-message{
+  display: inline-block;
+  color: #00273f;
+  height: 31px;
+  border-radius: 50px;
+  line-height: 30px;
+  font-size:14px;
+  font-weight: 600;
+  width: 100%;
+}
+
 .stock-available-checkmark{
   display: inline-block;
   color: green;
@@ -14,6 +25,7 @@
   line-height: 30px;
   font-size:14px;
   font-weight: 600;
+  width: 100%;
 }
 
 .product-table-new{
@@ -32,9 +44,11 @@
   line-height: 1.9;
   font-size:12px;
   color:red;
+  width: 100% !important;
 }
 
 .product-views-price-lead{
+  width: 100%;
   @extend .middle-price;
 }
 
@@ -67,6 +81,24 @@
   line-height:1.3;
   margin-bottom: 10px;
   font-weight: 900;
+  padding-left: 5px;
 }
 
+.free_shipping_banner {
+  font-size:16px;
+  color:#00273f;
+  height: 16px;
+  line-height:1.3;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+.your-price{
+  font-size:18px;
+  font-weight: 600;
+  width: 100%;
+  color:green;
+
+
+}
 

@@ -17,7 +17,7 @@
         {{#if isInStock}}
             <p class="stock-available-checkmark"><i class="fa fa-check"></i>  {{translate inStockMessage}}</p>
         {{else}}
-            <p class="stock-available">{{translate outOfStockMessage}}</p>
+            <p class="out-of-stock-message">{{translate outOfStockMessage}}</p>
         {{/if}}
     {{/if}}
 
@@ -26,8 +26,8 @@
     {{#each fakeMatrixPrices}}
         {{#if showComparePrice}}
             {{#if isNew}}
-                <p class="table-product-ad-price ">
-                    {{translate 'Advertised Price: '}} <span class="product-views-price-old price-strike table-product-ad-price">{{comparePriceFormatted}}</span>
+                <p class="table-product-ad-price">
+                    {{translate 'Advertised Price: '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
                 </p>
             {{/if}}
         {{/if}}
@@ -45,26 +45,28 @@
                     <meta itemprop="priceCurrency" content="{{currencyCode}}"/>
                         <!-- Single -->
                         {{#if showComparePrice}}
-                            <p class="product-views-price-old">
-                                {{translate 'Advertised Price: '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
+                            <p class="product-views-price-old table-product-ad-price">
+                                {{translate 'Advertised Price:  '}} <span class="product-views-price-old price-strike">{{comparePriceFormatted}}</span>
                             </p>
 
-                            {{#if percentDiff}}
+                         {{!--   {{#if percentDiff}}
                                 <div class="product-views-price-discount message-info">
                                     {{translate '$(0)% discount' percentDiff}}
                                 </div>
                             {{/if}}
+
+                          --}}
                         {{/if}}
 
                         {{#if OnlinePriceOnly}}
                             <p class="Online_Price_Only_Message">
-                            <span> {{translate 'Online Price Only'}} </span>
+                            <span> <i class="fas fa-dollar-sign"></i> {{translate 'Online Price Only'}} </span>
                             </p>
                         {{/if}}
 
                         <p class="product-views-price-lead" data-rate="{{price}}">
                             <span>{{translate 'Your Price'}}</span>
-                            <p class="table-product-final-price" itemprop="price">{{priceFormatted}}<span class="stock-available product-table-new"></span></p>
+                            <p class="table-product-final-price" itemprop="price">{{priceFormatted}}
 
 
                         </p>
@@ -122,27 +124,26 @@
 
 
                 {{#if showComparePrice}}
-                    <p class="product-views-price-old">
-                        {{translate 'Advertised Price: '}}  <span class="price-strike">{{comparePriceFormatted}}</span>
+                    <p class="product-views-price-old table-product-ad-price">
+                        {{translate 'Advertised Price:  '}}  <span class="price-strike">{{comparePriceFormatted}}</span>
                     </p>
                 {{/if}}
 
 
 
                 {{#if priceFormatted}}
-                    <p class="product-views-price-lead" data-rate="{{price}}">
-                        <span>{{translate 'Your Price '}}</span>
-                        <span itemprop="price">{{priceFormatted}}</span>
-                    </p>
+                    <p class="product-views-price-lead" data-rate="{{price}}"></p>
+                        <p class="your-price" itemprop="price">{{translate 'Your Price '}} {{priceFormatted}}</p>
+
                 {{/if}}
 
 
-                {{#if percentDiff}}
+              {{!--  {{#if percentDiff}}
                     <div class="product-views-price-discount message-info">
                         {{translate '$(0)% discount' percentDiff}}
                     </div>
                 {{/if}}
-
+               --}}
                 <link itemprop="availability" href="{{#if isInStockOrBackOrderable}}https://schema.org/InStock{{else}}https://schema.org/OutOfStock{{/if}}"/>
 
             </div>

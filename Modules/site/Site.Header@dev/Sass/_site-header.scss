@@ -64,6 +64,7 @@
 .header-menu-cart {
   height: 50px;
   width:50px;
+  margin-left: 0px;
   @media (max-width: 680px) {
     margin-left: 0;
     width: 60px;
@@ -127,7 +128,7 @@
   width: 75%;
 }
 .header-menu-right-icons {
-  width: 25%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content:flex-end;
@@ -286,4 +287,18 @@
     float: none;
     margin-bottom: 10px;
   }
+}
+
+
+.itemssearcher-input {
+  padding: 0 !important;
+}
+
+
+.header-menu-settings-icon {
+  color: white;
+  font-size: 1.47rem;
+}
+.header-menu-settings-carret {
+  color: white;
 }

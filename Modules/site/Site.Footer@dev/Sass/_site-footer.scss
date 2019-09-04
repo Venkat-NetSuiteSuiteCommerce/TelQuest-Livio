@@ -11,13 +11,9 @@ footer{
   }
 }
 
-
-
-
-
-
-
-
+.stock-available{
+  background-color: transparent !important;
+}
 .cms-footer-icon-facebook {
   @extend .fa;
   @extend %fa-facebook;
@@ -117,25 +113,36 @@ footer{
   }
 }
 
+.footer{
+  background-color: #00273f;
+  background-image: linear-gradient(#00273f, #01395c);
+}
+
 
 .footer-container{
   > div {
     margin-bottom: 25px;
   }
-  padding:40px 0;
-
+   padding-top:40px;
 
   p.footer-title{
-    color: #00273f;
-    font-size: 20px;
+    color: white;
+    font-size: 15px;
     margin-bottom: 10px;
     font-weight: 500;
+    @media (max-width: $screen-md) {
+      font-size: 20px;
+    }
   }
   .footernav a{
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 100;
+    font-size: 12px;
     display: block;
     margin-bottom: 8px;
+    @media (max-width: $screen-md) {
+      font-size: 16px;
+      font-weight: 300;
+    }
     &.social-link{
       display: inline-block;
       margin-right: 15px;
@@ -157,21 +164,22 @@ footer{
 
 }
 
+.footernote{
+  width: 100%;
+}
+
 
 
 .newsletter-container{
-  height: 120px;
-  background-color: #00273f;
+  height: 82px;
+  background-color: #f2f2f2;
+  @media screen and (max-width: 600px) {
+    height: 140px;
+  }
 
 
   .newsletter-note{
-    display: block;
-    width: 100%;
-    float: left;
-    text-align: center;
-    color: white;
-    font-size: 12px;
-    font-weight: 500;
+      display:none;
   }
 
   .newsletter-subscribe{
@@ -186,14 +194,17 @@ footer{
     }
   }
   .newsletter-title {
-    margin-top: 20px;
-    width: 33%;
+    margin-left: 20%;
+    margin-top: 25px;
+    width: 25%;
     float: left;
     text-align: center;
-    color: white;
+    color: #00273f;
     font-size: 20px;
     font-weight: 500;
-
+    @media screen and (max-width: 600px) {
+      margin-left: 0%;
+    }
   }
 
 
@@ -221,12 +232,14 @@ footer{
     position: absolute;
     width: 10%;
     float: left;
-    background: $sc-ink5;
-    border:1px solid $sc-ink5;
+    background: #00273f;
+    border:1px solid darken($sc-ink4 , 10%);
+
+
     transition: all 0.2s;
     &:hover{
-      background: darken($sc-ink4 , 10%);
-      border:1px solid darken($sc-ink4 , 10%);
+      background: $sc-ink5;
+      border:1px solid $sc-ink5;
     }
     @media screen and (max-width: 600px) {
       width: 40%;
@@ -243,13 +256,6 @@ footer{
 }
 
 
-
-
-
-
-
-
-
   .newsletter-subs-form-container [data-validation-error="block"] {
     padding: 5px;
     margin-right: 150px;
@@ -261,8 +267,7 @@ footer{
     width: 75% !important;
     float: left;
     position: relative;
-    border-radius:0;
-    height: 44px;
+    height: 40px;
     margin-bottom: 10px;
     @media screen and (max-width: 600px) {
       width: 100% !important;
@@ -324,13 +329,10 @@ footer{
   font-weight: normal;
 }
 
-.copy{
-  background-color: #00273f;
+.copy {
   color: white;
+  padding-bottom: 25px;
 }
-
-
-
 
 @media screen and (max-width: 600px) {
   .newsletter-container {

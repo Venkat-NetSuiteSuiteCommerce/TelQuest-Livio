@@ -67,7 +67,7 @@ define('ProductDetails.Base.View.Tags', [
                 showCart: (vendorStock && vendorStock > 0) || show_add_to_cart_checkbox,
                 vendor_stock_message: vendor_stock_message,
                 webstore_free_shipping: webstore_free_shipping || show_add_to_cart_checkbox,
-                online_price_only: online_price_only || show_add_to_cart_checkbox,
+                online_price_only: online_price_only
 
             });
             return context;

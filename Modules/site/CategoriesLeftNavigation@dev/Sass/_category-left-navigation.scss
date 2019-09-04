@@ -1,0 +1,24 @@
+.facets-faceted-categories-tree-main-list {
+  ul {
+    margin-left: $sc-margin-lv3;
+    margin-bottom: $sc-margin-lv2;
+  }
+}
+.facets-faceted-categories-tree-link {
+  color: $sc-ink-text;
+  font-size:14px;
+  margin-bottom: $sc-margin-lv1;
+  margin-top: $sc-margin-lv1;
+}
+.facets-faceted-categories-tree-level.open {
+  & > .facets-faceted-categories-tree-link {
+    color: $sc-ink4;
+    display: block;
+    font-weight: $sc-font-weight-bold;
+  }
+}
+.level-0 {
+  > a {
+    font-weight: $sc-font-weight-bold;
+  }
+}

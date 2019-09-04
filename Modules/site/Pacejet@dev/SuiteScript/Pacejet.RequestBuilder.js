@@ -19,6 +19,8 @@ define('Pacejet.RequestBuilder', [
                 'PackageDetailsList': this.buildPackages(data),
                 'MessageList': this.buildMessageList(data)
             });
+            nlapiLogExecution('DEBUG', 'pacejet', JSON.stringify(obj));
+            console.log(obj);
             return obj;
         },
 

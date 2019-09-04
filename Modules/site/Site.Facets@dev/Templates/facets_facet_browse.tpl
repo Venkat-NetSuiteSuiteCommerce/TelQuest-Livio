@@ -10,7 +10,7 @@
     <div data-view="Facets.Browse.CategoryHeading"></div>
 {{/if}}
 
-<section class="facets-facet-browse">
+ <section class="facets-facet-browse">
 {{#if showCategoryBrand}}
     <div class="cms-zone-full-category-brand"  data-cms-area="cms-zone-full-category-brand" data-cms-area-filters="path"></div>
 {{else}}

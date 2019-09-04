@@ -53,7 +53,7 @@
 </div>
 
 
-<section>
+<section class="footer">
     <div class="footer-container container">
         <div class="col-sm-6 col-md-3 col-lg-2" data-cms-area="footer-content-1" data-cms-area-filters="global">
 
@@ -77,15 +77,15 @@
     </div>
     <div class="copy">
 
-        <center><h6 class="footer_note" >TelQuest International is a leading supplier of business telecommunication and IT products in the USA and Canada. TelQuest is not in any way affiliated, authorized, or licensed by Nortel and Nortel Networks, Jabra and GN Netcom, Sena, Avaya, or any other manufacturer unless explicitly stated.   </h6></center>
+        <div class="footernote" data-cms-area="footernote" data-cms-area-filters="global">
+
+        </div>
 
         <div data-view="FooterCopyright"></div>
     </div>
-</section>
-
 
 <div data-view="Global.BackToTop"></div>
-
+</section>
 
 
 {{!----

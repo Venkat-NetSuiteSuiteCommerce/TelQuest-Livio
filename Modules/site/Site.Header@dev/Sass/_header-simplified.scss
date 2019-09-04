@@ -5,7 +5,17 @@
 	may use this code subject to the terms that govern your access and use.
 */
 
-.itemssearcher-input {
-	@extend .nav-search-input;
-	width: 80%;
+.header-simplified-header{
+	height: $sc-main-nav-height + 10px;
+	background: #00273f;
+	background-image: linear-gradient(#00273f, #01395c);
 }
+
+.header-simplified-header-logo{
+	text-align: center;
+
+	.header-logo-image{
+		width: auto;
+	}
+}
+

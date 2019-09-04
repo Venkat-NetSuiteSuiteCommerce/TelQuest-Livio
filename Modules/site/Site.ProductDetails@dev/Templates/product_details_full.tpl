@@ -16,6 +16,12 @@
 
         <section class="product-details-full-main-content">
             <div class="product-details-full-main-content-left">
+                <div>
+                    <h1 class="product-details-full-content-header-title" itemprop="name">{{pageHeader}}</h1>
+                    <div data-view="Product.Sku"></div>
+                    <div class="product-details-full-rating" data-view="Global.StarRating"></div>
+                </div>
+
                 <div class="product-details-full-image-gallery-container">
                     <div id="banner-image-top" class="content-banner banner-image-top"></div>
                     <div data-view="Product.ImageGallery"></div>
@@ -32,21 +38,29 @@
 
             <div class="product-details-full-main-content-right">
                 <div class="product-details-full-content-header">
-                    <div>
-                        <h1 class="product-details-full-content-header-title" itemprop="name">{{pageHeader}}</h1>
-                        <div data-view="Product.Sku"></div>
+                    <div class="product-detail-cms-banner-area" data-cms-area="product-detail-cms-banner-area" id="product-detail-cms-banner-area" data-cms-area-filters="page_type"></div>
+
+                    <div class="top-pdp-options" >
+                    {{#if webstore_free_shipping}}
+                        <img class="pdp-option"  src="https://www.telquestintl.com/site/freeshipping.png" ></img>
+                    {{else}}
+                        <img class="pdp-option" src="https://www.telquestintl.com/site/fastshipping.png" ></img>
+                    {{/if}}
+                        <button id="price_match_btn" class="price-request-button"><img class="price-request-image" src="https://www.telquestintl.com/site/pricematch.png" ></button>
+                        <a target="_blank" class="pdp-option" href="https://www.telquestintl.com/return-policy"> <div ><img  src="https://www.telquestintl.com/site/30dayreturns.png" ></div></a>
+                        <a target="_blank" class="pdp-option" href="https://www.telquestintl.com/telquest-rewards"> <div ><img  src="https://www.telquestintl.com/site/claimrewards.png"></div></a>
                     </div>
+                    <hr>
                     <div class="product-detail-page-item-description">
                         {{{model.item.featureddescription}}}
                     </div>
                     <div class="product-detail-page-item-description">
 
-                    </div>
-                    <div class="product-details-full-rating" data-view="Global.StarRating"></div>
 
-                    {{#unless isLoggedIn}}
+
+                   {{!--  {{#unless isLoggedIn}}
                         <a data-target="fakeLogin">{{translate 'Login For Better Pricing'}}</a>
-                    {{/unless}}
+                    {{/unless}} --}}
 
 
 
@@ -70,10 +84,11 @@
                     <div class="col-md-6 actions">
                         <div class="actions-container">
                             {{#if isPriceEnabled}}
-                                <div data-view="Quantity" class="clearfix"></div>
                                 <p>{{vendor_stock_message}}</p>
                                 <div class="price-container">
-                                    <div data-view="Product.Price"></div>
+                                    <div class="price-block" data-view="Product.Price"></div>
+                                    <div  data-view="Quantity" class="quantity-block clearfix"></div>
+
                                 </div>
 
                                 <section class="product-details-full-actions">
@@ -84,19 +99,23 @@
                                             <div data-view="MainActionView"></div>
                                         {{/if}}
                                     </div>
+                                    <br>
+                                    <br>
                                     <div class="product-details-full-actions-container">
-                                        <div data-view="AddToProductList" class="product-details-full-actions-addtowishlist"></div>
 
                                         <div data-view="ProductDetails.AddToQuote" class="product-details-full-actions-addtoquote"></div>
+
+                                        <div data-view="AddToProductList" class="product-details-full-actions-addtowishlist"></div>
+
                                     </div>
 
                                 </section>
-                                {{#if webstore_free_shipping}}
+                               {{!-- {{#if webstore_free_shipping}}
                                     <p class="free_shipping_banner"><i class="fa fa-truck"></i>  Free Shipping</p>
-                                {{/if}}
+                                {{/if}} --}}
                                 {{#if online_price_only}}
                                     <p class="Online_Price_Only_Message">
-                                        <span> {{translate 'Online Price Only'}} </span>
+                                        <span>  <i class="fas fa-dollar-sign"></i>  {{translate 'Online Price Only'}} </span>
                                     </p>
                                 {{/if}}
 
@@ -107,12 +126,15 @@
 
                         <div data-cms-area="request_price_match" data-cms-area-filters="page_type"></div>
 
-                        <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
-                        <div data-view="PrintPage"></div>
                         {{!---- cms box under social ----}}
                         <div data-cms-area="undersocial" data-cms-area-filters="page_type"></div>
                     </div>
                 </div>
+
+                <hr style="border-bottom: 1px solid #cccccc;">
+
+                <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
+                <div data-view="PrintPage"></div>
 
                 <div class="product-details-full-main">
                     {{#if isItemProperlyConfigured}}
@@ -140,6 +162,7 @@
                     {{/if}}
 
                 </div>
+            </div>
             </div>
         </section>
         <div id="banner-details-bottom" class="product-details-full-banner-details-bottom" data-cms-area="item_info_bottom_path" data-cms-area-filters="path"></div>

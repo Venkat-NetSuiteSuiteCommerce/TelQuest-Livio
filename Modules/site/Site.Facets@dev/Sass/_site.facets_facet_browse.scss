@@ -4,6 +4,12 @@
   }
 }
 
+.facets-facet-browse{
+  margin:0 !important;
+  width:100% !important;
+}
+
+
 .facets-item-list-show-selector, .facets-item-list-sort-selector, .facets-item-list-display-selector {
   border-color: #A9D7E9;
 }
@@ -13,6 +19,27 @@
   margin-bottom: 10px;
   border: 1px solid #e6eae6;
 }
+
+.facets-facet-browse-facets-sidebar{
+  border-radius:5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.01);
+  background-color: #f2f2f2;
+  background-image: linear-gradient(#f2f2f2, #fafafa);
+
+}
+
+
+.facets-faceted-navigation-item-facet-group{
+  border-radius:5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.01);
+  /*      background-color: #ecf6fc;
+            border: 1px solid #96ccec;*/
+  background-color: #f2f2f2;
+  background-image: linear-gradient(#f2f2f2, #fafafa);
+
+}
+
+
 .facets-faceted-navigation-item-range-slider-bar {
   background: $sc-color-orange;
 }

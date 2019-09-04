@@ -128,14 +128,13 @@
   display: block;
   width: 100%;
   height: auto;
-  /*
+
   &.desktop{
     display: none;
     @media (min-width: $screen-sm) {
       display: block;
     }
   }
-*/
   &.mobile{
     display: block;
     @media (min-width: $screen-sm) {
