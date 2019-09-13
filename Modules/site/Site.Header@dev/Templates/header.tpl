@@ -7,12 +7,15 @@
 
 <div class="header-message" data-view="Message.Placeholder"></div>
 <div class="header-main-wrapper">
-<!--
-    <div class="header-subheader">
+
+   <!-- <div class="header-subheader">
         <div class="header-subheader-container" data-cms-area="header-subheader-container" data-cms-area-filters="global">
 
 
             <ul class="header-subheader-options">
+                <a href="tel:800-475-0989">{{translate 'ORDER BY PHONE 800-475-0989'}}</a>
+                <li data-view="RequestQuoteWizardHeaderLink"></li>
+                <li data-view="QuickOrderHeaderLink"></li>
                 {{#if showLanguagesOrCurrencies}}
                     <li class="header-subheader-settings">
                         <a href="#" class="header-subheader-settings-link" data-toggle="dropdown" title="{{translate 'Settings'}}">
@@ -29,14 +32,14 @@
                             {{/if}}
                         </div>
                     </li>
-                {{/if}}  -->
-                <!-- <li data-view="StoreLocatorHeaderLink"></li>
-                <li data-view="RequestQuoteWizardHeaderLink"></li>
-                <li data-view="QuickOrderHeaderLink"></li>
-            </ul
-             <h4><a href="tel:800-475-0989">{{translate 'ORDER BY PHONE 800-475-0989'}}</a></h4> -->
+                {{/if}}
+                <!-- <li data-view="StoreLocatorHeaderLink"></li> -->
+           <!-- </ul>
+            <hr class="divide_header">
         </div>
-    </div>
+    </div> -->
+
+
     <nav class="header-main-nav">
 
         <div id="banner-header-top" class="content-banner banner-header-top" data-cms-area="header_banner_top" data-cms-area-filters="global"></div>
@@ -56,30 +59,32 @@
             <div class="header-right-menu">
                 <div class="header-menu-right-menu-search" data-view="SiteSearch"></div>
                 <div class="header-menu-right-icons">
-                 <!--      {{#if showLanguagesOrCurrencies}}
-                            <li class="header-subheader-settings">
-                                <a href="#" class="header-subheader-settings-link" data-toggle="dropdown" title="{{translate 'Settings'}}">
-                                    <i class="header-menu-settings-icon"></i>
-                                    <i class="header-menu-settings-carret"></i>
-                                </a>
-                                <div class="header-menu-settings-dropdown">
-                                    <h5 class="header-menu-settings-dropdown-title">{{translate 'Site Settings'}}</h5>
-                                    {{#if showLanguages}}
-                                        <div data-view="Global.HostSelector"></div>
-                                    {{/if}}
-                                    {{#if showCurrencies}}
-                                        <div data-view="Global.CurrencySelector"></div>
-                                    {{/if}}
-                                </div>
-                            </li>
-                        {{/if}} -->
 
                     <div class="header-menu-cart">
                         <div class="header-menu-cart-dropdown" >
                             <div data-view="Header.MiniCart"></div>
                         </div>
                     </div>
+                    <div  class="currency-icon header-currency-icon">
 
+                    {{#if showLanguagesOrCurrencies}}
+                        <li class="header-subheader-settings">
+                            <a href="#" class="header-subheader-settings-link" data-toggle="dropdown" title="{{translate 'Settings'}}">
+                                <i class="header-menu-settings-icon"></i>
+                            </a>
+                            <div class="header-menu-settings-dropdown">
+                                <h5 class="header-menu-settings-dropdown-title">{{translate 'Change Currency'}}</h5>
+                                {{#if showLanguages}}
+                                    <div data-view="Global.HostSelector"></div>
+                                {{/if}}
+                                {{#if showCurrencies}}
+                                    <div data-view="Global.CurrencySelector"></div>
+                                {{/if}}
+                            </div>
+                        </li>
+                    {{/if}}
+
+                    </div>
                     <div class="header-menu-profile-support header-menu-support">
                         {{#if isLoggedIn}}
                             <a href="#" data-action="show-salesrep-popup" class="header-icon-container">

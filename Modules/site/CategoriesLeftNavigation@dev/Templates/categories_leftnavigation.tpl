@@ -10,9 +10,11 @@
                 <ul class="facets-faceted-categories-tree-level-0 {{#if isOpen}}in{{/if}} collapse" id="tree_{{internalid}}">
                     {{#each categories}}
                         <li class="facets-faceted-categories-tree-level level-1 {{#if isOpen}}open{{/if}}">
+                            {{#if isOpen}}
                             <a class="facets-faceted-categories-tree-link" href="{{fullurl}}">
                                 {{name}}
                             </a>
+                            {{/if}}
                             <div class="clearfix"></div>
                             <ul class="facets-faceted-categories-tree-level-1 {{#if isOpen}}in{{/if}} collapse" id="tree_{{internalid}}">
                                 {{#each categories}}

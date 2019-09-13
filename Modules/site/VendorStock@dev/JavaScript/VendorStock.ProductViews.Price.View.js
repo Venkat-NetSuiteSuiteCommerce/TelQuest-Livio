@@ -20,7 +20,8 @@ define('VendorStock.ProductViews.Price.View', [
 
         showInStockMessage: function showInStockMessage(item) {
            // return item.get('_isInStock') || (item.get('outofstockbehavior') === outOfStockBehavior) || (item.get('custitem_vendor_stock') > 0);
-            return (item.get('custitem_vendor_stock') > 0 || item.get('custitem_show_add_to_cart'));
+            console.log(item.get('custitem_hide_add_to_cart'));
+            return  (item.get('custitem_hide_add_to_cart')=== false) && (item.get('custitem_vendor_stock') > 0 || item.get('custitem_show_add_to_cart'));
 
         },
 

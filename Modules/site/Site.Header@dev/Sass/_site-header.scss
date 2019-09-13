@@ -57,7 +57,7 @@
   min-width: 50px;
 }
 .sec_wizard {
-  .header-simplified-header, .header-subheader {
+  .header-simplified-header {
     background-color: transparent !important;
   }
 }
@@ -192,19 +192,40 @@
   width: 50px;
   margin-left:0px;
   @media(max-width: 992px){
-    float: left;
+    float: right;
     position: relative;
   }
 }
 
 
 
+.currency-icon {
+  display: block !important;
+  width: 50px;
+  margin-left: 20px;
+  margin-right: -20px;
+  @media(max-width: 992px){
+    margin-top:-50px;
+    margin-right: 20px;
+    position: relative;
+  }
+}
+
+.currency-icon {
+    @media (max-width: 680px) {
+      margin-left: 10px;
+      margin-right: 20px;
+      margin-top:20px;
+      width: 80px;
+    }
+  }
 
 
 .header-menu-support {
   @media (max-width: 680px) {
-    margin-left: 0;
-    width: 60px;
+    margin-left: 10px;
+    margin-top:-40px;
+    width: 40px;
   }
 }
 .header-icon-container-logged {
@@ -300,5 +321,14 @@
   font-size: 1.47rem;
 }
 .header-menu-settings-carret {
+  color: white;
+}
+
+.header-subheader {
+  display: inline-block;
+  background-color: #00273f !important;
+  height: 50px;
+}
+.divide_header{
   color: white;
 }

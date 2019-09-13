@@ -1,5 +1,5 @@
 {{!
-   © 2017 NetSuite Inc.
+   Â© 2017 NetSuite Inc.
    User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
    provided, however, if you are an authorized user with a NetSuite account or log-in, you
    may use this code subject to the terms that govern your access and use.
@@ -41,16 +41,16 @@
                     <div class="product-detail-cms-banner-area" data-cms-area="product-detail-cms-banner-area" id="product-detail-cms-banner-area" data-cms-area-filters="page_type"></div>
 
                     <div class="top-pdp-options" >
-                    {{#if webstore_free_shipping}}
-                        <img class="pdp-option"  src="https://www.telquestintl.com/site/freeshipping.png" ></img>
-                    {{else}}
-                        <img class="pdp-option" src="https://www.telquestintl.com/site/fastshipping.png" ></img>
-                    {{/if}}
+                        {{#if webstore_free_shipping}}
+                            <img class="pdp-option"  src="https://www.telquestintl.com/site/freeshipping.png" ></img>
+                        {{else}}
+                            <img class="pdp-option" src="https://www.telquestintl.com/site/fastshipping.png" ></img>
+                        {{/if}}
                         <button id="price_match_btn" class="price-request-button"><img class="price-request-image" src="https://www.telquestintl.com/site/pricematch.png" ></button>
                         <a target="_blank" class="pdp-option" href="https://www.telquestintl.com/return-policy"> <div ><img  src="https://www.telquestintl.com/site/30dayreturns.png" ></div></a>
                         <a target="_blank" class="pdp-option" href="https://www.telquestintl.com/telquest-rewards"> <div ><img  src="https://www.telquestintl.com/site/claimrewards.png"></div></a>
                     </div>
-                    <hr>
+                    <hr style="border-bottom: 1px solid #cccccc;">
                     <div class="product-detail-page-item-description">
                         {{{model.item.featureddescription}}}
                     </div>
@@ -58,111 +58,109 @@
 
 
 
-                   {{!--  {{#unless isLoggedIn}}
-                        <a data-target="fakeLogin">{{translate 'Login For Better Pricing'}}</a>
-                    {{/unless}} --}}
+                        {{!--  {{#unless isLoggedIn}}
+                             <a data-target="fakeLogin">{{translate 'Login For Better Pricing'}}</a>
+                         {{/unless}} --}}
 
 
 
-                    {{!----  Div under product SKU    ----}}
-                    <div data-cms-area="item_info" data-cms-area-filters="path"></div>
-                    {{!---- Div under product sku for all product pages ----}}
-                    <div data-cms-area="item_info_2" data-cms-area-filters="page_type"></div>
+                        {{!----  Div under product SKU    ----}}
+                        <div data-cms-area="item_info" data-cms-area-filters="path"></div>
+                        {{!---- Div under product sku for all product pages ----}}
+                        <div data-cms-area="item_info_2" data-cms-area-filters="page_type"></div>
 
 
 
 
 
-                </div>
-
-                <div class="custom-pdp-section row">
-                    <div class="col-md-6">
-
-                        <section data-view="Product.Options"></section>
-                        <div class="upsell-items" data-view="UpsellItems.Items"></div>
                     </div>
-                    <div class="col-md-6 actions">
-                        <div class="actions-container">
-                            {{#if isPriceEnabled}}
-                                <p>{{vendor_stock_message}}</p>
-                                <div class="price-container">
-                                    <div class="price-block" data-view="Product.Price"></div>
-                                    <div  data-view="Quantity" class="quantity-block clearfix"></div>
 
-                                </div>
+                    <div class="custom-pdp-section row">
+                        <div class="col-md-6">
 
-                                <section class="product-details-full-actions">
-
-                                    <div class="product-details-full-actions-container">
-                                        {{#if showCart}}
-
-                                            <div data-view="MainActionView"></div>
-                                        {{/if}}
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <div class="product-details-full-actions-container">
-
-                                        <div data-view="ProductDetails.AddToQuote" class="product-details-full-actions-addtoquote"></div>
-
-                                        <div data-view="AddToProductList" class="product-details-full-actions-addtowishlist"></div>
-
-                                    </div>
-
-                                </section>
-                               {{!-- {{#if webstore_free_shipping}}
-                                    <p class="free_shipping_banner"><i class="fa fa-truck"></i>  Free Shipping</p>
-                                {{/if}} --}}
-                                {{#if online_price_only}}
-                                    <p class="Online_Price_Only_Message">
-                                        <span>  <i class="fas fa-dollar-sign"></i>  {{translate 'Online Price Only'}} </span>
-                                    </p>
-                                {{/if}}
-
-                            {{/if}}
+                            <section data-view="Product.Options"></section>
+                            <div class="upsell-items" data-view="UpsellItems.Items"></div>
                         </div>
+                        <div class="col-md-6 actions">
+                            <div class="actions-container">
+                                {{#if isPriceEnabled}}
+                                    <div data-view="Quantity" class="clearfix"></div>
+                                    <p>{{vendor_stock_message}}</p>
+                                    <div class="price-container">
+                                        <div data-view="Product.Price"></div>
+                                    </div>
 
-                        <div data-cms-area="payment_methods" data-cms-area-filters="page_type"></div>
+                                    <section class="product-details-full-actions">
 
-                        <div data-cms-area="request_price_match" data-cms-area-filters="page_type"></div>
+                                        <div class="product-details-full-actions-container">
+                                            {{#if showCart}}
 
-                        {{!---- cms box under social ----}}
-                        <div data-cms-area="undersocial" data-cms-area-filters="page_type"></div>
+                                                <div data-view="MainActionView"></div>
+                                            {{/if}}
+                                        </div>
+                                        <br>
+                                        <div data-view="ProductDetails.AddToQuote" class="product-details-full-actions-addtoquote"></div>
+                                        <br>
+                                        <div class="product-details-full-actions-container">
+
+                                            <div data-view="AddToProductList" class="product-details-full-actions-addtowishlist"></div>
+
+                                        </div>
+
+                                    </section>
+                                    {{!-- {{#if webstore_free_shipping}}
+                                         <p class="free_shipping_banner"><i class="fa fa-truck"></i>  Free Shipping</p>
+                                     {{/if}} --}}
+                                    {{#if online_price_only}}
+                                        <p class="Online_Price_Only_Message">
+                                            <span>  <i class="fas fa-dollar-sign"></i>  {{translate 'Online Price Only'}} </span>
+                                        </p>
+                                    {{/if}}
+
+                                {{/if}}
+                            </div>
+
+                            <div data-cms-area="payment_methods" data-cms-area-filters="page_type"></div>
+
+                            <div data-cms-area="request_price_match" data-cms-area-filters="page_type"></div>
+
+                            {{!---- cms box under social ----}}
+                            <div data-cms-area="undersocial" data-cms-area-filters="page_type"></div>
+                        </div>
+                    </div>
+
+                    <hr style="border-bottom: 1px solid #cccccc;">
+
+                    <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
+                    <div data-view="PrintPage"></div>
+
+                    <div class="product-details-full-main">
+                        {{#if isItemProperlyConfigured}}
+                            <form id="product-details-full-form" data-action="submit-form" method="POST">
+
+                                <section class="product-details-full-info">
+                                    <div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
+                                </section>
+
+
+                                <div data-view="Quantity.Pricing"></div>
+
+                                <div data-view="Product.Stock.Info"></div>
+
+                                <section data-view="Warranty.Options"></section>
+
+                                <div data-view="StockDescription"></div>
+
+                                <div class="product-details-full-main-bottom-banner">
+                                    <div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
+                                </div>
+                            </form>
+                        {{else}}
+                            <div data-view="GlobalViewsMessageView.WronglyConfigureItem"></div>
+                        {{/if}}
+
                     </div>
                 </div>
-
-                <hr style="border-bottom: 1px solid #cccccc;">
-
-                <div data-view="SocialSharing.Flyout" class="product-details-full-social-sharing"></div>
-                <div data-view="PrintPage"></div>
-
-                <div class="product-details-full-main">
-                    {{#if isItemProperlyConfigured}}
-                        <form id="product-details-full-form" data-action="submit-form" method="POST">
-
-                            <section class="product-details-full-info">
-                                <div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
-                            </section>
-
-
-                            <div data-view="Quantity.Pricing"></div>
-
-                            <div data-view="Product.Stock.Info"></div>
-
-                            <section data-view="Warranty.Options"></section>
-
-                            <div data-view="StockDescription"></div>
-
-                            <div class="product-details-full-main-bottom-banner">
-                                <div id="banner-summary-bottom" class="product-details-full-banner-summary-bottom"></div>
-                            </div>
-                        </form>
-                    {{else}}
-                        <div data-view="GlobalViewsMessageView.WronglyConfigureItem"></div>
-                    {{/if}}
-
-                </div>
-            </div>
             </div>
         </section>
         <div id="banner-details-bottom" class="product-details-full-banner-details-bottom" data-cms-area="item_info_bottom_path" data-cms-area-filters="path"></div>
