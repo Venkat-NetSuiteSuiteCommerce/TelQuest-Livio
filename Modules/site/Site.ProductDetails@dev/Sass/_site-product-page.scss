@@ -218,6 +218,9 @@
 }
 
 .product-details-full-content-related-items {
+
+  margin-left:10%;
+  width:80%;
   .item-relations-related-item-title {
     font-size: 14px;
   }
@@ -825,4 +828,11 @@ html .bx-pager-item img{
 .product-details-full-rating{
   margin-top: 0px !important;
   margin-bottom: 5px !important;
+}
+
+
+
+.quantity-block{
+  width:100%;
+  float:right;
 }

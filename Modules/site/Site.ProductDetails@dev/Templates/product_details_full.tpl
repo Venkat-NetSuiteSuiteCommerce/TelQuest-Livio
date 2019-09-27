@@ -1,5 +1,5 @@
 {{!
-   Â© 2017 NetSuite Inc.
+   © 2017 NetSuite Inc.
    User may not copy, modify, distribute, or re-bundle or otherwise make available this code;
    provided, however, if you are an authorized user with a NetSuite account or log-in, you
    may use this code subject to the terms that govern your access and use.
@@ -50,7 +50,7 @@
                         <a target="_blank" class="pdp-option" href="https://www.telquestintl.com/return-policy"> <div ><img  src="https://www.telquestintl.com/site/30dayreturns.png" ></div></a>
                         <a target="_blank" class="pdp-option" href="https://www.telquestintl.com/telquest-rewards"> <div ><img  src="https://www.telquestintl.com/site/claimrewards.png"></div></a>
                     </div>
-                    <hr style="border-bottom: 1px solid #cccccc;">
+                    <hr>
                     <div class="product-detail-page-item-description">
                         {{{model.item.featureddescription}}}
                     </div>
@@ -68,26 +68,24 @@
                         <div data-cms-area="item_info" data-cms-area-filters="path"></div>
                         {{!---- Div under product sku for all product pages ----}}
                         <div data-cms-area="item_info_2" data-cms-area-filters="page_type"></div>
-
-
-
-
-
                     </div>
 
                     <div class="custom-pdp-section row">
+
                         <div class="col-md-6">
 
                             <section data-view="Product.Options"></section>
                             <div class="upsell-items" data-view="UpsellItems.Items"></div>
                         </div>
+
                         <div class="col-md-6 actions">
                             <div class="actions-container">
                                 {{#if isPriceEnabled}}
-                                    <div data-view="Quantity" class="clearfix"></div>
                                     <p>{{vendor_stock_message}}</p>
                                     <div class="price-container">
-                                        <div data-view="Product.Price"></div>
+                                        <div class="price-block" data-view="Product.Price"></div>
+                                        <div  data-view="Quantity" class="quantity-block clearfix"></div>
+
                                     </div>
 
                                     <section class="product-details-full-actions">
@@ -111,11 +109,7 @@
                                     {{!-- {{#if webstore_free_shipping}}
                                          <p class="free_shipping_banner"><i class="fa fa-truck"></i>  Free Shipping</p>
                                      {{/if}} --}}
-                                    {{#if online_price_only}}
-                                        <p class="Online_Price_Only_Message">
-                                            <span>  <i class="fas fa-dollar-sign"></i>  {{translate 'Online Price Only'}} </span>
-                                        </p>
-                                    {{/if}}
+
 
                                 {{/if}}
                             </div>
@@ -169,32 +163,26 @@
     </article>
 </div>
 
+<div class="product-details-full-content-related-items">
+    <div data-view="Related.Items"></div>
+</div>
+
+<div class="product-details-full-divider-desktop"></div>
 
 <section data-view="Product.Information"></section>
 
 <div class ="product-details-full">
     <article class="product-details-full-content" itemscope itemtype="https://schema.org/Product">
 
-
-        <div class="product-details-full-content-related-items">
-            <div data-view="Related.Items"></div>
-        </div>
-
-        <div class="product-details-full-divider-desktop"></div>
-
-        <div data-view="ProductReviews.Center"></div>
-
-
-
-        <div class="product-details-full-content-correlated-items">
-            <div data-view="Correlated.Items"></div>
-        </div>
-
-
         <div id="banner-details-bottom" class="content-banner banner-details-bottom" data-cms-area="item_details_banner_bottom" data-cms-area-filters="page_type"></div>
     </article>
-</div>
 
+    <div data-view="ProductReviews.Center"></div>
+
+    <div class="product-details-full-content-correlated-items">
+        <div data-view="Correlated.Items"></div>
+    </div>
+</div>
 
 
 

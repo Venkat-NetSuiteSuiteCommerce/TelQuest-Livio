@@ -36,6 +36,9 @@
                                 {{/if}}
                                 --}}
                             </div>
+                            {{#if upsellImage.url}}
+                                <img data-value="{{id}}" src="{{resizeImage upsellImage.url 'tinythumb'}}" alt="{{upsellImage.alt}}"/>
+                            {{/if}}
                         </a>
                     </li>
                 {{/each}}

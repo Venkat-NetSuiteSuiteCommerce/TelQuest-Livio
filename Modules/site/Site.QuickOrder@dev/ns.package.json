@@ -1,0 +1,21 @@
+{
+    "gulp": {
+        "javascript": [
+            "JavaScript/*.js"
+        ],
+        "templates": [
+            "Templates/*"
+        ],
+        "sass": [
+            "Sass/**/*.scss"
+        ],
+        "configuration": [
+            "Configuration/*.json"
+        ]
+    },
+    "overrides": {
+        "suitecommerce/QuickOrder@1.0.1/Templates/quick_order.tpl": "Templates/quick_order.tpl"
+
+
+    }
+}

@@ -81,9 +81,6 @@
                               --}}
                     </div>
                 {{/if}}
-
-
-
             {{/each}}
 
             {{#if fakeMatrixPricesRecertified}}
@@ -91,7 +88,6 @@
                     {{#if isRecertified}}
                         <p class="stock-available used" data-rate="{{price}}">Used starting at: {{priceFormatted}}</p>
                     {{/if}}
-
 
 
                 {{/each}}
@@ -129,14 +125,12 @@
                     </p>
                 {{/if}}
 
-
-
-                {{#if priceFormatted}}
+                    {{#if price}}
                     <p class="product-views-price-lead" data-rate="{{price}}"></p>
                         <p class="your-price" itemprop="price">{{translate 'Your Price '}} {{priceFormatted}}</p>
-
-                {{/if}}
-
+                    {{else}}
+                        <p class="out-of-stock-message">{{translate outOfStockMessage}}</p>
+                    {{/if}}
 
               {{!--  {{#if percentDiff}}
                     <div class="product-views-price-discount message-info">

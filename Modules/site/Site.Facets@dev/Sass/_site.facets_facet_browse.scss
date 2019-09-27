@@ -298,7 +298,7 @@
 }
 .facets-category-cell {
   @extend .col-xs-4;
-  width: calc(100% / 3) !important;
+  width: calc(100% / 4) !important;
   @media(max-width: 768px){
     width: 50% !important;
   }
@@ -306,9 +306,9 @@
     width: 100% !important;
   }
   .facets-category-cell-container {
-    border: 1px solid $sc-color-primary;
+    border: 1px solid #00273f;
     min-height: 220px;
-    background-color: $sc-color-primary;
+    background-color: #00273f;
     transition: all 0.3s;
     &:hover{
       border: 1px solid $sc-color-secondary;
@@ -333,9 +333,8 @@
     }
   }
   .facets-category-cell-title {
-    text-align: left;
+    text-align: center;
     min-height: 60px;
-    padding: 0 15px;
     display: table;
     width: 100%;
     a {
@@ -465,6 +464,6 @@ button.facets-faceted-navigation-item-category-optionlist-extra-button{
   }
 }
 .facets-browse-category-heading-list-header{
-display: block;
+  display: block;
 }
 

@@ -467,6 +467,7 @@ define(
 				,	isItemProperlyConfigured: item_model.isProperlyConfigured()
 					//@property {Boolean} isPriceEnabled
 				,	isPriceEnabled: !ProfileModel.getInstance().hidePrices()
+					, hasChildren: this.model.isPriceEnabled
 
 				};
 				//@class ProductDetails.Base.View
