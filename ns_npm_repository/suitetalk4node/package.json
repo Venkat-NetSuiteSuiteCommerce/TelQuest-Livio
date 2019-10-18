@@ -10,7 +10,7 @@
   "dependencies": {
     "handlebars": "3.0.1",
     "q": "1.0.1",
-    "request": "2.39.0",
+    "request": "2.88.0",
     "underscore": "1.6.0",
     "xml2js": "0.4.5"
   },
