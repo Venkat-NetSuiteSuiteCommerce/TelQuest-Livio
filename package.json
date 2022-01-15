@@ -67,7 +67,7 @@
     "run-sequence": "1.2.2",
     "sc5-styleguide": "file:./gulp/library/sc5-styleguide",
     "serve-index": "1.9.0",
-    "shelljs": "0.5.3",
+    "shelljs": "0.8.5",
     "short-jsdoc": "0.2.4",
     "sourcemap-to-ast": "0.0.2",
     "suitetalk": "file:./ns_npm_repository/suitetalk4node",
