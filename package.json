@@ -57,7 +57,7 @@
     "lodash": "2.4.1",
     "map-stream": "0.1.0",
     "mime": "1.2.11",
-    "moment": "2.8.3",
+    "moment": "2.29.2",
     "node-sass": "3.9.3",
     "ns-uploader": "file:./ns_npm_repository/ns-uploader",
     "preconditions": "file:./ns_npm_repository/preconditions",
