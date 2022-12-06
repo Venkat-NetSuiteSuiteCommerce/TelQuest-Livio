@@ -22,7 +22,7 @@
     "eslint-plugin-requirejs": "^3.0.0",
     "esprima": "1.2.5",
     "estraverse": "1.9.3",
-    "express": "4.13.3",
+    "express": "4.17.3",
     "glob": "4.0.4",
     "gulp": "^3.9.1",
     "gulp-add": "0.0.2",
